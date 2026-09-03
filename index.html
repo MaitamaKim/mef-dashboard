@@ -13,7 +13,7 @@
     --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-snap-type:y proximity;}
+  html{scroll-behavior:smooth;}
   body{margin:0;background:var(--blush);color:var(--ink);
     font-family:"Plus Jakarta Sans","Noto Sans KR",system-ui,-apple-system,sans-serif;
     font-size:18px;line-height:1.45;letter-spacing:-.02em;}
@@ -116,11 +116,7 @@
   @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
 
   /* ---------- 사업 구성: Transform News Card 그리드(4열·평면·블러 없음) ---------- */
-  #structure{padding:28px 0;display:flex;flex-direction:column;justify-content:center;
-    min-height:100vh;min-height:100svh;scroll-snap-align:start;scroll-margin-top:72px;}
-  #structure .kick{margin-bottom:8px;}
-  #structure h2.sec{margin-bottom:14px;}
-  #structure p.lead{margin:0 0 24px;max-width:64em;}
+  #structure{scroll-margin-top:72px;}   /* 스티키 네비 높이만큼 앵커 보정 */
 
   .scGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
   .scard{background:var(--paper);border-radius:0;padding:0;display:flex;flex-direction:column;}
@@ -144,7 +140,7 @@
   @media (prefers-reduced-motion:reduce){
     .scGrid .scard{opacity:1;transform:none;transition:none;}
   }
-  @media(max-width:1100px){#structure{min-height:0;padding:80px 0;}.scGrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:1100px){.scGrid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:640px){.scGrid{grid-template-columns:1fr;}}
 
   /* ---------- 분과별 세부활동 박스 ---------- */
