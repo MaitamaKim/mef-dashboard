@@ -48,8 +48,6 @@
   .heroKpi div{border-left:2px solid rgba(255,255,255,.4);padding-left:12px;}
   .heroKpi b{display:block;font-size:27px;letter-spacing:-.02em;}
   .heroKpi span{font-size:12px;opacity:.8;}
-  .heroPhoto{position:absolute;inset:0;z-index:1;opacity:.20;margin:0;overflow:hidden;}
-  .heroPhoto img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85);}
 
   /* ---------- sections ---------- */
   section{padding:56px 0;border-bottom:1px solid var(--grid);}
@@ -71,15 +69,6 @@
   .facts dt{color:var(--muted);font-size:12.5px;}
   .facts dd{margin:0;}
 
-  /* ---------- photo placeholder ---------- */
-  figure{margin:0;}
-  .photo{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border);
-    background:var(--surface);}
-  .photo img{width:100%;height:auto;display:block;}
-  .photo .ph{font-size:12px;color:var(--muted);text-align:center;padding:16px;aspect-ratio:16/9;
-    background:repeating-linear-gradient(45deg,transparent,transparent 9px,var(--grid) 9px,var(--grid) 10px);
-    width:100%;display:flex;align-items:center;justify-content:center;}
-  figcaption{font-size:11.5px;color:var(--muted);margin-top:6px;}
 
   /* ---------- timeline ---------- */
   .tl{position:relative;margin:0;padding:0 0 0 26px;list-style:none;}
@@ -144,7 +133,6 @@
 
 <!-- ================= HERO ================= -->
 <div class="hero">
-  <figure class="heroPhoto"><img src="assets/hero.jpg" alt="" onerror="this.remove()"></figure>
   <div class="wrap">
     <p class="eyebrow">KOICA · Yonsei University Health System · UMP &nbsp;|&nbsp; 2021 – 2026</p>
     <h1>베트남 의학교육의<br>기준을 함께 세운 5년</h1>
@@ -198,10 +186,6 @@
     </div>
   </div>
 
-  <figure style="margin-top:20px">
-    <div class="photo"><img src="assets/launching.jpg" alt="사업 착수식 서명 장면" onerror="this.parentNode.innerHTML='&lt;div class=\'ph\'&gt;사진 자리 — 사업 착수식 (2022.06)&lt;/div&gt;'"></div>
-    <figcaption>사업 착수식(Launching Ceremony) — 한국·베트남 양측 서명, 2022년 6월 2일 · 호치민</figcaption>
-  </figure>
 </div></section>
 
 <!-- ================= SECTORS ================= -->
@@ -428,10 +412,6 @@
     </div>
   </div>
 
-  <figure style="margin-top:20px">
-    <div class="photo"><img src="assets/handover.jpg" alt="제4차 국가고시 워크숍" onerror="this.parentNode.innerHTML='&lt;div class=\'ph\'&gt;사진 자리 — 제4차 국가고시 워크숍 (2026.08)&lt;/div&gt;'"></div>
-    <figcaption>제4차 국가고시 워크숍 — 전국 25개 의과대학 교수진 참석, 2026년 8월 · 호치민. 이 워크숍 기간 중 문항 입고식이 함께 열렸습니다.</figcaption>
-  </figure>
 </div></section>
 
 <!-- ================= RECOGNITION ================= -->
