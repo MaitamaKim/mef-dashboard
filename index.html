@@ -34,6 +34,11 @@
   .links{display:flex;gap:18px;font-size:13px;overflow-x:auto;}
   .links a{color:var(--ink2);text-decoration:none;white-space:nowrap;}
   .links a:hover{color:var(--ink);}
+  .vsw{display:inline-flex;border:1px solid var(--border);border-radius:99px;overflow:hidden;
+    font-size:12px;font-weight:600;background:var(--surface);}
+  .vsw a{padding:5px 12px;color:var(--ink2);text-decoration:none;}
+  .vsw a.on{background:var(--s1);color:#fff;}
+  .vsw a:not(.on):hover{color:var(--ink);}
   .toggle{border:1px solid var(--border);background:var(--surface);color:var(--ink2);
     border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;white-space:nowrap;}
 
@@ -144,6 +149,7 @@
       <a href="#recognition">대외 인정</a>
       <a href="research.html">연구성과</a>
     </div>
+    <span class="vsw"><a class="on" href="index.html">V1</a><a href="v2.html">V2</a></span>
     <button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark'">☾</button>
   </div>
 </nav>

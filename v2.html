@@ -28,6 +28,11 @@
   .mark{font-weight:700;font-size:20px;color:var(--teal);letter-spacing:-.01em;text-decoration:none;}
   .nlinks{display:flex;gap:32px;font-size:16px;}
   .nlinks a{color:var(--teal);text-decoration:none;font-weight:600;}
+  .vsw{display:inline-flex;border:1px solid var(--hairline);border-radius:99px;overflow:hidden;
+    font-size:13px;font-weight:700;background:var(--white);}
+  .vsw a{padding:8px 16px;color:var(--slate);text-decoration:none;}
+  .vsw a.on{background:var(--teal);color:#fff;}
+  .vsw a:not(.on):hover{color:var(--ink);}
   .ghost{display:inline-block;border:1px solid var(--teal);color:var(--teal);background:transparent;
     border-radius:var(--r-btn);padding:12px 20px;font-weight:700;font-size:16px;text-decoration:none;}
   .ghost:hover{background:var(--teal);color:#fff;}
@@ -118,7 +123,7 @@
   <div class="nlinks">
     <a href="#about">사업 개요</a><a href="#structure">사업 구성</a><a href="#results">성과</a><a href="#recognition">대외 인정</a>
   </div>
-  <a class="ghost" href="research.html">연구성과 →</a>
+  <span style="display:flex;align-items:center;gap:16px"><span class="vsw"><a href="index.html">V1</a><a class="on" href="v2.html">V2</a></span><a class="ghost" href="research.html">연구성과 →</a></span>
 </div></nav>
 
 <!-- HERO -->
