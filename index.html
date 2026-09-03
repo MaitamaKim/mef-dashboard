@@ -10,10 +10,10 @@
 <style>
   :root{
     --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676; --steel-txt:#565656;
-    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00; --blue:#3d55c9;
+    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-snap-type:y proximity;}
   body{margin:0;background:var(--blush);color:var(--ink);
     font-family:"Plus Jakarta Sans","Noto Sans KR",system-ui,-apple-system,sans-serif;
     font-size:18px;line-height:1.45;letter-spacing:-.02em;}
@@ -64,13 +64,10 @@
   /* sections */
   section{padding:80px 0;}
   section.violet{background:var(--violet);color:#fff;}
-  section.blue{background:var(--blue);color:#fff;}
-  section.violet h2,section.blue h2{color:#fff;}
+  section.violet h2{color:#fff;}
   section.violet .card,section.violet .card h3,section.violet .card p,
-  section.violet .card li,section.violet .card b,section.violet .card .chip,
-  section.blue .card,section.blue .card h3,section.blue .card p,
-  section.blue .card li,section.blue .card b,section.blue .card .chip{color:var(--ink);}
-  section.violet .card .note,section.blue .card .note{color:var(--steel);}
+  section.violet .card li,section.violet .card b,section.violet .card .chip{color:var(--ink);}
+  section.violet .card .note{color:var(--steel);}
   h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
   p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
   .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
@@ -118,20 +115,37 @@
   .barrow .v b{font-weight:800;color:var(--ink);}
   @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
 
-  /* ---------- 사업 구성: 카드 4장 (블러→선명 호버) ---------- */
-  .scGrid{margin-top:8px;}
-  .scard .chip{align-self:flex-start;}
-  .scard h3{font-size:22px;margin:14px 0 0;}
-  .scPhoto{margin:16px 0;overflow:hidden;aspect-ratio:16/10;}
-  .scPhoto img{display:block;width:100%;height:100%;object-fit:cover;
-    filter:blur(3px) brightness(.7) saturate(.9);transform:scale(1.04);
-    transition:filter .4s ease,transform .4s ease;}
-  .scard:hover .scPhoto img,.scard:focus-within .scPhoto img{filter:none;transform:none;}
-  .scList{list-style:none;margin:0;padding:0;font-size:15px;}
-  .scList li{padding:7px 0 7px 16px;position:relative;border-top:1px solid var(--ash);}
+  /* ---------- 사업 구성: Transform News Card 그리드(4열·평면·블러 없음) ---------- */
+  #structure{padding:28px 0;display:flex;flex-direction:column;justify-content:center;
+    min-height:100vh;min-height:100svh;scroll-snap-align:start;scroll-margin-top:72px;}
+  #structure .kick{margin-bottom:8px;}
+  #structure h2.sec{font-size:40px;line-height:1.2;letter-spacing:-.8px;margin-bottom:10px;}
+  #structure p.lead{margin:0 0 24px;max-width:64em;}
+
+  .scGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .scard{background:var(--paper);border-radius:0;padding:0;display:flex;flex-direction:column;}
+  .scPhoto{margin:0;aspect-ratio:16/9;overflow:hidden;}
+  .scPhoto img{display:block;width:100%;height:100%;object-fit:cover;}
+  .scText{padding:16px;display:flex;flex-direction:column;flex:1;}
+  .scNo{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:0;color:var(--violet);}
+  .scard h3{font-size:22px;line-height:1.38;letter-spacing:-.44px;margin:2px 0 12px;}
+  /* 항목이 카드 높이를 균등 분배 — 항목 수가 적은 카드는 줄간격이 넓어져 하단 여백이 사라짐 */
+  .scList{list-style:none;margin:0;padding:0;font-size:16px;line-height:1.45;letter-spacing:-.32px;
+    display:flex;flex-direction:column;flex:1;}
+  .scList li{flex:1 1 auto;display:flex;align-items:center;min-height:44px;
+    padding:8px 0 8px 16px;position:relative;border-top:1px solid var(--ash);}
   .scList li:first-child{border-top:none;}
-  .scList li::before{content:"";position:absolute;left:0;top:16px;width:6px;height:6px;background:var(--magenta);}
-  @media (prefers-reduced-motion:reduce){.scPhoto img{transition:none;}}
+  .scList li::before{content:"";position:absolute;left:0;top:50%;margin-top:-2.5px;
+    width:5px;height:5px;background:var(--magenta);}
+  /* 스크롤 진입 시 카드 순차 등장 — 입력 장치와 무관하게 모바일·PC 동일 작동 */
+  .scGrid .scard{opacity:0;transform:translateY(18px);
+    transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.9,.3,1);}
+  .scGrid.in .scard{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .scGrid .scard{opacity:1;transform:none;transition:none;}
+  }
+  @media(max-width:1100px){#structure{min-height:0;padding:80px 0;}.scGrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.scGrid{grid-template-columns:1fr;}}
 
   /* ---------- 분과별 세부활동 박스 ---------- */
   .divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
@@ -231,55 +245,61 @@
 </div></section>
 
 <!-- STRUCTURE -->
-<section id="structure" class="blue"><div class="wrap">
+<section id="structure" class="violet"><div class="wrap">
   <p class="kick" style="color:#fff">Structure</p>
   <h2 class="sec">사업 구성</h2>
-  <p class="lead" style="color:#fff">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
-    학생을 가르치는 교육에서 시작해 의사를 길러내는 수련, 지식을 생산하는 연구, 그 지식을 사회로 옮기는 산학협력까지 —
-    대학이 갖춰야 할 기능 전반을 아우르는 구조입니다.</p>
+  <p class="lead" style="color:#fff"><b>교육 · 수련 · 연구 · 산학협력</b> — 대학이 갖춰야 할 기능 전반을 네 개 분과로 아우릅니다.</p>
 
-  <div class="grid2 scGrid">
-    <div class="card scard" tabindex="0">
-      <span class="chip">1분과 · 의학교육</span>
-      <h3>학부 의학교육 강화</h3>
-      <div class="scPhoto"><img src="assets/structure/sec1.jpg" alt="국가고시 대비 워크숍에서 발표하는 모습"></div>
-      <ul class="scList">
-        <li>디지털 미디어 활용 참여형·능동학습 설계 (FL/TBL)</li>
-        <li>질 평가체계 — 문항은행 구축 (V-NMLE)</li>
-        <li>프로그램 평가인증 대응 (KIMEE, AUN-QA)</li>
-        <li>교원 역량개발</li>
-      </ul>
+  <div class="scGrid">
+    <div class="card scard">
+      <figure class="scPhoto"><img src="assets/structure/sec1.jpg" alt="국가고시 대비 워크숍에서 발표하는 모습"></figure>
+      <div class="scText">
+        <span class="scNo">01 — 의학교육</span>
+        <h3>학부 의학교육 강화</h3>
+        <ul class="scList">
+          <li>디지털 미디어 활용 참여형·능동학습 설계 (FL/TBL)</li>
+          <li>질 평가체계 — 문항은행 구축 (V-NMLE)</li>
+          <li>프로그램 평가인증 대응 (KIMEE, AUN-QA)</li>
+          <li>교원 역량개발</li>
+        </ul>
+      </div>
     </div>
-    <div class="card scard" tabindex="0">
-      <span class="chip">2분과 · 임상수련</span>
-      <h3>전공의 수련과정 강화</h3>
-      <div class="scPhoto"><img src="assets/structure/sec2.jpg" alt="임상수련분과 단기 초청연수 단체사진"></div>
-      <ul class="scList">
-        <li>전공의 수련 프로그램 평가모델 구축</li>
-        <li>트와이닝 프로그램으로 11개 전공과 수련·평가 개선</li>
-        <li>교원 역량개발</li>
-      </ul>
+    <div class="card scard">
+      <figure class="scPhoto"><img src="assets/structure/sec2.jpg" alt="임상수련분과 단기 초청연수 단체사진"></figure>
+      <div class="scText">
+        <span class="scNo">02 — 임상수련</span>
+        <h3>전공의 수련과정 강화</h3>
+        <ul class="scList">
+          <li>전공의 수련 프로그램 평가모델 구축</li>
+          <li>트와이닝 프로그램으로 11개 전공과 수련·평가 개선</li>
+          <li>교원 역량개발</li>
+        </ul>
+      </div>
     </div>
-    <div class="card scard" tabindex="0">
-      <span class="chip">3분과 · 연구역량</span>
-      <h3>연구역량 강화</h3>
-      <div class="scPhoto"><img src="assets/structure/sec3.jpg" alt="MEF 펠로우십 환송행사 단체사진"></div>
-      <ul class="scList">
-        <li>MEF 펠로우십 — 교수 연구역량 강화</li>
-        <li>연구지원시스템 — 연구기획·논문작성·게재 지원</li>
-        <li>학술지 MPR 플랫폼 고도화</li>
-        <li>교원 역량개발</li>
-      </ul>
+    <div class="card scard">
+      <figure class="scPhoto"><img src="assets/structure/sec3.jpg" alt="MEF 펠로우십 환송행사 단체사진"></figure>
+      <div class="scText">
+        <span class="scNo">03 — 연구역량</span>
+        <h3>연구역량 강화</h3>
+        <ul class="scList">
+          <li>MEF 펠로우십 — 교수 연구역량 강화</li>
+          <li>연구지원시스템 — 연구기획·논문작성·게재 지원</li>
+          <li>학술지 MPR 플랫폼 고도화</li>
+          <li>교원 역량개발</li>
+        </ul>
+      </div>
     </div>
-    <div class="card scard" tabindex="0">
-      <span class="chip">4분과 · 산학협력</span>
-      <h3>산학협력 역량 강화</h3>
-      <div class="scPhoto"><img src="assets/structure/sec4.jpg" alt="산학협력 워크숍 현장 사진"></div>
-      <ul class="scList">
-        <li>효과적인 산학협력 역량 강화</li>
-        <li>연구 기획·수행 체계 구축</li>
-        <li>교원 역량개발</li>
-      </ul>
+    <div class="card scard">
+      <figure class="scPhoto"><img src="assets/structure/sec4.jpg" alt="산학협력 워크숍 현장 사진"></figure>
+      <div class="scText">
+        <span class="scNo">04 — 산학협력</span>
+        <h3>산학협력 역량 강화</h3>
+        <ul class="scList">
+          <li>효과적인 산학협력 역량 강화</li>
+          <li>연구 기획·수행 체계 구축</li>
+          <li>교원 역량개발</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div></section>
@@ -422,6 +442,23 @@
           e.target.classList.add('in'); io.unobserve(e.target);}
       });},{threshold:.25});
       io.observe(bars);
+    }
+  }
+
+  // 사업 구성 카드: 스크롤 진입 시 순차 등장
+  var scg=document.querySelector('.scGrid');
+  if(scg){
+    var cards=[].slice.call(scg.querySelectorAll('.scard'));
+    var show=function(){ cards.forEach(function(c,i){ c.style.transitionDelay=(i*260)+'ms'; });
+      scg.classList.add('in'); };
+    if(!('IntersectionObserver' in window) || reduce){ scg.classList.add('in'); }
+    else{
+      var io3=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){ show(); io3.unobserve(e.target); }
+      });},{threshold:.2});
+      io3.observe(scg);
+      // 안전장치: 관찰자가 발동하지 않아도 4초 후 반드시 노출
+      setTimeout(function(){ if(!scg.classList.contains('in')) scg.classList.add('in'); },5000);
     }
   }
 
