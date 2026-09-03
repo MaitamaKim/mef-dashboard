@@ -6,16 +6,16 @@
 <title>미래를 위한 의학교육 — MEF Project</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676;
+    --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676; --steel-txt:#565656;
     --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--blush);color:var(--ink);
-    font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    font-family:"Plus Jakarta Sans","Noto Sans KR",system-ui,-apple-system,sans-serif;
     font-size:18px;line-height:1.45;letter-spacing:-.02em;}
   .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
   h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.02em;}
@@ -27,9 +27,9 @@
   .mark{font-weight:800;font-size:20px;text-transform:uppercase;text-decoration:none;letter-spacing:-.02em;}
   .nlinks{display:flex;gap:28px;font-size:16px;font-weight:700;}
   .nlinks a{text-decoration:none;}
-  .btn{display:inline-block;background:var(--magenta);color:#fff;border:0;border-radius:0;
+    .btn{display:inline-block;background:var(--violet);color:#fff;border:0;border-radius:0;
     padding:10px 18px;font-weight:800;font-size:15px;text-transform:uppercase;text-decoration:none;letter-spacing:-.01em;}
-  .btn.violet{background:var(--violet);}
+  .btn.magenta{background:var(--magenta);color:#000;}
   .vsw{display:inline-flex;border:1px solid var(--ink);border-radius:50px;overflow:hidden;font-size:13px;font-weight:800;}
   .vsw a{padding:6px 14px;text-decoration:none;color:var(--ink);}
   .vsw a.on{background:var(--ink);color:#fff;}
@@ -57,7 +57,7 @@
   section.violet .card .note{color:var(--steel);}
   h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
   p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
-  .kick{font-size:16px;font-weight:800;text-transform:uppercase;color:var(--magenta);margin-bottom:12px;}
+  .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--magenta);margin-bottom:12px;letter-spacing:0;}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
@@ -68,7 +68,7 @@
   .card p{font-size:16px;margin:0 0 16px;}
 
   dl.facts{display:grid;grid-template-columns:130px 1fr;gap:10px 20px;margin:0;font-size:16px;}
-  dl.facts dt{color:var(--steel);font-weight:700;}
+  dl.facts dt{color:var(--steel-txt);font-weight:700;}
   dl.facts dd{margin:0;}
 
   ul.ticks{list-style:none;margin:0;padding:0;font-size:16px;}
@@ -78,10 +78,10 @@
 
   table{border-collapse:collapse;width:100%;font-size:16px;}
   th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--ash);}
-  thead th{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--steel);}
+  thead th{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--steel-txt);}
   td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
   tbody tr:last-child td{border-bottom:none;}
-  .note{font-size:14px;color:var(--steel);margin-top:16px;line-height:1.45;}
+    .note{font-size:14px;color:var(--steel-txt);margin-top:16px;line-height:1.45;}
   sup{font-size:11px;}
 
   .barrow{display:grid;grid-template-columns:140px 1fr 66px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
@@ -96,14 +96,15 @@
   .bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;}
   .bignums .n{font-size:80px;line-height:1;font-weight:800;color:var(--magenta);}
   .bignums .l{font-size:18px;font-weight:800;margin-top:8px;}
-  .bignums .s{font-size:14px;color:var(--steel);margin-top:4px;}
+    .bignums .s{font-size:14px;color:var(--steel-txt);margin-top:4px;}
   section.violet .bignums .n{color:var(--magenta);}
   section.violet .bignums .s{color:var(--ash);}
 
-  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);max-width:20em;}
-  .quote .attr{display:block;font-size:22px;color:var(--orange);margin-top:16px;font-weight:700;}
+  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);max-width:20em;
+    border-left:6px solid var(--orange);padding-left:24px;}
+  .quote .attr{display:block;font-size:22px;color:#fff;margin-top:16px;font-weight:700;}
 
-  footer{background:var(--violet);color:#fff;padding:64px 0;font-size:14px;line-height:1.6;}
+  footer{background:var(--ink);color:#fff;padding:64px 0;font-size:14px;line-height:1.6;}
   footer a{color:#fff;}
 </style>
 </head>
@@ -250,7 +251,7 @@
     <div><div class="n">41</div><div class="l">펠로우십 수료</div><div class="s">교수 23 · 석박사 18</div></div>
     <div><div class="n">809</div><div class="l">연구지원 건수</div><div class="s">목표 280 대비 288.9%</div></div>
   </div>
-  <p style="margin-top:40px"><a class="btn violet" href="research.html">세부 연구성과 보기</a></p>
+  <p style="margin-top:40px"><a class="btn" href="research.html">세부 연구성과 보기</a></p>
 </div></section>
 
 <!-- RECOGNITION -->
