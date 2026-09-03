@@ -99,6 +99,27 @@
   .barrow .v b{font-weight:800;color:var(--ink);}
   @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
 
+
+  /* ---------- 분과별 세부활동 박스 ---------- */
+  .divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
+  .dbox{background:var(--paper);padding:24px;cursor:pointer;border-top:8px solid var(--violet);
+    transition:background .2s;}
+  .dbox:hover,.dbox.open{background:var(--ink);color:#fff;}
+  .dbox .dnum{font-size:56px;line-height:1;font-weight:800;color:var(--violet);}
+  .dbox:hover .dnum,.dbox.open .dnum{color:var(--magenta);}
+  .dbox .dname{font-size:22px;font-weight:800;margin-top:10px;}
+  .dbox .dsum{font-size:14px;color:var(--steel-txt);margin-top:6px;}
+  .dbox:hover .dsum,.dbox.open .dsum{color:var(--ash);}
+  .dbox .more{font-size:13px;font-weight:700;margin-top:14px;color:var(--violet);}
+  .dbox:hover .more,.dbox.open .more{color:var(--magenta);}
+  .detail{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .3s ease,margin-top .45s ease;}
+  .dbox:hover .detail,.dbox.open .detail{max-height:460px;opacity:1;margin-top:18px;}
+  .detail ul{list-style:none;margin:0;padding:0;}
+  .detail li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+    padding:9px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px;}
+  .detail li:last-child{border-bottom:none;}
+  .detail .val{font-weight:800;white-space:nowrap;color:#fff;}
+  .detail .val i{font-style:normal;font-weight:400;font-size:13px;color:var(--ash);}
   .bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;}
   .bignums .n{font-size:80px;line-height:1;font-weight:800;color:var(--magenta);}
   .bignums .l{font-size:18px;font-weight:800;margin-top:8px;}
@@ -250,11 +271,67 @@
     </div>
   </div>
 
-  <div class="bignums">
-    <div><div class="n" data-num="182">182</div><div class="l">FL/TBL 학습모듈</div><div class="s">8개 임상과 · 온라인 플랫폼 탑재</div></div>
-    <div><div class="n" data-num="1500">1,500</div><div class="l">국가고시 인계 문항</div><div class="s">본시험 900 · 모의 600</div></div>
-    <div><div class="n" data-num="41">41</div><div class="l">펠로우십 수료</div><div class="s">교수 23 · 석박사 18</div></div>
-    <div><div class="n" data-num="809">809</div><div class="l">연구지원 건수</div><div class="s">목표 280 대비 288.9%</div></div>
+  <div class="divs">
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum" data-num="182">182</div>
+      <div class="dname">의학교육</div>
+      <div class="dsum">FL/TBL 학습모듈 (개)</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>FL/TBL 학습모듈 개발<span class="val"><span data-num="182">182</span>개</span></li>
+        <li>UMP 졸업시험 문항 개발<span class="val"><span data-num="900">900</span>개</span></li>
+        <li>의학교육 워크숍<span class="val"><span data-num="16">16</span>차</span></li>
+        <li>미디어 스튜디오 구축<span class="val"><span data-num="1">1</span>개소</span></li>
+        <li>온라인 플랫폼 구축<span class="val">UMP 1947</span></li>
+        <li>전담교수 초청연수<span class="val"><span data-num="2">2</span>명</span></li>
+        <li>고위급 초청연수<span class="val"><span data-num="11">11</span>명</span></li>
+      </ul></div>
+    </div>
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum" data-num="11">11</div>
+      <div class="dname">임상수련</div>
+      <div class="dsum">수련 프로그램 개선 (개과)</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>임상수련 프로그램 개선<span class="val"><span data-num="11">11</span>개과</span></li>
+        <li>교수·전공의 초청연수<span class="val"><span data-num="24">24</span>명</span></li>
+        <li>성과공유 워크숍<span class="val"><span data-num="2">2</span>회</span></li>
+        <li>PRIMO 평가도구 개발·적용<span class="val">60.5 → 72.1%</span></li>
+      </ul></div>
+    </div>
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum" data-num="41">41</div>
+      <div class="dname">연구역량</div>
+      <div class="dsum">펠로우십 수료 (명)</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>샌드위치 펠로우십 수료<span class="val"><span data-num="41">41</span>명</span></li>
+        <li>논문 출판<span class="val"><span data-num="49">49</span>편</span></li>
+        <li>학회 발표<span class="val"><span data-num="41">41</span>건</span></li>
+        <li>연구지원<span class="val"><span data-num="809">809</span>건</span></li>
+        <li>학술지 MPR 개선<span class="val">DOAJ 등재</span></li>
+      </ul></div>
+    </div>
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum" data-num="52">52</div>
+      <div class="dname">산학협력</div>
+      <div class="dsum">공동연구 (건)</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>산학협력 공동연구<span class="val"><span data-num="52">52</span>건</span></li>
+        <li>논문 게재<span class="val"><span data-num="23">23</span>편</span></li>
+        <li>국제학술대회 발표<span class="val"><span data-num="42">42</span>건</span></li>
+        <li>공동연구 기자재 지원<span class="val">USD 182.5K <i>76종 153대</i></span></li>
+        <li>연구역량강화 강의·컨설팅<span class="val"><span data-num="17">17</span>회</span></li>
+        <li>산학협력 워크숍<span class="val"><span data-num="8">8</span>회</span></li>
+      </ul></div>
+    </div>
+
+  </div>
   </div>
   <p style="margin-top:40px"><a class="btn" href="research.html">세부 연구성과 보기</a></p>
 </div></section>
@@ -298,29 +375,46 @@
   }
 
   // 숫자 카운트업
-  var nums=[].slice.call(document.querySelectorAll('.bignums .n[data-num]'));
   function fmt(v){ return v.toLocaleString('ko-KR'); }
   function run(el){
-    var target=parseInt(el.dataset.num,10), dur=1100, t0=null;
-    function step(ts){
-      if(!t0) t0=ts;
-      var p=Math.min((ts-t0)/dur,1);
-      var e=1-Math.pow(1-p,3);            // easeOutCubic
+    var target=parseInt(el.dataset.num,10), dur=1000, t0=null;
+    if(el.dataset.done) return; el.dataset.done='1';
+    function step(ts){ if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
       el.textContent=fmt(Math.round(target*e));
-      if(p<1) requestAnimationFrame(step);
+      if(p<1) requestAnimationFrame(step); else el.textContent=fmt(target);
     }
     requestAnimationFrame(step);
+    // rAF가 실행되지 않는 환경(백그라운드 탭 등)에서도 최종값 보장
+    setTimeout(function(){ el.textContent=fmt(target); }, dur+400);
   }
-  if(!reduce && ('IntersectionObserver' in window) && nums.length){
-    nums.forEach(function(el){ el.textContent='0'; });          // 애니메이션 대상만 0으로
+  var heads=[].slice.call(document.querySelectorAll('.dbox .dnum[data-num]'));
+
+  if(!reduce && ('IntersectionObserver' in window) && heads.length){
+    heads.forEach(function(el){ el.textContent='0'; });
     var io2=new IntersectionObserver(function(es){es.forEach(function(e){
       if(e.isIntersecting){ run(e.target); io2.unobserve(e.target); }
     });},{threshold:.5});
-    nums.forEach(function(el){ io2.observe(el); });
-    // 안전장치: 6초 내 미완료 시 최종값 강제 표시
-    setTimeout(function(){ nums.forEach(function(el){
-      if(el.textContent==='0') el.textContent=fmt(parseInt(el.dataset.num,10)); }); },6000);
+    heads.forEach(function(el){ io2.observe(el); });
+    setTimeout(function(){ heads.forEach(function(el){
+      if(el.textContent==='0') el.textContent=fmt(parseInt(el.dataset.num,10)); }); },5000);
   }
+
+  // 세부활동: 열릴 때 숫자 카운트업 (호버·포커스·클릭)
+  [].slice.call(document.querySelectorAll('.dbox')).forEach(function(box){
+    function open(){
+      if(reduce) return;
+      [].slice.call(box.querySelectorAll('.detail [data-num]')).forEach(function(el,i){
+        if(el.dataset.done) return;
+        el.textContent='0';
+        setTimeout(function(){ run(el); }, i*70);
+      });
+    }
+    box.addEventListener('mouseenter', open);
+    box.addEventListener('focus', function(){ box.classList.add('open'); open(); });
+    box.addEventListener('blur', function(){ box.classList.remove('open'); });
+    box.addEventListener('click', function(){ box.classList.toggle('open'); open(); });
+  });
 })();
 </script>
 </body>
