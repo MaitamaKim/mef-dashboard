@@ -1,386 +1,498 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="light">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Medical Education for the Future — 베트남 호치민의약학대학 교육연구 역량강화 사업</title>
-<meta name="description" content="KOICA·연세대학교 의료원이 2021~2026년 수행한 베트남 호치민의약학대학(UMP) 교육연구 역량강화 사업의 개요와 성과.">
+<title>미래를 위한 의학교육 — MEF Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --plane:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
-    --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
-    --s1:#2a78d6; --s2:#008300; --seq1:#86b6ef; --seq2:#3987e5; --seq3:#1c5cab;
-    --hero1:#0f3d7a; --hero2:#1c5cab;
-    color-scheme:light;
-  }
-  :root[data-theme="dark"]{
-    --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
-    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
-    --s1:#3987e5; --s2:#008300; --seq1:#184f95; --seq2:#3987e5; --seq3:#86b6ef;
-    --hero1:#07203f; --hero2:#0f3d7a;
-    color-scheme:dark;
+    --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676; --steel-txt:#565656;
+    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--plane);color:var(--ink);
-    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;}
-  .wrap{max-width:1060px;margin:0 auto;padding:0 20px;}
+  body{margin:0;background:var(--blush);color:var(--ink);
+    font-family:"Plus Jakarta Sans","Noto Sans KR",system-ui,-apple-system,sans-serif;
+    font-size:18px;line-height:1.45;letter-spacing:-.02em;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.02em;}
+  a{color:var(--ink);}
 
-  /* ---------- nav ---------- */
-  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--plane) 88%,transparent);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px;}
-  .brand{font-weight:700;font-size:14px;letter-spacing:-.01em;white-space:nowrap;}
-  .links{display:flex;gap:18px;font-size:13px;overflow-x:auto;}
-  .links a{color:var(--ink2);text-decoration:none;white-space:nowrap;}
-  .links a:hover{color:var(--ink);}
-  .vsw{display:inline-flex;border:1px solid var(--border);border-radius:99px;overflow:hidden;
-    font-size:12px;font-weight:600;background:var(--surface);}
-  .vsw a{padding:5px 12px;color:var(--ink2);text-decoration:none;}
-  .vsw a.on{background:var(--s1);color:#fff;}
-  .vsw a:not(.on):hover{color:var(--ink);}
-  .toggle{border:1px solid var(--border);background:var(--surface);color:var(--ink2);
-    border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;white-space:nowrap;}
+  /* nav */
+  nav{background:var(--blush);position:sticky;top:0;z-index:30;}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;}
+  .mark{font-weight:800;font-size:20px;text-transform:uppercase;text-decoration:none;letter-spacing:-.02em;}
+  .nlinks{display:flex;gap:28px;font-size:16px;font-weight:700;}
+  .nlinks a{text-decoration:none;}
+    .btn{display:inline-block;background:var(--violet);color:#fff;border:0;border-radius:0;
+    padding:10px 18px;font-weight:800;font-size:15px;text-transform:uppercase;text-decoration:none;letter-spacing:-.01em;}
+  .btn.magenta{background:var(--magenta);color:#000;}
+  .chip{display:inline-block;border:1px solid var(--ink);border-radius:50px;padding:6px 14px;
+    font-size:14px;font-weight:700;}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;overflow:hidden;}
-  .hero .wrap{padding:70px 20px 60px;position:relative;z-index:2;}
-  .hero .eyebrow{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin:0 0 14px;}
-  .hero h1{font-size:40px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em;font-weight:750;}
-  .hero h2{font-size:17px;font-weight:500;margin:0 0 22px;opacity:.9;}
-  .hero p.lead{font-size:15px;max-width:640px;opacity:.9;margin:0 0 30px;}
-  .heroKpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;max-width:900px;}
-  .heroKpi div{border-left:2px solid rgba(255,255,255,.4);padding-left:12px;}
-  .heroKpi b{display:block;font-size:17px;line-height:1.35;letter-spacing:-.01em;margin-bottom:6px;}
-  .heroKpi span{font-size:11.5px;letter-spacing:.1em;opacity:.7;}
+  /* hero */
+  .hero{position:relative;padding:88px 0 40px;overflow:hidden;color:#fff;background:var(--violet);}
+  .heroBg{position:absolute;inset:0;z-index:0;}
+  .heroBg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;transition:opacity 1.1s ease;}
+  .heroBg img.on{opacity:1;}
+  .hero .wrap{position:relative;z-index:2;}
+  .hero h1{font-size:80px;line-height:1;margin-bottom:20px;color:#fff;}
+  .hero .kick{color:var(--magenta);}
+  .hero .en{font-size:22px;font-weight:700;color:var(--magenta);margin-bottom:20px;}
+  .hero p.lede{font-size:18px;max-width:44em;margin:0 0 40px;color:#fff;}
 
-  /* ---------- sections ---------- */
-  section{padding:56px 0;border-bottom:1px solid var(--grid);}
-  section:last-of-type{border-bottom:none;}
-  h3.sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
-  h2.sec{font-size:25px;margin:0 0 8px;letter-spacing:-.015em;}
-  p.sub{color:var(--ink2);font-size:14.5px;margin:0 0 26px;max-width:none;}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
-  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;}
-  .card h4{margin:0 0 6px;font-size:15.5px;}
-  .card.gfull{grid-column:1/-1;}
-  .card .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;
-    background:color-mix(in srgb,var(--s1) 12%,transparent);color:var(--s1);margin-bottom:10px;}
-  .card ul{margin:12px 0 0;padding-left:16px;font-size:13px;color:var(--ink2);}
-  .card li{margin:3px 0;}
-  .facts{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px;margin:0;}
-  .facts dt{color:var(--muted);font-size:12.5px;}
-  .facts dd{margin:0;}
+  .outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:8px;}
+  .outcomes div{position:relative;background:rgba(20,4,42,.42);backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.22);
+    border-top:2px solid rgba(251,0,194,.85);
+    padding:26px 16px;font-size:21px;font-weight:800;line-height:1.25;text-align:center;
+    display:flex;align-items:center;justify-content:center;min-height:112px;
+    transition:background .3s,border-color .3s;cursor:default;}
+  .outcomes div:hover,.outcomes div:focus-visible{background:rgba(251,0,194,.22);
+    border-color:rgba(251,0,194,.9);outline:none;}
 
+  /* 하단 타이머 바 */
+  .heroTimer{position:relative;z-index:2;display:flex;justify-content:flex-end;
+    margin-top:18px;padding-bottom:4px;}
+  .heroTimer .track{width:132px;height:3px;background:rgba(255,255,255,.28);overflow:hidden;}
+  .heroTimer .bar{height:100%;width:0%;background:var(--magenta);}
+  .heroTimer .bar.run{animation:heroFill 5s linear forwards;}
+  @keyframes heroFill{from{width:0%}to{width:100%}}
+  @media (prefers-reduced-motion:reduce){.heroBg img{transition:none;}.heroTimer{display:none;}}
 
-  /* ---------- timeline ---------- */
-  .tl{position:relative;margin:0;padding:0 0 0 26px;list-style:none;}
-  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--grid);}
-  .tl li{position:relative;padding:0 0 20px;}
-  .tl li::before{content:"";position:absolute;left:-25px;top:7px;width:11px;height:11px;border-radius:50%;
-    background:var(--plane);border:2px solid var(--s1);}
-  .tl li.key::before{background:var(--s1);}
-  .tl .d{font-size:12px;color:var(--s1);font-weight:700;font-variant-numeric:tabular-nums;}
-  .tl .t{font-size:14.5px;font-weight:600;margin:1px 0 2px;}
-  .tl .x{font-size:13px;color:var(--ink2);}
+  /* sections */
+  section{padding:80px 0;}
+  section.violet{background:var(--violet);color:#fff;}
+  section.violet h2{color:#fff;}
+  section.violet .card,section.violet .card h3,section.violet .card p,
+  section.violet .card li,section.violet .card b,section.violet .card .chip{color:var(--ink);}
+  section.violet .card .note{color:var(--steel);}
+  h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
+  p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
+  .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--magenta);margin-bottom:12px;letter-spacing:0;}
 
-  /* ---------- data ---------- */
-  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;}
-  .tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
-  .tile .v{font-size:28px;font-weight:700;letter-spacing:-.02em;}
-  .tile .v.sm{font-size:22px;}
-  .tile .v.ok{color:var(--s2);}
-  .tile .l{font-size:12px;color:var(--ink2);margin-top:2px;}
-  .tile .x{font-size:11px;color:var(--muted);margin-top:6px;}
-  .legend{display:flex;gap:14px;font-size:12px;color:var(--ink2);margin:0 0 8px;flex-wrap:wrap;}
-  .legend span{display:inline-flex;align-items:center;gap:5px;}
-  .dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
-  h4.ch{font-size:13px;color:var(--ink2);margin:0 0 10px;font-weight:600;}
-  table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:4px;}
-  th,td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;}
-  th:first-child,td:first-child{text-align:left;}
-  thead th{color:var(--ink2);font-weight:600;border-bottom:1px solid var(--axis);}
-  tfoot td{font-weight:700;border-top:1px solid var(--axis);border-bottom:none;}
-  .note{font-size:11px;color:var(--muted);margin-top:10px;}
-  table.outcome{margin-top:10px;}
-  table.outcome th,table.outcome td{padding:16px 11px;font-size:13.2px;}
-  sup{font-size:9px;color:var(--muted);}
-  .awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;}
-  .award{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--s2);
-    border-radius:12px;padding:16px 18px;}
-  .award .y{font-size:12px;color:var(--s2);font-weight:700;}
-  .award .t{font-size:14.5px;font-weight:600;margin:3px 0 4px;}
-  .award .x{font-size:12.5px;color:var(--ink2);}
-  .more{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:9px 16px;border-radius:99px;
-    border:1px solid var(--border);background:var(--surface);color:var(--s1);text-decoration:none;
-    font-size:13.5px;font-weight:600;}
-  .more:hover{border-color:var(--s1);}
-  footer{padding:34px 0 60px;font-size:11.5px;color:var(--muted);}
-  footer b{color:var(--ink2);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--paper);border-radius:0;padding:24px;display:flex;flex-direction:column;}
+  .card.ash{background:var(--ash);}
+  .card h3{font-size:24px;line-height:1.38;margin-bottom:12px;}
+  .card p{font-size:16px;margin:0 0 16px;}
 
-  /* ---------- 스크롤 진입 시 막대 채우기 ---------- */
-  svg .bar-h,svg .bar-v{transform-box:fill-box;}
-  svg .bar-h{transform-origin:left center;transform:scaleX(0);
+  dl.facts{display:grid;grid-template-columns:130px 1fr;gap:10px 20px;margin:0;font-size:16px;}
+  dl.facts dt{color:var(--steel-txt);font-weight:700;}
+  dl.facts dd{margin:0;}
+
+  ul.ticks{list-style:none;margin:0;padding:0;font-size:16px;}
+  ul.ticks li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--ash);}
+  ul.ticks li:last-child{border-bottom:none;}
+  ul.ticks b{font-weight:800;}
+
+  table{border-collapse:collapse;width:100%;font-size:16px;}
+  th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--ash);}
+  thead th{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--steel-txt);}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
+  tbody tr:last-child td{border-bottom:none;}
+    .note{font-size:14px;color:var(--steel-txt);margin-top:auto;padding-top:32px;line-height:1.45;}
+  sup{font-size:11px;}
+
+  .barrow{display:grid;grid-template-columns:140px 1fr 92px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
+  .track{position:relative;display:block;background:var(--ash);height:16px;overflow:hidden;}
+  .card.ash .track{background:var(--paper);}
+  .brk{position:absolute;top:-1px;bottom:-1px;left:74%;width:20px;background:var(--paper);
+    clip-path:polygon(35% 0, 0 16%, 35% 33%, 0 50%, 35% 66%, 0 83%, 35% 100%,
+                      65% 100%, 100% 83%, 65% 66%, 100% 50%, 65% 33%, 100% 16%, 65% 0);}
+  .fill{display:block;height:100%;background:var(--violet);transform-origin:left center;transform:scaleX(0);
     transition:transform .85s cubic-bezier(.22,.9,.3,1);}
-  svg .bar-v{transform-origin:bottom center;transform:scaleY(0);
-    transition:transform .85s cubic-bezier(.22,.9,.3,1);}
-  svg.in .bar-h{transform:scaleX(1);}
-  svg.in .bar-v{transform:scaleY(1);}
-  svg .val{opacity:0;transition:opacity .5s ease .45s;}
-  svg.in .val{opacity:1;}
-  @media (prefers-reduced-motion:reduce){
-    svg .bar-h,svg .bar-v{transform:none;transition:none;}
-    svg .val{opacity:1;transition:none;}
-  }
-  text{font-family:system-ui,sans-serif;}
+  .fill.pending{background:var(--steel);}
+  .bars.in .fill{transform:scaleX(1);}
+  .barrow .v{text-align:right;font-weight:400;font-variant-numeric:tabular-nums;color:var(--steel-txt);}
+  .barrow .v b{font-weight:800;color:var(--ink);}
+  @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
+
+
+  /* ---------- 분과별 세부활동 박스 ---------- */
+  .divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
+  .dbox{background:var(--paper);padding:24px;cursor:pointer;border-top:8px solid var(--violet);
+    transition:background .2s;}
+  .dbox:hover,.dbox.open{background:var(--ink);color:#fff;}
+  .dbox .dnum{font-size:56px;line-height:1;font-weight:800;color:var(--violet);}
+  .dbox .dnum .unit{font-size:22px;font-weight:800;margin-left:4px;}
+  .dbox:hover .dnum,.dbox.open .dnum{color:var(--magenta);}
+  .dbox .dname{font-size:22px;font-weight:800;margin-top:10px;}
+  .dbox .dsum{font-size:14px;color:var(--steel-txt);margin-top:6px;}
+  .dbox:hover .dsum,.dbox.open .dsum{color:var(--ash);}
+  .dbox .more{font-size:13px;font-weight:700;margin-top:14px;color:var(--violet);}
+  .dbox:hover .more,.dbox.open .more{color:var(--magenta);}
+  .detail{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .3s ease,margin-top .45s ease;}
+  .dbox:hover .detail,.dbox.open .detail{max-height:460px;opacity:1;margin-top:18px;}
+  .detail ul{list-style:none;margin:0;padding:0;}
+  .detail li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+    padding:9px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px;}
+  .detail li:last-child{border-bottom:none;}
+  .detail .val{font-weight:800;white-space:nowrap;color:#fff;}
+  .detail .val i{font-style:normal;font-weight:400;font-size:13px;color:var(--ash);}
+  .bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;}
+  .bignums .n{font-size:80px;line-height:1;font-weight:800;color:var(--magenta);}
+  .bignums .l{font-size:18px;font-weight:800;margin-top:8px;}
+    .bignums .s{font-size:14px;color:var(--steel-txt);margin-top:4px;}
+  section.violet .bignums .n{color:var(--magenta);}
+  section.violet .bignums .s{color:var(--ash);}
+
+  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);max-width:20em;
+    border-left:6px solid var(--orange);padding-left:24px;}
+  .quote .attr{display:block;font-size:22px;color:#fff;margin-top:16px;font-weight:700;}
+
+  footer{background:var(--ink);color:#fff;padding:64px 0;font-size:14px;line-height:1.6;}
+  footer a{color:#fff;}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <span class="brand">MEF Project</span>
-    <div class="links">
-      <a href="#about">사업 개요</a>
-      <a href="#sectors">사업 구성</a>
-      <a href="#results">성과</a>
-      <a href="#recognition">대외 인정</a>
-      <a href="research.html">연구성과</a>
-    </div>
-    <span class="vsw"><a class="on" href="index.html">V1</a><a href="v2.html">V2</a><a href="v3.html">V3</a></span>
-    <button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark'">☾</button>
+<nav><div class="wrap">
+  <a class="mark" href="#">MEF Project</a>
+  <div class="nlinks">
+    <a href="#about">사업 개요</a><a href="#structure">사업 구성</a><a href="#results">성과</a><a href="#recognition">대외 인정</a>
   </div>
-</nav>
+  <a class="btn" href="research.html">연구성과</a>
+</div></nav>
 
-<!-- ================= HERO ================= -->
-<div class="hero">
+<!-- HERO -->
+<div class="hero" id="heroSection">
+  <div class="heroBg" id="heroBg">
+    <img class="on" data-key="org1" src="assets/hero/org1.jpg" alt="">
+    <img data-key="s1"   src="assets/hero/s1.jpg" alt="">
+    <img data-key="org2" src="assets/hero/org2.jpg" alt="">
+    <img data-key="s2"   src="assets/hero/s2.jpg" alt="">
+    <img data-key="org3" src="assets/hero/org3.jpg" alt="">
+    <img data-key="s3"   src="assets/hero/s3.jpg" alt="">
+    <img data-key="org4" src="assets/hero/org4.jpg" alt="">
+    <img data-key="s4"   src="assets/hero/s4.jpg" alt="">
+  </div>
   <div class="wrap">
-    <p class="eyebrow">KOICA · Yonsei University Health System · UMP &nbsp;|&nbsp; 2021 – 2026</p>
-    <h1>미래를 위한 의학교육</h1>
-    <h2>Medical Education for the Future · 호치민의약학대학교 교육연구 역량강화 사업</h2>
-    <p class="lead">사업 추진현황 및 주요 성과를 정리했습니다.</p>
-    <div class="heroKpi">
-      <div><b>질적으로 향상된<br>의학교육</b></div>
-      <div><b>질적으로 향상된<br>의료 임상역량</b></div>
-      <div><b>향상된<br>연구역량</b></div>
-      <div><b>개선된 산학협력·<br>혁신연구활동</b></div>
+    <p class="kick">KOICA · Yonsei University Health System · UMP</p>
+    <h1>미래를 위한<br>의학교육</h1>
+    <p class="en">Medical Education for the Future</p>
+    <p class="lede">베트남 호치민의약학대학교 교육연구 역량강화 사업의 추진현황 및 주요 성과를 정리했습니다.</p>
+    <div class="outcomes" id="outcomes">
+      <div tabindex="0" data-sector="s1">질적으로 향상된<br>의학교육</div>
+      <div tabindex="0" data-sector="s2">질적으로 향상된<br>의료 임상역량</div>
+      <div tabindex="0" data-sector="s3">향상된<br>연구역량</div>
+      <div tabindex="0" data-sector="s4">개선된 산학협력·<br>혁신연구활동</div>
     </div>
+    <div class="heroTimer"><span class="track"><span class="bar" id="heroBar"></span></span></div>
   </div>
 </div>
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 <section id="about"><div class="wrap">
-  <h3 class="sec">About</h3>
+  <p class="kick">About</p>
   <h2 class="sec">사업 개요</h2>
-  <div class="card" style="max-width:780px">
-    <dl class="facts">
-      <dt>사업명</dt><dd>베트남 호치민의약학대학교 교육연구 역량강화사업</dd>
-      <dt>사업기간</dt><dd>2021.12 ~ 2026.12 (60개월)</dd>
-      <dt>사업예산</dt><dd>USD 9,680,000</dd>
-      <dt>사업지역</dt><dd>베트남 호치민시</dd>
-      <dt>지원기관</dt><dd>KOICA (한국국제협력단)</dd>
-      <dt>수행기관</dt><dd>연세대학교 의료원</dd>
-      <dt>협력기관</dt><dd>호치민의약학대학교 (UMP)</dd>
-      <dt>사업목표</dt><dd>UMP의 보건의료 인력 양성 역량 강화를 통한 베트남 보건의료 서비스 질 향상</dd>
-      <dt>사업내용</dt><dd>① 의학교육 ② 임상수련 ③ 연구역량 ④ 산학협력 4개 분과 역량강화</dd>
-    </dl>
+  <div class="grid2">
+    <div class="card">
+      <dl class="facts">
+        <dt>사업명</dt><dd>베트남 호치민의약학대학교 교육연구 역량강화사업</dd>
+        <dt>사업기간</dt><dd>2021.12 ~ 2026.12 (60개월)</dd>
+        <dt>사업예산</dt><dd>USD 9,680,000</dd>
+        <dt>사업지역</dt><dd>베트남 호치민시</dd>
+      </dl>
+    </div>
+    <div class="card ash">
+      <dl class="facts">
+        <dt>지원기관</dt><dd>KOICA (한국국제협력단)</dd>
+        <dt>수행기관</dt><dd>연세대학교 의료원</dd>
+        <dt>협력기관</dt><dd>호치민의약학대학교 (UMP)</dd>
+        <dt>사업목표</dt><dd>UMP의 보건의료 인력 양성 역량 강화를 통한 베트남 보건의료 서비스 질 향상</dd>
+      </dl>
+    </div>
   </div>
 </div></section>
 
-<!-- ================= SECTORS ================= -->
-<section id="sectors"><div class="wrap">
-  <h3 class="sec">Structure</h3>
+<!-- STRUCTURE -->
+<section id="structure" class="violet"><div class="wrap">
+  <p class="kick" style="color:#fff">Structure</p>
   <h2 class="sec">사업 구성</h2>
-  <p class="sub">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
+  <p class="lead" style="color:#fff">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
     학생을 가르치는 교육에서 시작해 의사를 길러내는 수련, 지식을 생산하는 연구, 그 지식을 사회로 옮기는 산학협력까지 —
-    대학이 갖춰야 할 기능 전반을 아우르는 구조입니다.
-    네 분과가 함께 호치민의약학대학교(UMP)의 자체 역량을 끌어올리고, 그 역량이 베트남 보건의료의 질적 개선으로 이어지도록 설계했습니다.</p>
+    대학이 갖춰야 할 기능 전반을 아우르는 구조입니다.</p>
   <div class="grid4">
     <div class="card">
-      <span class="tag">1분과</span>
-      <h4>의학교육</h4>
-      <p style="font-size:13px;color:var(--ink2);margin:0">ICT 기반 참여형 교육과정 도입, 국제인증 기준(ASK2019·AUN-QA) 대응, 졸업시험·국가고시 문항 개발.</p>
-      <ul>
+      <span class="chip">1분과 · 의학교육</span>
+      <h3 style="margin-top:14px">의학교육의 질을 세우다</h3>
+      <ul class="ticks">
         <li>FL/TBL 학습모듈 <b>182개</b></li>
         <li>졸업시험 문항 <b>900개</b></li>
         <li>의학교육 워크숍 <b>16차</b></li>
       </ul>
     </div>
     <div class="card">
-      <span class="tag">2분과</span>
-      <h4>임상수련</h4>
-      <p style="font-size:13px;color:var(--ink2);margin:0">11개 전공과 수련 프로그램을 국제 기준으로 평가·개선하고, PRIMO 평가도구를 개발·적용.</p>
-      <ul>
-        <li>수련 프로그램 개선안 <b>11개</b></li>
+      <span class="chip">2분과 · 임상수련</span>
+      <h3 style="margin-top:14px">병상 옆, 임상역량</h3>
+      <ul class="ticks">
+        <li>프로그램 개선안 <b>11개</b></li>
         <li>교수·전공의 단기연수 <b>24명</b></li>
-        <li>PRIMO 충족률 <b>60.5 → 72.1%</b></li>
+        <li>PRIMO 충족률 <b>72.1%</b></li>
       </ul>
     </div>
     <div class="card">
-      <span class="tag">3분과</span>
-      <h4>연구역량</h4>
-      <p style="font-size:13px;color:var(--ink2);margin:0">샌드위치 펠로우십으로 교수·대학원생을 양성하고, 연구지원실·학술지(MPR) 체계를 구축.</p>
-      <ul>
+      <span class="chip">3분과 · 연구역량</span>
+      <h3 style="margin-top:14px">연구하는 대학으로</h3>
+      <ul class="ticks">
         <li>펠로우십 수료 <b>41명</b></li>
         <li>논문·학회 실적 <b>90건</b></li>
         <li>연구지원 <b>809건</b></li>
       </ul>
-      <p style="margin:10px 0 0"><a href="research.html" style="font-size:12.5px;color:var(--s1);text-decoration:none">세부 목록 보기 →</a></p>
     </div>
     <div class="card">
-      <span class="tag">4분과</span>
-      <h4>산학협력</h4>
-      <p style="font-size:13px;color:var(--ink2);margin:0">제약·의생명·디지털헬스 분야 산학 공동연구를 지원하고 연구 기자재·컨설팅을 제공.</p>
-      <ul>
+      <span class="chip">4분과 · 산학협력</span>
+      <h3 style="margin-top:14px">대학과 산업을 잇다</h3>
+      <ul class="ticks">
         <li>공동연구 <b>52건</b></li>
-        <li>국제학술대회 발표 <b>42건</b></li>
+        <li>국제학술대회 <b>42건</b></li>
         <li>기술이전 <b>1건</b></li>
       </ul>
-      <p style="margin:10px 0 0"><a href="research.html" style="font-size:12.5px;color:var(--s1);text-decoration:none">세부 목록 보기 →</a></p>
     </div>
   </div>
 </div></section>
 
-<!-- ================= RESULTS ================= -->
+<!-- RESULTS -->
 <section id="results"><div class="wrap">
-  <h3 class="sec">Results</h3>
+  <p class="kick">Results</p>
   <h2 class="sec">성과</h2>
-  <p class="sub">사업 성과관리 기준(PDM)에 따른 목표 대비 달성 현황입니다.
-    성과지표 4개 중 2개(연구역량·산학협력)가 목표치를 달성했고, 산출물 지표 9개 중 7개가 목표를 달성했습니다.
-    나머지 지표는 2026년 총괄평가와 종료선 조사 결과 반영을 앞두고 있습니다.</p>
-
+  <p class="lead">사업 성과관리 기준(PDM)에 따른 목표 대비 달성 현황입니다.
+    성과지표 4개 중 2개가 목표치를 달성했고, 산출물 지표 9개 중 8개가 목표를 달성했습니다.</p>
   <div class="grid2">
     <div class="card">
-      <h4 class="ch">성과 (Outcomes) — 지표별 달성 현황</h4>
-      <table class="outcome">
-        <thead><tr><th>성과지표</th><th>목표</th><th>현황</th></tr></thead>
+      <h3>성과 (Outcomes)</h3>
+      <table>
+        <thead><tr><th>성과지표</th><th class="n">목표</th><th class="n">현황</th></tr></thead>
         <tbody>
-          <tr><td>국제인증 평가항목 충족률 <sup>1)</sup></td><td>80%</td><td>45.71%</td></tr>
-          <tr><td>임상수련 프로그램 실행률 <sup>1)</sup></td><td>100%</td><td>64%</td></tr>
-          <tr><td>국제수준 연구업적 비중 <sup>2)</sup></td><td>50%</td><td><b>219.5%</b></td></tr>
-          <tr><td>산학협력 국제업적 비중 <sup>2)</sup></td><td>50%</td><td><b>126.9%</b></td></tr>
+          <tr><td>국제인증 평가항목 충족률 <sup>1)</sup></td><td class="n">80%</td><td class="n">45.71%</td></tr>
+          <tr><td>임상수련 프로그램 실행률 <sup>1)</sup></td><td class="n">100%</td><td class="n">64%</td></tr>
+          <tr><td>국제수준 연구업적 비중 <sup>2)</sup></td><td class="n">50%</td><td class="n"><b>219.5%</b></td></tr>
+          <tr><td>산학협력 국제업적 비중 <sup>2)</sup></td><td class="n">50%</td><td class="n"><b>126.9%</b></td></tr>
         </tbody>
       </table>
-      <p class="note">1) 2025년 11월 기준 &nbsp;·&nbsp; 2) 2026.9.1. 기준<br>2)는 연구성과 목록으로 재산출 — 연구업적 = 업적 90건 ÷ 펠로우 41명, 산학업적 = 업적 66건 ÷ 공동연구 52건.</p>
+      <p class="note">1) 2025년 11월 기준 · 2) 2026.9.1. 기준<br>
+        2)는 연구성과 목록으로 재산출 — 연구업적 = 업적 90건 ÷ 펠로우 41명, 산학업적 = 업적 66건 ÷ 공동연구 52건.</p>
     </div>
-
-    <div class="card">
-      <h4 class="ch">산출물 (Outputs) — 목표 대비 달성률</h4>
-      <div class="legend">
-        <span><i class="dot" style="background:var(--s2)"></i>목표 달성·초과</span>
-        <span><i class="dot" style="background:var(--s1)"></i>진행 중</span>
+    <div class="card ash">
+      <h3>산출물 (Outputs)</h3>
+      <div class="bars" id="bars">
+        <div class="barrow"><span>ICT 개편 과목</span><span class="track"><span class="fill" style="width:100%"></span><span class="brk"></span></span><span class="v"><b>9</b>/8</span></div>
+        <div class="barrow"><span>국제인증 평가</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>2</b>/2</span></div>
+        <div class="barrow"><span>졸업시험 문항</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>900</b>/900</span></div>
+        <div class="barrow"><span>의학교육 전담부서</span><span class="track"><span class="fill pending" style="width:2%"></span></span><span class="v"><b>0</b>/2</span></div>
+        <div class="barrow"><span>임상수련 개선안</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>11</b>/11</span></div>
+        <div class="barrow"><span>펠로우십 수료</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>41</b>/41</span></div>
+        <div class="barrow"><span>연구지원 건수</span><span class="track"><span class="fill" style="width:100%"></span><span class="brk"></span></span><span class="v"><b>809</b>/280</span></div>
+        <div class="barrow"><span>산학 공동연구</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>52</b>/52</span></div>
+        <div class="barrow"><span>산학 강의지원</span><span class="track"><span class="fill" style="width:100%"></span><span class="brk"></span></span><span class="v"><b>17</b>/14</span></div>
       </div>
-      <svg viewBox="0 0 460 290" width="100%" role="img" aria-label="산출물 지표 목표 대비 달성률">
-        <line x1="234" y1="4" x2="234" y2="264" stroke="var(--axis)" stroke-width="1" stroke-dasharray="3 3"/>
-        <g font-size="11" fill="var(--ink2)">
-          <text x="146" y="19"  text-anchor="end">ICT 개편 과목 수</text>
-          <text x="146" y="47"  text-anchor="end">국제인증 평가 실시</text>
-          <text x="146" y="75"  text-anchor="end">졸업시험 문항 개발</text>
-          <text x="146" y="103" text-anchor="end">의학교육 전담부서</text>
-          <text x="146" y="131" text-anchor="end">임상수련 개선안</text>
-          <text x="146" y="159" text-anchor="end">펠로우십 수료</text>
-          <text x="146" y="187" text-anchor="end">연구지원 건수</text>
-          <text x="146" y="215" text-anchor="end">산학 공동연구</text>
-          <text x="146" y="243" text-anchor="end">산학 강의지원</text>
-        </g>
-        <rect class="bar-h" x="150" y="8"   width="95"  height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="36"  width="84"  height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="64"  width="84"  height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="92"  width="1.5" height="15" fill="var(--s1)" rx="1"/>
-        <rect class="bar-h" x="150" y="120" width="84"  height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="148" width="84"  height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="176" width="244" height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="204" width="84"  height="15" fill="var(--s2)" rx="2"/>
-        <rect class="bar-h" x="150" y="232" width="102" height="15" fill="var(--s2)" rx="2"/>
-        <g class="val" font-size="11" font-weight="700" fill="var(--ink)">
-          <text x="251" y="20">112.5%</text><text x="240" y="48">100%</text>
-          <text x="240" y="76">100%</text><text x="158" y="104">0% (2026년 말 측정)</text>
-          <text x="240" y="132">100%</text><text x="240" y="160">100%</text>
-          <text x="400" y="188">288.9%</text><text x="240" y="216">100%</text>
-          <text x="258" y="244">121.4%</text>
-        </g>
-        <g stroke="var(--axis)" stroke-width="1"><line x1="150" y1="264" x2="420" y2="264"/></g>
-        <g font-size="10" fill="var(--muted)" text-anchor="middle">
-          <text x="150" y="279">0</text><text x="234" y="279">100%</text>
-          <text x="319" y="279">200%</text><text x="403" y="279">300%</text>
-        </g>
-      </svg>
+      <p class="note">우측은 <b>실적 / 목표</b>. 막대는 목표 대비 진척이며, 목표를 넘어선 지표는 축을 끊어 표시했습니다.<br>의학교육 전담부서 수는 2026년 말 측정 예정입니다.</p>
     </div>
   </div>
 
-  <h4 class="ch" style="margin:32px 0 12px">분과별 주요 실적</h4>
-  <div class="tiles">
-    <div class="tile"><div class="v">182</div><div class="l">FL/TBL 학습모듈</div><div class="x">8개 임상과 · 온라인 플랫폼 탑재</div></div>
-    <div class="tile"><div class="v">900</div><div class="l">UMP 졸업시험 문항</div><div class="x">2024년 300 + 2025년 600 · 목표 100%</div></div>
-    <div class="tile"><div class="v">1,500</div><div class="l">국가고시 인계 문항</div><div class="x">본시험 900 · 모의 600</div></div>
-    <div class="tile"><div class="v">26</div><div class="l">워크숍 (회)</div><div class="x">의학교육 16 · 국가고시 4 · 산학 7 등</div></div>
-    <div class="tile"><div class="v">41</div><div class="l">펠로우십 수료 (명)</div><div class="x">교수 23 · 대학원 18</div></div>
-    <div class="tile"><div class="v">90</div><div class="l">연구 실적 (건)</div><div class="x">논문 49 · 학회 41 · IF 중앙값 3.6</div></div>
-    <div class="tile"><div class="v ok">809</div><div class="l">연구지원 건수</div><div class="x">목표 280 대비 288.9%</div></div>
-    <div class="tile"><div class="v">11</div><div class="l">임상수련 개선안 (개)</div><div class="x">11개 전공과 · 목표 100% 달성</div></div>
-    <div class="tile"><div class="v sm ok">60.5 → 72.1%</div><div class="l">PRIMO 충족률</div><div class="x">수련 프로그램 평가, 2022 → 2024</div></div>
-    <div class="tile"><div class="v">52</div><div class="l">산학 공동연구 (건)</div><div class="x">기자재 USD 182.5K · 76종 153대</div></div>
-    <div class="tile"><div class="v ok">66</div><div class="l">산학 완료 성과 (건)</div><div class="x">논문 23 · 학회 42 · 기술이전 1</div></div>
+  <div class="divs">
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum">1<span class="unit">분과</span></div>
+      <div class="dname">의학교육</div>
+      <div class="dsum">FL/TBL 학습모듈 182개 · 졸업시험 900문항</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>FL/TBL 학습모듈 개발<span class="val"><span data-num="182">182</span>개</span></li>
+        <li>UMP 졸업시험 문항 개발<span class="val"><span data-num="900">900</span>개</span></li>
+        <li>의학교육 워크숍<span class="val"><span data-num="16">16</span>차</span></li>
+        <li>미디어 스튜디오 구축<span class="val"><span data-num="1">1</span>개소</span></li>
+        <li>온라인 플랫폼 구축<span class="val">UMP 1947</span></li>
+        <li>전담교수 초청연수<span class="val"><span data-num="2">2</span>명</span></li>
+        <li>고위급 초청연수<span class="val"><span data-num="11">11</span>명</span></li>
+      </ul></div>
+    </div>
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum">2<span class="unit">분과</span></div>
+      <div class="dname">임상수련</div>
+      <div class="dsum">11개 전공과 프로그램 개선</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>임상수련 프로그램 개선<span class="val"><span data-num="11">11</span>개과</span></li>
+        <li>교수·전공의 초청연수<span class="val"><span data-num="24">24</span>명</span></li>
+        <li>성과공유 워크숍<span class="val"><span data-num="2">2</span>회</span></li>
+        <li>PRIMO 평가도구 개발·적용<span class="val">60.5 → 72.1%</span></li>
+      </ul></div>
+    </div>
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum">3<span class="unit">분과</span></div>
+      <div class="dname">연구역량</div>
+      <div class="dsum">펠로우십 41명 · 연구실적 90건</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>샌드위치 펠로우십 수료<span class="val"><span data-num="41">41</span>명</span></li>
+        <li>논문 출판<span class="val"><span data-num="49">49</span>편</span></li>
+        <li>학회 발표<span class="val"><span data-num="41">41</span>건</span></li>
+        <li>연구지원<span class="val"><span data-num="809">809</span>건</span></li>
+        <li>학술지 MPR 개선<span class="val">DOAJ 등재</span></li>
+      </ul></div>
+    </div>
+
+    <div class="dbox" tabindex="0">
+      <div class="dnum">4<span class="unit">분과</span></div>
+      <div class="dname">산학협력</div>
+      <div class="dsum">공동연구 52건 · 완료 성과 66건</div>
+      <div class="more">세부활동 보기 +</div>
+      <div class="detail"><ul>
+        <li>산학협력 공동연구<span class="val"><span data-num="52">52</span>건</span></li>
+        <li>논문 게재<span class="val"><span data-num="23">23</span>편</span></li>
+        <li>국제학술대회 발표<span class="val"><span data-num="42">42</span>건</span></li>
+        <li>공동연구 기자재 지원<span class="val">USD 182.5K <i>76종 153대</i></span></li>
+        <li>연구역량강화 강의·컨설팅<span class="val"><span data-num="17">17</span>회</span></li>
+        <li>산학협력 워크숍<span class="val"><span data-num="8">8</span>회</span></li>
+      </ul></div>
+    </div>
+
   </div>
-
-  <p><a class="more" href="research.html">세부 연구성과 보기 — 논문 · 학회 발표 목록 →</a></p>
-
+  </div>
+  <p style="margin-top:40px"><a class="btn" href="research.html">세부 연구성과 보기</a></p>
 </div></section>
 
-<!-- ================= RECOGNITION ================= -->
-<section id="recognition"><div class="wrap">
-  <h3 class="sec">Recognition</h3>
+<!-- RECOGNITION -->
+<section id="recognition" class="violet"><div class="wrap">
+  <p class="kick" style="color:#fff">Recognition</p>
   <h2 class="sec">대외 인정</h2>
-  <p class="sub">사업 성과는 한국과 베트남 양측에서 공식적으로 인정받았습니다.</p>
-  <div class="awards">
-    <div class="award">
-      <div class="y">2025.10</div>
-      <div class="t">KOICA 동남아시아 우수성과 경진대회 우수상</div>
-      <div class="x">사업성과 부문</div>
-    </div>
-    <div class="award">
-      <div class="y">2025.12</div>
-      <div class="t">국회 외교통일위원회 현지 방문</div>
-      <div class="x">위원단 사업 현장 점검 및 노고 치하</div>
-    </div>
-    <div class="award">
-      <div class="y">2026.05</div>
-      <div class="t">UMP, 국가 중점대학 지정</div>
-      <div class="x">총리 결정문 966/QĐ-TTg — 동남부 지역 공립 중점대학 3곳 중 보건의료 분야 유일</div>
-    </div>
-    <div class="award">
-      <div class="y">2022 – 2026</div>
-      <div class="t">언론보도 36건</div>
-      <div class="x">국외 23건 · 국내 13건</div>
-    </div>
+  <div class="quote">한 대학의 역량강화가 국가 시험제도 구축으로 이어졌습니다.
+    <span class="attr">— 전국 29개 의과대학 3,236명이 응시한 첫 국가단위 모의시험, 2026.08</span></div>
+  <div class="grid4" style="margin-top:56px">
+    <div class="card"><h3 style="font-size:20px">KOICA 우수성과 경진대회 우수상</h3><p style="margin:0">2025.10 · 동남아시아 사업성과 부문</p></div>
+    <div class="card"><h3 style="font-size:20px">국회 외교통일위원회 현지 방문</h3><p style="margin:0">2025.12 · 사업 현장 점검</p></div>
+    <div class="card"><h3 style="font-size:20px">UMP 국가 중점대학 지정</h3><p style="margin:0">2026.05 · 총리 결정문 966/QĐ-TTg</p></div>
+    <div class="card"><h3 style="font-size:20px">언론보도 36건</h3><p style="margin:0">2022~2026 · 국외 23 · 국내 13</p></div>
   </div>
 </div></section>
 
 <footer><div class="wrap">
-  <b>근거</b> — PDM 지표: 지표정의서(2025-07-31) · 실적치: 성과점검표(2025-11-20, 연 1회 작성으로 5·6차년도 실적 미반영) ·
-  연구성과: 사업단 집계(2026-09-02 기준) · 활동 실적: 사업단 기록(2026-09-03 기준).<br>
-  본 페이지에는 <b>확정 수치만</b> 게시하며, 종료선 조사 결과와 2026년 총괄평가 결과는 확정 후 반영합니다.
-  그래프는 색각이상 검증 팔레트를 사용하고 표를 함께 제공합니다.<br><br>
-  © 2026 베트남 호치민의약학대학 교육연구 역량강화 사업 (KOICA · 연세대학교 의료원)
+  근거 — PDM 지표: 지표정의서(2025-07-31) · 실적치: 성과점검표(2025-11-20) · 연구성과: 사업단 개별 실적 목록(2026-09-02).<br>
+  본 페이지에는 확정 수치만 게시하며, 종료선 조사 결과는 확정 후 반영합니다.<br><br>
+  © 2026 베트남 호치민의약학대학교 교육연구 역량강화 사업 (KOICA · 연세대학교 의료원)
 </div></footer>
-
 
 <script>
 (function(){
-  var svgs=document.querySelectorAll('svg');
-  if(!('IntersectionObserver' in window)){svgs.forEach(function(s){s.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){
-        var bars=e.target.querySelectorAll('.bar-h,.bar-v');
-        bars.forEach(function(b,i){b.style.transitionDelay=(i*55)+'ms';});
-        e.target.classList.add('in'); io.unobserve(e.target);
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 막대 채우기
+  var bars=document.getElementById('bars');
+  if(bars){
+    if(!('IntersectionObserver' in window) || reduce){ bars.classList.add('in'); }
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.querySelectorAll('.fill').forEach(function(f,i){f.style.transitionDelay=(i*55)+'ms';});
+          e.target.classList.add('in'); io.unobserve(e.target);}
+      });},{threshold:.25});
+      io.observe(bars);
+    }
+  }
+
+  // 숫자 카운트업
+  function fmt(v){ return v.toLocaleString('ko-KR'); }
+  function run(el){
+    var target=parseInt(el.dataset.num,10), dur=1000, t0=null;
+    if(el.dataset.done) return; el.dataset.done='1';
+    function step(ts){ if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=fmt(Math.round(target*e));
+      if(p<1) requestAnimationFrame(step); else el.textContent=fmt(target);
+    }
+    requestAnimationFrame(step);
+    // rAF가 실행되지 않는 환경(백그라운드 탭 등)에서도 최종값 보장
+    setTimeout(function(){ el.textContent=fmt(target); }, dur+400);
+  }
+
+  // ---------- 히어로 사진 슬라이드쇼 ----------
+  (function(){
+    var bg=document.getElementById('heroBg');
+    if(!bg) return;
+    var imgs=[].slice.call(bg.querySelectorAll('img'));
+    var order=['org1','s1','org2','s2','org3','s3','org4','s4'];
+    var byKey={}; imgs.forEach(function(im){ byKey[im.dataset.key]=im; });
+    var bar=document.getElementById('heroBar');
+    var cur=0, timer=null, hovering=false;
+
+    function showKey(key){
+      imgs.forEach(function(im){ im.classList.toggle('on', im.dataset.key===key); });
+    }
+    function resetBar(){
+      if(!bar) return;
+      bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
+    }
+    function goto(i){
+      cur=(i+order.length)%order.length;
+      showKey(order[cur]);
+      resetBar();
+    }
+    function tick(){ if(!hovering) goto(cur+1); }
+    function startAuto(){
+      if(reduce) return;
+      clearInterval(timer);
+      timer=setInterval(tick,5000);
+      resetBar();
+    }
+    startAuto();
+
+    document.querySelectorAll('#outcomes > div').forEach(function(cell){
+      function enter(){
+        hovering=true;
+        if(bar) bar.classList.remove('run');
+        var key=cell.dataset.sector;
+        if(byKey[key]) showKey(key);
       }
+      function leave(){
+        hovering=false;
+        var idx=order.indexOf(cell.dataset.sector);
+        if(idx>=0) cur=idx;
+        resetBar();
+      }
+      cell.addEventListener('mouseenter', enter);
+      cell.addEventListener('mouseleave', leave);
+      cell.addEventListener('focus', enter);
+      cell.addEventListener('blur', leave);
     });
-  },{threshold:0.25});
-  svgs.forEach(function(s){ if(s.querySelector('.bar-h,.bar-v')) io.observe(s); else s.classList.add('in'); });
+  })();
+
+  var heads=[].slice.call(document.querySelectorAll('.dbox .dnum[data-num]'));
+
+  if(!reduce && ('IntersectionObserver' in window) && heads.length){
+    heads.forEach(function(el){ el.textContent='0'; });
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ run(e.target); io2.unobserve(e.target); }
+    });},{threshold:.5});
+    heads.forEach(function(el){ io2.observe(el); });
+    setTimeout(function(){ heads.forEach(function(el){
+      if(el.textContent==='0') el.textContent=fmt(parseInt(el.dataset.num,10)); }); },5000);
+  }
+
+  // 세부활동: 열릴 때 숫자 카운트업 (호버·포커스·클릭)
+  [].slice.call(document.querySelectorAll('.dbox')).forEach(function(box){
+    function open(){
+      if(reduce) return;
+      [].slice.call(box.querySelectorAll('.detail [data-num]')).forEach(function(el,i){
+        if(el.dataset.done) return;
+        el.textContent='0';
+        setTimeout(function(){ run(el); }, i*70);
+      });
+    }
+    box.addEventListener('mouseenter', open);
+    box.addEventListener('focus', function(){ box.classList.add('open'); open(); });
+    box.addEventListener('blur', function(){ box.classList.remove('open'); });
+    box.addEventListener('click', function(){ box.classList.toggle('open'); open(); });
+  });
 })();
 </script>
 </body>
