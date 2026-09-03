@@ -10,7 +10,7 @@
 <style>
   :root{
     --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676; --steel-txt:#565656;
-    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
+    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00; --blue:#3d55c9;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -64,10 +64,13 @@
   /* sections */
   section{padding:80px 0;}
   section.violet{background:var(--violet);color:#fff;}
-  section.violet h2{color:#fff;}
+  section.blue{background:var(--blue);color:#fff;}
+  section.violet h2,section.blue h2{color:#fff;}
   section.violet .card,section.violet .card h3,section.violet .card p,
-  section.violet .card li,section.violet .card b,section.violet .card .chip{color:var(--ink);}
-  section.violet .card .note{color:var(--steel);}
+  section.violet .card li,section.violet .card b,section.violet .card .chip,
+  section.blue .card,section.blue .card h3,section.blue .card p,
+  section.blue .card li,section.blue .card b,section.blue .card .chip{color:var(--ink);}
+  section.violet .card .note,section.blue .card .note{color:var(--steel);}
   h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
   p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
   .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
@@ -115,37 +118,20 @@
   .barrow .v b{font-weight:800;color:var(--ink);}
   @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
 
-  /* ---------- 사업 구성: 커버리지 스펙트럼 ---------- */
-  .specbar{display:flex;height:64px;overflow:hidden;margin-top:8px;}
-  .seg{flex:1;min-width:0;border:0;cursor:pointer;color:#fff;font-family:inherit;
-    font-weight:800;font-size:16px;letter-spacing:-.01em;
-    display:flex;align-items:center;justify-content:center;text-align:center;padding:0 8px;
-    transition:flex-grow .3s ease,filter .2s ease;}
-  .seg:not(:last-child){border-right:2px solid var(--blush);}
-  .seg:nth-child(1){background:#340068;}
-  .seg:nth-child(2){background:#770086;}
-  .seg:nth-child(3){background:#ba00a4;}
-  .seg:nth-child(4){background:#fb00c2;color:#000;}
-  .seg:hover,.seg:focus-visible{flex-grow:1.15;filter:brightness(1.1);outline:none;}
-  .seg:focus-visible{box-shadow:inset 0 0 0 3px #fff;}
-
-  .specmarks{display:flex;justify-content:space-between;font-size:13px;color:var(--steel-txt);margin-top:10px;}
-
-  .specPanel{background:var(--paper);padding:24px 28px;margin-top:24px;min-height:172px;}
-  .specPanel .chip{margin-bottom:10px;}
-  .specPanel h3{font-size:22px;margin-bottom:14px;}
-  .specPanel ul{list-style:none;margin:0;padding:0;columns:2;column-gap:32px;}
-  .specPanel li{font-size:15px;color:var(--steel-txt);padding:6px 0 6px 16px;position:relative;break-inside:avoid;}
-  .specPanel li::before{content:"";position:absolute;left:0;top:14px;width:6px;height:6px;background:var(--magenta);}
-  .specPanel .default{font-size:17px;margin:0;max-width:52em;}
-  .specPanel .default b{color:var(--magenta);}
-  @media(max-width:760px){
-    .specbar{flex-direction:column;height:auto;}
-    .seg{padding:14px 8px;border-right:0 !important;border-bottom:2px solid var(--blush);}
-    .seg:last-child{border-bottom:0;}
-    .specmarks{display:none;}
-    .specPanel ul{columns:1;}
-  }
+  /* ---------- 사업 구성: 카드 4장 (블러→선명 호버) ---------- */
+  .scGrid{margin-top:8px;}
+  .scard .chip{align-self:flex-start;}
+  .scard h3{font-size:22px;margin:14px 0 0;}
+  .scPhoto{margin:16px 0;overflow:hidden;aspect-ratio:16/10;}
+  .scPhoto img{display:block;width:100%;height:100%;object-fit:cover;
+    filter:blur(3px) brightness(.7) saturate(.9);transform:scale(1.04);
+    transition:filter .4s ease,transform .4s ease;}
+  .scard:hover .scPhoto img,.scard:focus-within .scPhoto img{filter:none;transform:none;}
+  .scList{list-style:none;margin:0;padding:0;font-size:15px;}
+  .scList li{padding:7px 0 7px 16px;position:relative;border-top:1px solid var(--ash);}
+  .scList li:first-child{border-top:none;}
+  .scList li::before{content:"";position:absolute;left:0;top:16px;width:6px;height:6px;background:var(--magenta);}
+  @media (prefers-reduced-motion:reduce){.scPhoto img{transition:none;}}
 
   /* ---------- 분과별 세부활동 박스 ---------- */
   .divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
@@ -245,23 +231,56 @@
 </div></section>
 
 <!-- STRUCTURE -->
-<section id="structure"><div class="wrap">
-  <p class="kick">Structure</p>
+<section id="structure" class="blue"><div class="wrap">
+  <p class="kick" style="color:#fff">Structure</p>
   <h2 class="sec">사업 구성</h2>
-  <p class="lead">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
+  <p class="lead" style="color:#fff">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
     학생을 가르치는 교육에서 시작해 의사를 길러내는 수련, 지식을 생산하는 연구, 그 지식을 사회로 옮기는 산학협력까지 —
     대학이 갖춰야 할 기능 전반을 아우르는 구조입니다.</p>
 
-  <div class="specbar" id="specbar">
-    <button class="seg" type="button">1분과 · 의학교육</button>
-    <button class="seg" type="button">2분과 · 임상수련</button>
-    <button class="seg" type="button">3분과 · 연구역량</button>
-    <button class="seg" type="button">4분과 · 산학협력</button>
-  </div>
-  <div class="specmarks"><span>입학</span><span>졸업</span><span>전문의</span><span>연구자</span><span>산업연계</span></div>
-
-  <div class="specPanel" id="specPanel">
-    <p class="default">대부분의 교육협력 사업이 <b>한두 구간</b>에 머무는 데 비해, MEF는 <b>입학부터 산업연계까지 전 구간</b>을 지원합니다. 각 구간에 마우스를 올리면 분과별 활동을 볼 수 있습니다.</p>
+  <div class="grid2 scGrid">
+    <div class="card scard" tabindex="0">
+      <span class="chip">1분과 · 의학교육</span>
+      <h3>학부 의학교육 강화</h3>
+      <div class="scPhoto"><img src="assets/structure/sec1.jpg" alt="국가고시 대비 워크숍에서 발표하는 모습"></div>
+      <ul class="scList">
+        <li>디지털 미디어 활용 참여형·능동학습 설계 (FL/TBL)</li>
+        <li>질 평가체계 — 문항은행 구축 (V-NMLE)</li>
+        <li>프로그램 평가인증 대응 (KIMEE, AUN-QA)</li>
+        <li>교원 역량개발</li>
+      </ul>
+    </div>
+    <div class="card scard" tabindex="0">
+      <span class="chip">2분과 · 임상수련</span>
+      <h3>전공의 수련과정 강화</h3>
+      <div class="scPhoto"><img src="assets/structure/sec2.jpg" alt="임상수련분과 단기 초청연수 단체사진"></div>
+      <ul class="scList">
+        <li>전공의 수련 프로그램 평가모델 구축</li>
+        <li>트와이닝 프로그램으로 11개 전공과 수련·평가 개선</li>
+        <li>교원 역량개발</li>
+      </ul>
+    </div>
+    <div class="card scard" tabindex="0">
+      <span class="chip">3분과 · 연구역량</span>
+      <h3>연구역량 강화</h3>
+      <div class="scPhoto"><img src="assets/structure/sec3.jpg" alt="MEF 펠로우십 환송행사 단체사진"></div>
+      <ul class="scList">
+        <li>MEF 펠로우십 — 교수 연구역량 강화</li>
+        <li>연구지원시스템 — 연구기획·논문작성·게재 지원</li>
+        <li>학술지 MPR 플랫폼 고도화</li>
+        <li>교원 역량개발</li>
+      </ul>
+    </div>
+    <div class="card scard" tabindex="0">
+      <span class="chip">4분과 · 산학협력</span>
+      <h3>산학협력 역량 강화</h3>
+      <div class="scPhoto"><img src="assets/structure/sec4.jpg" alt="산학협력 워크숍 현장 사진"></div>
+      <ul class="scList">
+        <li>효과적인 산학협력 역량 강화</li>
+        <li>연구 기획·수행 체계 구축</li>
+        <li>교원 역량개발</li>
+      </ul>
+    </div>
   </div>
 </div></section>
 
@@ -458,34 +477,6 @@
     document.getElementById('hnNext').onclick=function(){ goto(cur+1); restart(); };
     goto(0);
     restart();
-  })();
-
-  // ---------- 사업 구성 스펙트럼: 호버·포커스 시 분과별 활동 표시 ----------
-  (function(){
-    var bar=document.getElementById('specbar');
-    var panel=document.getElementById('specPanel');
-    if(!bar||!panel) return;
-    var DEFAULT=panel.innerHTML;
-    var data=[
-      {chip:'1분과 · 의학교육',h3:'의학교육의 질을 세우다',items:['ICT 기반 참여형 교육과정 (FL/TBL)','국제 평가인증 대응 (ASK2019)','졸업시험 문항개발','국가고시(NMLE) 도입 지원','온라인 교육 플랫폼·미디어 스튜디오','교원 초청연수']},
-      {chip:'2분과 · 임상수련',h3:'병상 옆, 임상역량',items:['전공의 수련 프로그램 평가 (11개 전공과)','연차별 수련 지표·개선안 도입','세부전문의 수련과정 도입','교수·전공의 초청연수','현지 임상 모니터링·자문']},
-      {chip:'3분과 · 연구역량',h3:'연구하는 대학으로',items:['샌드위치 펠로우십 (교수·대학원생)','연구지원시스템 구축 (통계·영문교정)','학술지 MPR 발전계획','YMJ-MPR 멘토링','논문작성 교육']},
-      {chip:'4분과 · 산학협력',h3:'대학과 산업을 잇다',items:['산학협력 워크숍 (제약·디지털헬스)','산학 공동연구 지원','연구역량강화 컨설팅·강의','공동연구 기자재 지원']}
-    ];
-    function render(i){
-      var d=data[i];
-      panel.innerHTML='<span class="chip">'+d.chip+'</span><h3>'+d.h3+'</h3><ul>'+
-        d.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>';
-    }
-    [].slice.call(bar.querySelectorAll('.seg')).forEach(function(seg,i){
-      seg.addEventListener('mouseenter',function(){render(i);});
-      seg.addEventListener('focus',function(){render(i);});
-      seg.addEventListener('click',function(){render(i);});
-    });
-    bar.addEventListener('mouseleave',function(){panel.innerHTML=DEFAULT;});
-    bar.addEventListener('focusout',function(e){
-      if(!bar.contains(e.relatedTarget)) panel.innerHTML=DEFAULT;
-    });
   })();
 
   var heads=[].slice.call(document.querySelectorAll('.dbox .dnum[data-num]'));
