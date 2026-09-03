@@ -117,26 +117,51 @@
 
 
   /* ---------- 사업 구성: 저니(세로 전환) ---------- */
-  .journey{position:relative;height:400vh;background:var(--violet);}
-  .jstage{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;}
+  .journey{position:relative;height:400vh;background:var(--violet);padding:0;}
+  .jstage{position:sticky;top:0;height:100vh;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-start;padding-top:104px;}
+  .jhead{margin-bottom:36px;max-width:64em;}
+  .jh2{font-size:42px;line-height:1.1;font-weight:800;color:#fff;margin:0 0 14px;}
+  .jlead{font-size:16.5px;line-height:1.5;color:#fff;margin:0;max-width:58em;}
   .jgrid{display:grid;grid-template-columns:minmax(300px,34%) 1fr;gap:64px;width:100%;
-    position:relative;min-height:440px;}
-  .jcol{position:relative;min-height:440px;}
+    position:relative;min-height:460px;}
+  .jcol{position:relative;min-height:460px;}
+  .jcol.static{min-height:0;}
   .jslot{position:absolute;inset:0;opacity:0;transform:translateY(46px);
     transition:opacity .55s ease,transform .55s ease;pointer-events:none;}
   .jslot.on{opacity:1;transform:none;pointer-events:auto;}
   .jslot.prev{transform:translateY(-46px);}
 
-  .jicon{width:132px;height:132px;color:var(--magenta);}
-  .jicon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:3;
-    stroke-linecap:round;stroke-linejoin:round;}
-  .jstep{font-size:44px;font-weight:800;color:#fff;margin-top:26px;line-height:1;}
-  .jtarget{margin-top:20px;padding-top:18px;border-top:2px solid rgba(255,255,255,.25);max-width:300px;}
-  .jtarget span{display:block;font-size:12.5px;font-weight:800;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--magenta);margin-bottom:6px;}
-  .jtarget b{font-size:17px;font-weight:700;color:#fff;line-height:1.4;}
+  /* 좌측 세로 레일 */
+  .jrail{position:relative;padding-left:4px;}
+  .jrail::before{content:"";position:absolute;left:31px;top:38px;bottom:38px;width:2px;
+    background:rgba(255,255,255,.22);}
+  .jrail .jfill{position:absolute;left:31px;top:38px;width:2px;background:var(--magenta);
+    height:0;transition:height .55s ease;}
+  .jitem{position:relative;display:flex;gap:22px;align-items:flex-start;padding:13px 0;
+    opacity:.38;transition:opacity .45s ease;}
+  .jitem.on{opacity:1;}
+  .jitem.done{opacity:.62;}
+  .jnode{position:relative;z-index:2;flex:0 0 auto;width:58px;height:58px;border-radius:50%;
+    background:var(--violet);border:2px solid rgba(255,255,255,.3);
+    display:flex;align-items:center;justify-content:center;transition:border-color .4s,background .4s;}
+  .jitem.on .jnode{border-color:var(--magenta);background:rgba(251,0,194,.16);}
+  .jitem.done .jnode{border-color:var(--magenta);}
+  .jnode svg{width:30px;height:30px;fill:none;stroke:rgba(255,255,255,.75);stroke-width:3;
+    stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s;}
+  .jitem.on .jnode svg{stroke:var(--magenta);}
+  .jtxt{padding-top:4px;}
+  .jnum{font-size:11.5px;font-weight:800;letter-spacing:.16em;color:var(--magenta);}
+  .jname{font-size:26px;font-weight:800;color:#fff;line-height:1.15;margin-top:2px;}
+  .jitem.on .jname{font-size:30px;}
+  .jtarget{max-height:0;overflow:hidden;opacity:0;
+    transition:max-height .45s ease,opacity .35s ease,margin-top .45s ease;}
+  .jitem.on .jtarget{max-height:80px;opacity:1;margin-top:8px;}
+  .jtarget span{display:block;font-size:11.5px;font-weight:800;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ash);margin-bottom:3px;}
+  .jtarget b{font-size:15.5px;font-weight:700;color:#fff;}
 
-  .jimpact{font-size:34px;font-weight:800;color:#fff;line-height:1.2;margin:0 0 26px;}
+  .jimpact{font-size:30px;font-weight:800;color:#fff;line-height:1.2;margin:0 0 26px;}
   .joc{font-size:12.5px;font-weight:800;letter-spacing:.14em;color:var(--magenta);margin-bottom:8px;}
   .joctitle{font-size:19px;font-weight:800;color:#fff;margin-bottom:22px;
     padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.22);}
@@ -155,11 +180,19 @@
 
   @media(max-width:900px){
     .journey{height:auto;}
+    .jhead{margin-bottom:24px;} .jh2{font-size:30px;}
     .jstage{position:relative;height:auto;padding:48px 0;display:block;}
     .jgrid{grid-template-columns:1fr;gap:32px;min-height:0;}
     .jcol{min-height:0;}
     .jslot{position:relative;opacity:1;transform:none;margin-bottom:56px;}
     .jdots{display:none;}
+  }
+  @media (max-height:800px){
+    .jstage{padding-top:88px;}
+    .jh2{font-size:34px;} .jlead{font-size:15px;} .jhead{margin-bottom:24px;}
+    .jitem{padding:10px 0;} .jname{font-size:22px;} .jitem.on .jname{font-size:25px;}
+    .jimpact{font-size:25px;margin-bottom:18px;}
+    .jacts li{font-size:15px;padding:7px 0 7px 18px;}
   }
   @media (prefers-reduced-motion:reduce){.jslot{transition:none;}}
 
@@ -260,38 +293,52 @@
   </div>
 </div></section>
 
-<!-- STRUCTURE -->
-<section id="structure" class="violet" style="padding:80px 0 32px"><div class="wrap">
-  <p class="kick" style="color:#fff">Structure</p>
-  <h2 class="sec">사업 구성</h2>
-  <p class="lead" style="color:#fff;margin-bottom:0">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
-    학부 교육에서 시작해 임상 수련, 연구, 산학협력까지 — 의료인력 양성의 전 과정을 아우릅니다.</p>
-</div></section>
-
 <!-- JOURNEY -->
-<section class="journey" id="journey">
+<section class="journey" id="structure">
   <div class="jstage" id="jstage" data-scene="1">
-    <div class="wrap jgrid">
-      <div class="jcol">
-        <div class="jslot" data-s="1">
-          <div class="jicon"><svg viewBox="0 0 64 64"><path d="M6 24 L32 13 L58 24 L32 35 Z"/><path d="M17 29 v11 c0 4.5 6.7 8 15 8 s15-3.5 15-8 v-11"/><path d="M54 26 v13"/><circle cx="54" cy="43" r="3.5"/></svg></div>
-          <div class="jstep">학부</div>
-          <div class="jtarget"><span>주요 대상</span><b>의과대학 학부생</b></div>
-        </div>
-        <div class="jslot" data-s="2">
-          <div class="jicon"><svg viewBox="0 0 64 64"><path d="M17 8 v13 a11 11 0 0 0 22 0 V8"/><path d="M12 8 h9 M35 8 h9"/><path d="M28 32 v9 a10 10 0 0 0 20 0 v-3"/><circle cx="48" cy="30" r="7"/></svg></div>
-          <div class="jstep">임상</div>
-          <div class="jtarget"><span>주요 대상</span><b>전공의 · 세부전문의 수련과정</b></div>
-        </div>
-        <div class="jslot" data-s="3">
-          <div class="jicon"><svg viewBox="0 0 64 64"><path d="M25 8 h14"/><path d="M28 8 v15 L14 46 a5 5 0 0 0 4.3 7.5 h27.4 A5 5 0 0 0 50 46 L36 23 V8"/><path d="M19 40 h26"/></svg></div>
-          <div class="jstep">연구</div>
-          <div class="jtarget"><span>주요 대상</span><b>교수 · 석박사 신진연구자</b></div>
-        </div>
-        <div class="jslot" data-s="4">
-          <div class="jicon"><svg viewBox="0 0 64 64"><circle cx="13" cy="47" r="7.5"/><circle cx="51" cy="47" r="7.5"/><circle cx="32" cy="13" r="7.5"/><path d="M18 41 L27 20 M46 41 L37 20 M21 47 h22"/></svg></div>
-          <div class="jstep">산학</div>
-          <div class="jtarget"><span>주요 대상</span><b>산업 연계 연구팀</b></div>
+    <div class="wrap">
+      <div class="jhead">
+        <p class="kick" style="color:#fff">Structure</p>
+        <h2 class="jh2">사업 구성</h2>
+        <p class="jlead">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
+          학부 교육에서 시작해 임상 수련, 연구, 산학협력까지 — 의료인력 양성의 전 과정을 아우릅니다.</p>
+      </div>
+      <div class="jgrid">
+      <div class="jcol static">
+        <div class="jrail">
+          <div class="jfill" id="jfill"></div>
+          <div class="jitem" data-i="1">
+            <div class="jnode"><svg viewBox="0 0 64 64"><path d="M6 24 L32 13 L58 24 L32 35 Z"/><path d="M17 29 v11 c0 4.5 6.7 8 15 8 s15-3.5 15-8 v-11"/><path d="M54 26 v13"/><circle cx="54" cy="43" r="3.5"/></svg></div>
+            <div class="jtxt">
+              <div class="jnum">STEP 01</div>
+              <div class="jname">학부</div>
+              <div class="jtarget"><span>주요 대상</span><b>의과대학 학부생</b></div>
+            </div>
+          </div>
+          <div class="jitem" data-i="2">
+            <div class="jnode"><svg viewBox="0 0 64 64"><path d="M17 8 v13 a11 11 0 0 0 22 0 V8"/><path d="M12 8 h9 M35 8 h9"/><path d="M28 32 v9 a10 10 0 0 0 20 0 v-3"/><circle cx="48" cy="30" r="7"/></svg></div>
+            <div class="jtxt">
+              <div class="jnum">STEP 02</div>
+              <div class="jname">임상</div>
+              <div class="jtarget"><span>주요 대상</span><b>전공의 · 세부전문의 수련과정</b></div>
+            </div>
+          </div>
+          <div class="jitem" data-i="3">
+            <div class="jnode"><svg viewBox="0 0 64 64"><path d="M25 8 h14"/><path d="M28 8 v15 L14 46 a5 5 0 0 0 4.3 7.5 h27.4 A5 5 0 0 0 50 46 L36 23 V8"/><path d="M19 40 h26"/></svg></div>
+            <div class="jtxt">
+              <div class="jnum">STEP 03</div>
+              <div class="jname">연구</div>
+              <div class="jtarget"><span>주요 대상</span><b>교수 · 석박사 신진연구자</b></div>
+            </div>
+          </div>
+          <div class="jitem" data-i="4">
+            <div class="jnode"><svg viewBox="0 0 64 64"><circle cx="13" cy="47" r="7.5"/><circle cx="51" cy="47" r="7.5"/><circle cx="32" cy="13" r="7.5"/><path d="M18 41 L27 20 M46 41 L37 20 M21 47 h22"/></svg></div>
+            <div class="jtxt">
+              <div class="jnum">STEP 04</div>
+              <div class="jname">산학</div>
+              <div class="jtarget"><span>주요 대상</span><b>산업 연계 연구팀</b></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="jcol">
@@ -319,6 +366,7 @@
           <div class="joctitle">개선된 산학협력·혁신연구활동</div>
           <ul class="jacts"><li>산학협력 워크숍</li><li>산학협력 공동연구 실시</li><li>산학협력 연구역량강화 프로그램 운영</li><li>산학협력 공동연구 기자재 지원</li></ul>
         </div>
+      </div>
       </div>
     </div>
     <div class="jdots"><i></i><i></i><i></i><i></i></div>
@@ -528,15 +576,29 @@
     if(!sec||!stage) return;
     var cols=[].slice.call(stage.querySelectorAll('.jcol'));
     var cur=0;
+    var items=[].slice.call(stage.querySelectorAll('.jitem'));
+    var fill=document.getElementById('jfill');
     function apply(idx){
       cur=idx;
       stage.dataset.scene=String(idx+1);
+      // 우측 슬롯 전환
       cols.forEach(function(col){
         [].slice.call(col.querySelectorAll('.jslot')).forEach(function(sl,i){
           sl.classList.toggle('on', i===idx);
           sl.classList.toggle('prev', i<idx);
         });
       });
+      // 좌측 레일 상태
+      items.forEach(function(it,i){
+        it.classList.toggle('on', i===idx);
+        it.classList.toggle('done', i<idx);
+      });
+      // 진행선 채우기 (노드 중심까지)
+      if(fill && items.length>1){
+        var railTop=items[0].offsetTop+items[0].offsetHeight/2;
+        var target=items[idx].offsetTop+items[idx].offsetHeight/2;
+        fill.style.height=Math.max(0,target-railTop)+'px';
+      }
     }
     function onScroll(){
       var r=sec.getBoundingClientRect(), total=sec.offsetHeight-window.innerHeight;
