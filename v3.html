@@ -88,8 +88,9 @@
   .barrow{display:grid;grid-template-columns:140px 1fr 92px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
   .track{position:relative;display:block;background:var(--ash);height:16px;overflow:hidden;}
   .card.ash .track{background:var(--paper);}
-  .tear{position:absolute;right:0;top:0;bottom:0;width:13px;background:var(--paper);
-    clip-path:polygon(100% 0,100% 100%,0 100%,55% 83%,0 66%,55% 50%,0 33%,55% 16%,0 0);}
+  .brk{position:absolute;top:-1px;bottom:-1px;width:7px;background:var(--paper);
+    transform:skewX(-18deg);}
+  .brk.a{left:74%;} .brk.b{left:calc(74% + 11px);}
   .fill{display:block;height:100%;background:var(--violet);transform-origin:left center;transform:scaleX(0);
     transition:transform .85s cubic-bezier(.22,.9,.3,1);}
   .fill.pending{background:var(--steel);}
@@ -235,17 +236,17 @@
     <div class="card ash">
       <h3>산출물 (Outputs)</h3>
       <div class="bars" id="bars">
-        <div class="barrow"><span>ICT 개편 과목</span><span class="track"><span class="fill" style="width:100%"></span><span class="tear"></span></span><span class="v"><b>9</b>/8</span></div>
+        <div class="barrow"><span>ICT 개편 과목</span><span class="track"><span class="fill" style="width:100%"></span><span class="brk a"></span><span class="brk b"></span></span><span class="v"><b>9</b>/8</span></div>
         <div class="barrow"><span>국제인증 평가</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>2</b>/2</span></div>
         <div class="barrow"><span>졸업시험 문항</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>900</b>/900</span></div>
         <div class="barrow"><span>의학교육 전담부서</span><span class="track"><span class="fill pending" style="width:2%"></span></span><span class="v"><b>0</b>/2</span></div>
         <div class="barrow"><span>임상수련 개선안</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>11</b>/11</span></div>
         <div class="barrow"><span>펠로우십 수료</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>41</b>/41</span></div>
-        <div class="barrow"><span>연구지원 건수</span><span class="track"><span class="fill" style="width:100%"></span><span class="tear"></span></span><span class="v"><b>809</b>/280</span></div>
+        <div class="barrow"><span>연구지원 건수</span><span class="track"><span class="fill" style="width:100%"></span><span class="brk a"></span><span class="brk b"></span></span><span class="v"><b>809</b>/280</span></div>
         <div class="barrow"><span>산학 공동연구</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v"><b>52</b>/52</span></div>
-        <div class="barrow"><span>산학 강의지원</span><span class="track"><span class="fill" style="width:100%"></span><span class="tear"></span></span><span class="v"><b>17</b>/14</span></div>
+        <div class="barrow"><span>산학 강의지원</span><span class="track"><span class="fill" style="width:100%"></span><span class="brk a"></span><span class="brk b"></span></span><span class="v"><b>17</b>/14</span></div>
       </div>
-      <p class="note">우측은 <b>실적 / 목표</b>. 막대는 목표 대비 진척이며, 목표를 넘어선 지표는 끝을 잘라 표시했습니다.<br>의학교육 전담부서 수는 2026년 말 측정 예정입니다.</p>
+      <p class="note">우측은 <b>실적 / 목표</b>. 막대는 목표 대비 진척이며, 목표를 넘어선 지표는 축을 끊어 표시했습니다.<br>의학교육 전담부서 수는 2026년 말 측정 예정입니다.</p>
     </div>
   </div>
 
