@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEF 연구성과 대시보드 (3·4분과)</title>
+<style>
+  :root{
+    --plane:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+    --s1:#2a78d6; --s2:#008300; --seq1:#86b6ef; --seq2:#3987e5; --seq3:#1c5cab;
+    --good:#0ca30c; --warn:#fab219;
+    color-scheme:light;
+  }
+  :root[data-theme="dark"]{
+    --plane:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#008300; --seq1:#184f95; --seq2:#3987e5; --seq3:#86b6ef;
+    --good:#0ca30c; --warn:#fab219;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--plane);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px;}
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:4px;}
+  h1{font-size:22px;margin:0;letter-spacing:-.01em;}
+  .sub{color:var(--ink2);font-size:13px;margin:2px 0 0;}
+  .toggle{border:1px solid var(--border);background:var(--surface);color:var(--ink2);
+    border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;}
+  h2{font-size:16px;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--grid);}
+  h3{font-size:13px;color:var(--ink2);margin:0 0 10px;font-weight:600;}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+  .tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+  .tile .v{font-size:30px;font-weight:700;letter-spacing:-.02em;}
+  .tile .l{font-size:12px;color:var(--ink2);margin-top:2px;}
+  .tile .x{font-size:11px;color:var(--muted);margin-top:6px;}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;}
+  .legend{display:flex;gap:14px;font-size:12px;color:var(--ink2);margin:0 0 8px;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+  table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:4px;}
+  th,td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;}
+  th:first-child,td:first-child{text-align:left;}
+  thead th{color:var(--ink2);font-weight:600;border-bottom:1px solid var(--axis);}
+  tfoot td{font-weight:700;border-top:1px solid var(--axis);border-bottom:none;}
+  .note{font-size:11px;color:var(--muted);margin-top:10px;}
+  text{font-family:system-ui,sans-serif;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>MEF 연구성과 대시보드</h1>
+      <p class="sub">3분과 연구역량 · 4분과 산학협력 &nbsp;|&nbsp; 출처: 사업단 구글시트(BOOM) · 기준일 2026-09-02</p>
+    </div>
+    <button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark'">라이트/다크</button>
+  </header>
+
+  <!-- ============ 3분과 ============ -->
+  <h2>3분과 · 연구역량분과 (논문·학회·펠로우십)</h2>
+  <div class="tiles">
+    <div class="tile"><div class="v">90</div><div class="l">전체 실적 (논문+학회)</div><div class="x">논문 49 · 학회 41</div></div>
+    <div class="tile"><div class="v">49</div><div class="l">논문 출판</div><div class="x">SCIE 47 · SCOPUS 2</div></div>
+    <div class="tile"><div class="v">41</div><div class="l">학회 발표</div><div class="x">Oral 20 · Poster 21</div></div>
+    <div class="tile"><div class="v">25</div><div class="l">1저자 논문</div><div class="x">공동저자 24</div></div>
+    <div class="tile"><div class="v">3.55</div><div class="l">IF 중앙값</div><div class="x">범위 1.0 ~ 7.1</div></div>
+    <div class="tile"><div class="v">41</div><div class="l">펠로우십 수료</div><div class="x">교수 23 · 대학원 18</div></div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>연도별 실적</h3>
+      <div class="legend"><span><i class="dot" style="background:var(--s1)"></i>논문</span><span><i class="dot" style="background:var(--s2)"></i>학회</span></div>
+      <svg viewBox="0 0 440 240" width="100%" role="img" aria-label="연도별 논문·학회 실적">
+        <!-- gridlines + y ticks (0,10,20) -->
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="40" y1="190" x2="430" y2="190"/><line x1="40" y1="130" x2="430" y2="130"/><line x1="40" y1="70" x2="430" y2="70"/>
+        </g>
+        <g fill="var(--muted)" font-size="10" text-anchor="end">
+          <text x="34" y="193">0</text><text x="34" y="133">10</text><text x="34" y="73">20</text>
+        </g>
+        <!-- bars: scale 6px per unit, baseline y=190 -->
+        <g id="yrbars"></g>
+        <g id="yrlabels" fill="var(--ink)" font-size="10" text-anchor="middle"></g>
+        <g id="yraxis" fill="var(--ink2)" font-size="11" text-anchor="middle"></g>
+      </svg>
+    </div>
+    <div class="card">
+      <h3>교수급 vs 석박사급</h3>
+      <table>
+        <thead><tr><th>구분</th><th>교수급</th><th>석박사급</th><th>합계</th></tr></thead>
+        <tbody>
+          <tr><td>논문 출판</td><td>26</td><td>23</td><td>49</td></tr>
+          <tr><td>학회 발표</td><td>21</td><td>20</td><td>41</td></tr>
+        </tbody>
+        <tfoot><tr><td>합계</td><td>47</td><td>43</td><td>90</td></tr></tfoot>
+      </table>
+      <h3 style="margin-top:18px">펠로우십 수료 (연도·성별)</h3>
+      <table>
+        <thead><tr><th>구분</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>계</th></tr></thead>
+        <tbody>
+          <tr><td>교수(Professor)</td><td>4</td><td>11</td><td>6</td><td>2</td><td>23</td></tr>
+          <tr><td>대학원(Graduate)</td><td>4</td><td>1</td><td>9</td><td>4</td><td>18</td></tr>
+          <tr><td>남 / 여</td><td>4/4</td><td>4/8</td><td>8/7</td><td>2/4</td><td>18/23</td></tr>
+        </tbody>
+        <tfoot><tr><td>합계</td><td>8</td><td>12</td><td>15</td><td>6</td><td>41</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ 4분과 ============ -->
+  <h2>4분과 · 산학협력분과 (논문·국제학회·기술이전)</h2>
+  <div class="tiles">
+    <div class="tile"><div class="v">21</div><div class="l">논문 게재 완료</div><div class="x">파이프라인 총 28건</div></div>
+    <div class="tile"><div class="v">60</div><div class="l">국제학술대회 발표</div><div class="x">완료 38 · 승인 2</div></div>
+    <div class="tile"><div class="v" style="color:var(--good)">230.8%</div><div class="l">국제학회 목표 대비</div><div class="x">목표 26건</div></div>
+    <div class="tile"><div class="v">1</div><div class="l">기술이전 계약</div><div class="x">계약 완료</div></div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>논문 게재 파이프라인</h3>
+      <svg viewBox="0 0 440 170" width="100%" role="img" aria-label="논문 게재 파이프라인">
+        <g id="pipe"></g>
+      </svg>
+      <p class="note">단계별 누적이 아닌 현재 상태별 건수(원고 미비 2 · 투고중 5 · 게재 완료 21).</p>
+    </div>
+    <div class="card">
+      <h3>국제학술대회 발표 — 목표 대비</h3>
+      <svg viewBox="0 0 440 170" width="100%" role="img" aria-label="국제학회 목표 대비 성과">
+        <g stroke="var(--grid)"><line x1="40" y1="130" x2="430" y2="130"/></g>
+        <g id="goal"></g>
+      </svg>
+      <table style="margin-top:10px">
+        <thead><tr><th>상태</th><th>건수</th></tr></thead>
+        <tbody><tr><td>발표 완료</td><td>38</td></tr><tr><td>발표 승인</td><td>2</td></tr><tr><td>기타 단계</td><td>20</td></tr></tbody>
+        <tfoot><tr><td>성과 합계</td><td>60</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <p class="note">근거: raw/연구성과/3분과_연구역량_연구성과_data20260902.xlsx · 4분과_산학협력_연구성과_data20260902.xlsx (사업단 BOOM 구글시트 다운로드). 색상: dataviz 검증 팔레트(블루·그린, CVD 통과). 최신화 시 시트 재다운로드→수치 갱신.</p>
+</div>
+
+<script>
+// ---- 3분과 연도별 grouped bars ----
+var years=[["2023",2,2],["2024",9,19],["2025",23,16],["2026",15,4]];
+var U=6, base=190, x0=54, gw=92, bw=26; // 6px/unit
+var bars="",labs="",ax="";
+years.forEach(function(d,i){
+  var gx=x0+i*gw;
+  var h1=d[1]*U, h2=d[2]*U;
+  bars+='<rect x="'+gx+'" y="'+(base-h1)+'" width="'+bw+'" height="'+h1+'" rx="4" fill="var(--s1)"><title>'+d[0]+' 논문 '+d[1]+'</title></rect>';
+  bars+='<rect x="'+(gx+bw+4)+'" y="'+(base-h2)+'" width="'+bw+'" height="'+h2+'" rx="4" fill="var(--s2)"><title>'+d[0]+' 학회 '+d[2]+'</title></rect>';
+  labs+='<text x="'+(gx+bw/2)+'" y="'+(base-h1-4)+'">'+d[1]+'</text>';
+  labs+='<text x="'+(gx+bw+4+bw/2)+'" y="'+(base-h2-4)+'">'+d[2]+'</text>';
+  ax+='<text x="'+(gx+bw+2)+'" y="208">'+d[0]+'</text>';
+});
+document.getElementById("yrbars").innerHTML=bars;
+document.getElementById("yrlabels").innerHTML=labs;
+document.getElementById("yraxis").innerHTML=ax;
+
+// ---- 4분과 pipeline (ordinal blue ramp) ----
+var pipe=[["원고 미비",2,"var(--seq1)"],["투고중",5,"var(--seq2)"],["게재 완료",21,"var(--seq3)"]];
+var ph="", py=18, maxv=21, pxw=250, plabelx=150;
+pipe.forEach(function(d,i){
+  var w=Math.max(6, d[1]/maxv*pxw);
+  var y=py+i*44;
+  ph+='<text x="'+(plabelx-8)+'" y="'+(y+22)+'" text-anchor="end" font-size="12" fill="var(--ink2)">'+d[0]+'</text>';
+  ph+='<rect x="'+plabelx+'" y="'+y+'" width="'+w+'" height="30" rx="4" fill="'+d[2]+'"><title>'+d[0]+' '+d[1]+'건</title></rect>';
+  ph+='<text x="'+(plabelx+w+8)+'" y="'+(y+21)+'" font-size="13" font-weight="700" fill="var(--ink)">'+d[1]+'</text>';
+});
+document.getElementById("pipe").innerHTML=ph;
+
+// ---- 4분과 goal vs achieved ----
+var gmax=60, gU=300/gmax, gbase=130, gx0=90, gbw=70;
+var goal="";
+// achieved 60
+goal+='<rect x="'+gx0+'" y="'+(gbase-60*gU)+'" width="'+gbw+'" height="'+(60*gU)+'" rx="4" fill="var(--s1)"><title>성과 60건</title></rect>';
+goal+='<text x="'+(gx0+gbw/2)+'" y="'+(gbase-60*gU-6)+'" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">60</text>';
+goal+='<text x="'+(gx0+gbw/2)+'" y="148" text-anchor="middle" font-size="11" fill="var(--ink2)">성과</text>';
+// target 26
+var tx=gx0+140;
+goal+='<rect x="'+tx+'" y="'+(gbase-26*gU)+'" width="'+gbw+'" height="'+(26*gU)+'" rx="4" fill="var(--axis)"><title>목표 26건</title></rect>';
+goal+='<text x="'+(tx+gbw/2)+'" y="'+(gbase-26*gU-6)+'" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink2)">26</text>';
+goal+='<text x="'+(tx+gbw/2)+'" y="148" text-anchor="middle" font-size="11" fill="var(--ink2)">목표</text>';
+goal+='<text x="'+(tx+gbw+30)+'" y="'+(gbase-60*gU+14)+'" font-size="15" font-weight="700" fill="var(--good)">230.8%</text>';
+document.getElementById("goal").innerHTML=goal;
+</script>
+</body>
+</html>
