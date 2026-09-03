@@ -41,6 +41,13 @@
   .hero .en{font-size:20px;line-height:1.2;color:var(--teal);font-weight:600;margin-bottom:24px;}
   .hero p{font-size:18px;max-width:34em;margin:0 0 32px;}
   .heroPanel{background:var(--peach);border-radius:var(--r-card);padding:32px;}
+  .panelTitle{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin:0 0 20px;}
+  ol.outcomes{list-style:none;margin:0;padding:0;counter-reset:o;}
+  ol.outcomes li{padding:14px 0;border-bottom:1px solid rgba(15,22,30,.10);font-size:18px;
+    line-height:1.35;color:var(--ink);font-weight:600;}
+  ol.outcomes li:last-child{border-bottom:none;padding-bottom:0;}
+  ol.outcomes span{display:block;font-size:11px;letter-spacing:.12em;color:var(--teal);
+    font-weight:700;margin-bottom:4px;}
   .heroPanel dl{display:grid;grid-template-columns:1fr;gap:16px;margin:0;}
   .heroPanel .row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
     padding-bottom:16px;border-bottom:1px solid rgba(15,22,30,.10);}
@@ -124,12 +131,13 @@
     <a class="ghost" href="#results">성과 보기</a>
   </div>
   <div class="heroPanel">
-    <dl>
-      <div class="row"><dt>총사업비</dt><dd>968만 USD</dd></div>
-      <div class="row"><dt>사업기간</dt><dd>60개월</dd></div>
-      <div class="row"><dt>사업 구성</dt><dd>4개 분과</dd></div>
-      <div class="row"><dt>사업지역</dt><dd>베트남 호치민</dd></div>
-    </dl>
+    <p class="panelTitle">사업이 목표하는 변화</p>
+    <ol class="outcomes">
+      <li><span>1분과</span>질적으로 향상된 의학교육</li>
+      <li><span>2분과</span>질적으로 향상된 의료 임상역량</li>
+      <li><span>3분과</span>향상된 연구역량</li>
+      <li><span>4분과</span>양적·질적으로 개선된 산학협력·혁신연구활동</li>
+    </ol>
   </div>
 </div></div></div>
 
