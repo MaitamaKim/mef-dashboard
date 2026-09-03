@@ -115,46 +115,53 @@
   .barrow .v b{font-weight:800;color:var(--ink);}
   @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
 
-  /* ---------- 사업 구성: 파이프라인 카드 ---------- */
-  .pipeline{display:flex;align-items:stretch;gap:0;margin-top:8px;}
-  .pnode{background:var(--paper);color:var(--ink);flex:1;min-width:0;padding:24px;
-    border-top:4px solid var(--violet);
-    opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease,border-color .3s;}
-  .pipeline.in .pnode{opacity:1;transform:none;}
-  .pnode:hover,.pnode:focus-within{border-top-color:var(--magenta);}
-  .pnode:focus{outline:none;}
-  .pnode:focus-visible{outline:2px solid var(--magenta);outline-offset:-2px;}
-  .pnode .picon{width:30px;height:30px;color:var(--violet);margin-bottom:14px;}
-  .pnode .picon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.6;
+
+  /* ---------- 사업 구성: 저니(세로 전환) ---------- */
+  .journey{position:relative;height:400vh;background:var(--violet);}
+  .jstage{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;}
+  .jgrid{display:grid;grid-template-columns:minmax(300px,34%) 1fr;gap:64px;width:100%;
+    position:relative;min-height:440px;}
+  .jcol{position:relative;min-height:440px;}
+  .jslot{position:absolute;inset:0;opacity:0;transform:translateY(46px);
+    transition:opacity .55s ease,transform .55s ease;pointer-events:none;}
+  .jslot.on{opacity:1;transform:none;pointer-events:auto;}
+  .jslot.prev{transform:translateY(-46px);}
+
+  .jicon{width:132px;height:132px;color:var(--magenta);}
+  .jicon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:3;
     stroke-linecap:round;stroke-linejoin:round;}
-  .pnode:hover .picon,.pnode:focus-within .picon{color:var(--magenta);}
-  .pnode .chip{font-size:12px;padding:4px 11px;}
-  .pnode h3{font-size:19px;line-height:1.3;margin:12px 0 0;}
-  .pdetail{max-height:0;overflow:hidden;opacity:0;
-    transition:max-height .45s ease,opacity .3s ease,margin-top .45s ease;}
-  .pnode:hover .pdetail,.pnode:focus-within .pdetail{max-height:280px;opacity:1;margin-top:16px;}
-  .pdetail ul{list-style:none;margin:0;padding:0;}
-  .pdetail li{font-size:13.5px;color:var(--steel-txt);padding:7px 0 7px 16px;position:relative;
-    border-top:1px solid var(--ash);}
-  .pdetail li:first-child{border-top:none;}
-  .pdetail li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;
-    background:var(--magenta);}
-  .pconn{flex:0 0 40px;display:flex;align-items:flex-start;justify-content:center;padding-top:38px;}
-  .pconn .ptrack{position:relative;width:100%;height:2px;background:rgba(255,255,255,.28);}
-  .pconn .pfill{position:absolute;inset:0;background:var(--magenta);
-    transform-origin:left center;transform:scaleX(0);transition:transform .6s ease;}
-  .pconn.in .pfill{transform:scaleX(1);}
-  .pconn .parrow{margin-left:2px;color:rgba(255,255,255,.55);font-size:14px;line-height:1;
-    transform:translateY(-6px);}
-  @media(max-width:900px){.pipeline{flex-direction:column;}
-    .pconn{display:none;}
-    .pnode{border-top:none;border-left:4px solid var(--violet);}}
-  @media (prefers-reduced-motion:reduce){
-    .pnode{opacity:1;transform:none;transition:none;}
-    .pconn .pfill{transform:scaleX(1);transition:none;}
+  .jstep{font-size:44px;font-weight:800;color:#fff;margin-top:26px;line-height:1;}
+  .jtarget{margin-top:20px;padding-top:18px;border-top:2px solid rgba(255,255,255,.25);max-width:300px;}
+  .jtarget span{display:block;font-size:12.5px;font-weight:800;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--magenta);margin-bottom:6px;}
+  .jtarget b{font-size:17px;font-weight:700;color:#fff;line-height:1.4;}
+
+  .jimpact{font-size:34px;font-weight:800;color:#fff;line-height:1.2;margin:0 0 26px;}
+  .joc{font-size:12.5px;font-weight:800;letter-spacing:.14em;color:var(--magenta);margin-bottom:8px;}
+  .joctitle{font-size:19px;font-weight:800;color:#fff;margin-bottom:22px;
+    padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.22);}
+  .jacts{list-style:none;margin:0;padding:0;}
+  .jacts li{font-size:16px;color:#fff;padding:9px 0 9px 18px;position:relative;line-height:1.45;}
+  .jacts li::before{content:"";position:absolute;left:0;top:17px;width:7px;height:7px;background:var(--magenta);}
+  .jacts small{display:block;font-size:13.5px;color:var(--ash);margin-top:4px;}
+
+  .jdots{position:absolute;right:32px;top:50%;transform:translateY(-50%);
+    display:flex;flex-direction:column;gap:12px;z-index:3;}
+  .jdots i{display:block;width:3px;height:34px;background:rgba(255,255,255,.28);transition:background .3s;}
+  .jstage[data-scene="1"] .jdots i:nth-child(1),
+  .jstage[data-scene="2"] .jdots i:nth-child(2),
+  .jstage[data-scene="3"] .jdots i:nth-child(3),
+  .jstage[data-scene="4"] .jdots i:nth-child(4){background:var(--magenta);}
+
+  @media(max-width:900px){
+    .journey{height:auto;}
+    .jstage{position:relative;height:auto;padding:48px 0;display:block;}
+    .jgrid{grid-template-columns:1fr;gap:32px;min-height:0;}
+    .jcol{min-height:0;}
+    .jslot{position:relative;opacity:1;transform:none;margin-bottom:56px;}
+    .jdots{display:none;}
   }
-
-
+  @media (prefers-reduced-motion:reduce){.jslot{transition:none;}}
 
   /* ---------- 분과별 세부활동 박스 ---------- */
   .divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
@@ -254,43 +261,69 @@
 </div></section>
 
 <!-- STRUCTURE -->
-<section id="structure" class="violet"><div class="wrap">
+<section id="structure" class="violet" style="padding:80px 0 32px"><div class="wrap">
   <p class="kick" style="color:#fff">Structure</p>
   <h2 class="sec">사업 구성</h2>
-  <p class="lead" style="color:#fff">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
-    학생을 가르치는 교육에서 시작해 의사를 길러내는 수련, 지식을 생산하는 연구, 그 지식을 사회로 옮기는 산학협력까지 —
-    대학이 갖춰야 할 기능 전반을 아우르는 구조입니다.</p>
-  <div class="pipeline" id="pipeline">
-    <div class="pnode" tabindex="0">
-      <div class="picon"><svg viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M7 10.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-5.5"/><path d="M21 8v6"/></svg></div>
-      <span class="chip">1분과 · 의학교육</span>
-      <h3>의학교육의 질을 세우다</h3>
-      <div class="pdetail"><ul><li>ICT 기반 참여형 교육과정 (FL/TBL)</li><li>국제 평가인증 대응 (ASK2019)</li><li>졸업시험 문항개발</li><li>국가고시(NMLE) 도입 지원</li><li>온라인 교육 플랫폼·미디어 스튜디오</li><li>교원 초청연수</li></ul></div>
-    </div>
-    <div class="pconn"><span class="ptrack"><span class="pfill"></span></span><span class="parrow">›</span></div>
-    <div class="pnode" tabindex="0">
-      <div class="picon"><svg viewBox="0 0 24 24"><path d="M6 3v6a5 5 0 0 0 10 0V3"/><path d="M6 3H4M16 3h2"/><path d="M11 14v2a5 5 0 0 0 10 0v-1"/><circle cx="21" cy="12" r="2"/></svg></div>
-      <span class="chip">2분과 · 임상수련</span>
-      <h3>병상 옆, 임상역량</h3>
-      <div class="pdetail"><ul><li>전공의 수련 프로그램 평가 (11개 전공과)</li><li>연차별 수련 지표·개선안 도입</li><li>세부전문의 수련과정 도입</li><li>교수·전공의 초청연수</li><li>현지 임상 모니터링·자문</li></ul></div>
-    </div>
-    <div class="pconn"><span class="ptrack"><span class="pfill"></span></span><span class="parrow">›</span></div>
-    <div class="pnode" tabindex="0">
-      <div class="picon"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L5 19a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 19l-5-10V3"/><path d="M7.5 15h9"/></svg></div>
-      <span class="chip">3분과 · 연구역량</span>
-      <h3>연구하는 대학으로</h3>
-      <div class="pdetail"><ul><li>샌드위치 펠로우십 (교수·대학원생)</li><li>연구지원시스템 구축 (통계·영문교정)</li><li>학술지 MPR 발전계획</li><li>YMJ-MPR 멘토링</li><li>논문작성 교육</li></ul></div>
-    </div>
-    <div class="pconn"><span class="ptrack"><span class="pfill"></span></span><span class="parrow">›</span></div>
-    <div class="pnode" tabindex="0">
-      <div class="picon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M4 21V10l5 3V10l5 3V6l6 4v11"/><path d="M9 21v-4h4v4"/></svg></div>
-      <span class="chip">4분과 · 산학협력</span>
-      <h3>대학과 산업을 잇다</h3>
-      <div class="pdetail"><ul><li>산학협력 워크숍 (제약·디지털헬스)</li><li>산학 공동연구 지원</li><li>연구역량강화 컨설팅·강의</li><li>공동연구 기자재 지원</li></ul></div>
-    </div>
-  </div>
-</div>
+  <p class="lead" style="color:#fff;margin-bottom:0">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
+    학부 교육에서 시작해 임상 수련, 연구, 산학협력까지 — 의료인력 양성의 전 과정을 아우릅니다.</p>
 </div></section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="jstage" id="jstage" data-scene="1">
+    <div class="wrap jgrid">
+      <div class="jcol">
+        <div class="jslot" data-s="1">
+          <div class="jicon"><svg viewBox="0 0 64 64"><path d="M6 24 L32 13 L58 24 L32 35 Z"/><path d="M17 29 v11 c0 4.5 6.7 8 15 8 s15-3.5 15-8 v-11"/><path d="M54 26 v13"/><circle cx="54" cy="43" r="3.5"/></svg></div>
+          <div class="jstep">학부</div>
+          <div class="jtarget"><span>주요 대상</span><b>의과대학 학부생</b></div>
+        </div>
+        <div class="jslot" data-s="2">
+          <div class="jicon"><svg viewBox="0 0 64 64"><path d="M17 8 v13 a11 11 0 0 0 22 0 V8"/><path d="M12 8 h9 M35 8 h9"/><path d="M28 32 v9 a10 10 0 0 0 20 0 v-3"/><circle cx="48" cy="30" r="7"/></svg></div>
+          <div class="jstep">임상</div>
+          <div class="jtarget"><span>주요 대상</span><b>전공의 · 세부전문의 수련과정</b></div>
+        </div>
+        <div class="jslot" data-s="3">
+          <div class="jicon"><svg viewBox="0 0 64 64"><path d="M25 8 h14"/><path d="M28 8 v15 L14 46 a5 5 0 0 0 4.3 7.5 h27.4 A5 5 0 0 0 50 46 L36 23 V8"/><path d="M19 40 h26"/></svg></div>
+          <div class="jstep">연구</div>
+          <div class="jtarget"><span>주요 대상</span><b>교수 · 석박사 신진연구자</b></div>
+        </div>
+        <div class="jslot" data-s="4">
+          <div class="jicon"><svg viewBox="0 0 64 64"><circle cx="13" cy="47" r="7.5"/><circle cx="51" cy="47" r="7.5"/><circle cx="32" cy="13" r="7.5"/><path d="M18 41 L27 20 M46 41 L37 20 M21 47 h22"/></svg></div>
+          <div class="jstep">산학</div>
+          <div class="jtarget"><span>주요 대상</span><b>산업 연계 연구팀</b></div>
+        </div>
+      </div>
+      <div class="jcol">
+        <div class="jslot" data-s="1">
+          <p class="jimpact">의학교육의 질을 세우다</p>
+          <div class="joc">OUTCOME 1</div>
+          <div class="joctitle">질적으로 향상된 의학교육</div>
+          <ul class="jacts"><li>ICT 기반 의학교육 개선<small>미디어 스튜디오·온라인 학습플랫폼 구축, FL/TBL 학습모듈 개발</small></li><li>국제기준에 따른 평가인증</li><li>졸업시험 문항개발</li><li>의학교육 전담교수 초청연수</li><li>의학교육 워크숍 실시</li><li>의학교육 관련기구 역량강화</li></ul>
+        </div>
+        <div class="jslot" data-s="2">
+          <p class="jimpact">병상 옆, 임상역량</p>
+          <div class="joc">OUTCOME 2</div>
+          <div class="joctitle">질적으로 향상된 의료 임상역량</div>
+          <ul class="jacts"><li>임상과별 전공의 임상수련 프로그램 평가 및 개선</li><li>세부 전문의 수련과정 도입</li><li>임상과별 교수·전공의 초청연수</li></ul>
+        </div>
+        <div class="jslot" data-s="3">
+          <p class="jimpact">연구하는 대학으로</p>
+          <div class="joc">OUTCOME 3</div>
+          <div class="joctitle">향상된 연구역량</div>
+          <ul class="jacts"><li>교수 연구력 강화 샌드위치 펠로우십<small>초청연수</small></li><li>석·박사 신진연구자 양성 샌드위치 펠로우십<small>초청연수</small></li><li>한국 지도교수–초청연수생 공동연구 수행</li><li>호치민의약학대 학술지 개선</li><li>연구지원제도 구축</li></ul>
+        </div>
+        <div class="jslot" data-s="4">
+          <p class="jimpact">대학과 산업을 잇다</p>
+          <div class="joc">OUTCOME 4</div>
+          <div class="joctitle">개선된 산학협력·혁신연구활동</div>
+          <ul class="jacts"><li>산학협력 워크숍</li><li>산학협력 공동연구 실시</li><li>산학협력 연구역량강화 프로그램 운영</li><li>산학협력 공동연구 기자재 지원</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="jdots"><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
 
 <!-- RESULTS -->
 <section id="results"><div class="wrap">
@@ -488,31 +521,34 @@
   })();
 
 
-  // ---------- 사업 구성 파이프라인: 스크롤 진입 시 순차 등장 ----------
+
+  // ---------- 사업 구성 저니: 스크롤에 따른 세로 전환 ----------
   (function(){
-    var pipe=document.getElementById('pipeline');
-    if(!pipe) return;
-    var nodes=[].slice.call(pipe.querySelectorAll('.pnode'));
-    var conns=[].slice.call(pipe.querySelectorAll('.pconn'));
-    function reveal(){
-      if(reduce){
-        pipe.classList.add('in');
-        conns.forEach(function(c){c.classList.add('in');});
-        return;
-      }
-      nodes.forEach(function(n,i){
-        setTimeout(function(){ n.classList.add('in'); pipe.classList.add('in'); }, i*260);
-      });
-      conns.forEach(function(c,i){
-        setTimeout(function(){ c.classList.add('in'); }, 180+i*260);
+    var sec=document.getElementById('journey'), stage=document.getElementById('jstage');
+    if(!sec||!stage) return;
+    var cols=[].slice.call(stage.querySelectorAll('.jcol'));
+    var cur=0;
+    function apply(idx){
+      cur=idx;
+      stage.dataset.scene=String(idx+1);
+      cols.forEach(function(col){
+        [].slice.call(col.querySelectorAll('.jslot')).forEach(function(sl,i){
+          sl.classList.toggle('on', i===idx);
+          sl.classList.toggle('prev', i<idx);
+        });
       });
     }
-    if('IntersectionObserver' in window){
-      var io3=new IntersectionObserver(function(es){es.forEach(function(e){
-        if(e.isIntersecting){ reveal(); io3.unobserve(e.target); }
-      });},{threshold:.3});
-      io3.observe(pipe);
-    } else { reveal(); }
+    function onScroll(){
+      var r=sec.getBoundingClientRect(), total=sec.offsetHeight-window.innerHeight;
+      if(total<=0){ apply(0); return; }
+      var p=Math.min(Math.max(-r.top/total,0),0.999);
+      var idx=Math.floor(p*4);
+      if(idx!==cur) apply(idx);
+    }
+    apply(0);
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    onScroll();
   })();
 
   var heads=[].slice.call(document.querySelectorAll('.dbox .dnum[data-num]'));
