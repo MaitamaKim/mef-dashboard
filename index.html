@@ -41,7 +41,7 @@
   .heroBg img.on{opacity:1;}
   .hero .wrap{position:relative;z-index:2;}
   .hero h1{font-size:80px;line-height:1;margin-bottom:20px;color:#fff;}
-  .hero .kick{color:var(--magenta);}
+  .hero .kick{color:#fff;}
   .hero .en{font-size:22px;font-weight:700;color:var(--magenta);margin-bottom:20px;}
   .hero p.lede{font-size:18px;max-width:44em;margin:0 0 40px;color:#fff;}
 
@@ -55,14 +55,7 @@
   .outcomes div:hover,.outcomes div:focus-visible{background:rgba(251,0,194,.22);
     border-color:rgba(251,0,194,.9);outline:none;}
 
-  /* 하단 타이머 바 */
-  .heroTimer{position:relative;z-index:2;display:flex;justify-content:flex-end;
-    margin-top:18px;padding-bottom:4px;}
-  .heroTimer .track{width:132px;height:3px;background:rgba(255,255,255,.28);overflow:hidden;}
-  .heroTimer .bar{height:100%;width:0%;background:var(--magenta);}
-  .heroTimer .bar.run{animation:heroFill 5s linear forwards;}
-  @keyframes heroFill{from{width:0%}to{width:100%}}
-  @media (prefers-reduced-motion:reduce){.heroBg img{transition:none;}.heroTimer{display:none;}}
+  @media (prefers-reduced-motion:reduce){.heroBg img{transition:none;}}
 
   /* sections */
   section{padding:80px 0;}
@@ -73,7 +66,7 @@
   section.violet .card .note{color:var(--steel);}
   h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
   p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
-  .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--magenta);margin-bottom:12px;letter-spacing:0;}
+  .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
@@ -177,14 +170,13 @@
     <p class="kick">KOICA · Yonsei University Health System · UMP</p>
     <h1>미래를 위한<br>의학교육</h1>
     <p class="en">Medical Education for the Future</p>
-    <p class="lede">베트남 호치민의약학대학교 교육연구 역량강화 사업의 추진현황 및 주요 성과를 정리했습니다.</p>
+    <p class="lede">베트남 호치민의약학대학교 교육연구 역량강화 사업 추진현황 및 주요 성과</p>
     <div class="outcomes" id="outcomes">
       <div tabindex="0" data-sector="s1">질적으로 향상된<br>의학교육</div>
       <div tabindex="0" data-sector="s2">질적으로 향상된<br>의료 임상역량</div>
       <div tabindex="0" data-sector="s3">향상된<br>연구역량</div>
       <div tabindex="0" data-sector="s4">개선된 산학협력·<br>혁신연구활동</div>
     </div>
-    <div class="heroTimer"><span class="track"><span class="bar" id="heroBar"></span></span></div>
   </div>
 </div>
 
@@ -422,34 +414,26 @@
     var imgs=[].slice.call(bg.querySelectorAll('img'));
     var order=['org1','s1','org2','s2','org3','s3','org4','s4'];
     var byKey={}; imgs.forEach(function(im){ byKey[im.dataset.key]=im; });
-    var bar=document.getElementById('heroBar');
     var cur=0, timer=null, hovering=false;
 
     function showKey(key){
       imgs.forEach(function(im){ im.classList.toggle('on', im.dataset.key===key); });
     }
-    function resetBar(){
-      if(!bar) return;
-      bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
-    }
     function goto(i){
       cur=(i+order.length)%order.length;
       showKey(order[cur]);
-      resetBar();
     }
     function tick(){ if(!hovering) goto(cur+1); }
     function startAuto(){
       if(reduce) return;
       clearInterval(timer);
       timer=setInterval(tick,5000);
-      resetBar();
     }
     startAuto();
 
     document.querySelectorAll('#outcomes > div').forEach(function(cell){
       function enter(){
         hovering=true;
-        if(bar) bar.classList.remove('run');
         var key=cell.dataset.sector;
         if(byKey[key]) showKey(key);
       }
@@ -457,7 +441,6 @@
         hovering=false;
         var idx=order.indexOf(cell.dataset.sector);
         if(idx>=0) cur=idx;
-        resetBar();
       }
       cell.addEventListener('mouseenter', enter);
       cell.addEventListener('mouseleave', leave);
