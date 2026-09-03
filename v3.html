@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미래를 위한 의학교육 — MEF Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676;
+    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--blush);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    font-size:18px;line-height:1.45;letter-spacing:-.02em;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.02em;}
+  a{color:var(--ink);}
+
+  /* nav */
+  nav{background:var(--blush);position:sticky;top:0;z-index:30;}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;}
+  .mark{font-weight:800;font-size:20px;text-transform:uppercase;text-decoration:none;letter-spacing:-.02em;}
+  .nlinks{display:flex;gap:28px;font-size:16px;font-weight:700;}
+  .nlinks a{text-decoration:none;}
+  .btn{display:inline-block;background:var(--magenta);color:#fff;border:0;border-radius:0;
+    padding:10px 18px;font-weight:800;font-size:15px;text-transform:uppercase;text-decoration:none;letter-spacing:-.01em;}
+  .btn.violet{background:var(--violet);}
+  .vsw{display:inline-flex;border:1px solid var(--ink);border-radius:50px;overflow:hidden;font-size:13px;font-weight:800;}
+  .vsw a{padding:6px 14px;text-decoration:none;color:var(--ink);}
+  .vsw a.on{background:var(--ink);color:#fff;}
+  .chip{display:inline-block;border:1px solid var(--ink);border-radius:50px;padding:6px 14px;
+    font-size:14px;font-weight:700;}
+
+  /* hero */
+  .hero{padding:72px 0 88px;}
+  .hero h1{font-size:80px;line-height:1;margin-bottom:20px;}
+  .hero .en{font-size:22px;font-weight:700;color:var(--magenta);margin-bottom:20px;}
+  .hero p.lede{font-size:18px;max-width:44em;margin:0 0 36px;}
+  .outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;
+    border-top:2px solid var(--ink);}
+  .outcomes div{border-bottom:2px solid var(--ink);padding:20px 16px 20px 0;font-size:22px;
+    font-weight:800;line-height:1.2;}
+  @media(min-width:900px){.outcomes div{border-right:2px solid var(--ink);padding-right:20px}
+    .outcomes div:last-child{border-right:none}}
+
+  /* sections */
+  section{padding:80px 0;}
+  section.violet{background:var(--violet);color:#fff;}
+  section.violet h2,section.violet h3{color:#fff;}
+  h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
+  p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
+  .kick{font-size:16px;font-weight:800;text-transform:uppercase;color:var(--magenta);margin-bottom:12px;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--paper);border-radius:0;padding:24px;}
+  .card.ash{background:var(--ash);}
+  .card h3{font-size:24px;line-height:1.38;margin-bottom:12px;}
+  .card p{font-size:16px;margin:0 0 16px;}
+
+  dl.facts{display:grid;grid-template-columns:130px 1fr;gap:10px 20px;margin:0;font-size:16px;}
+  dl.facts dt{color:var(--steel);font-weight:700;}
+  dl.facts dd{margin:0;}
+
+  ul.ticks{list-style:none;margin:0;padding:0;font-size:16px;}
+  ul.ticks li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--ash);}
+  ul.ticks li:last-child{border-bottom:none;}
+  ul.ticks b{font-weight:800;}
+
+  table{border-collapse:collapse;width:100%;font-size:16px;}
+  th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--ash);}
+  thead th{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--steel);}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
+  tbody tr:last-child td{border-bottom:none;}
+  .note{font-size:14px;color:var(--steel);margin-top:16px;line-height:1.45;}
+  sup{font-size:11px;}
+
+  .barrow{display:grid;grid-template-columns:140px 1fr 66px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
+  .track{display:block;background:var(--ash);height:16px;}
+  .fill{display:block;height:100%;background:var(--violet);transform-origin:left center;transform:scaleX(0);
+    transition:transform .85s cubic-bezier(.22,.9,.3,1);}
+  .fill.pending{background:var(--steel);}
+  .bars.in .fill{transform:scaleX(1);}
+  .barrow .v{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;}
+  @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
+
+  .bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;}
+  .bignums .n{font-size:80px;line-height:1;font-weight:800;color:var(--magenta);}
+  .bignums .l{font-size:18px;font-weight:800;margin-top:8px;}
+  .bignums .s{font-size:14px;color:var(--steel);margin-top:4px;}
+  section.violet .bignums .n{color:var(--magenta);}
+  section.violet .bignums .s{color:var(--ash);}
+
+  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);max-width:20em;}
+  .quote .attr{display:block;font-size:22px;color:var(--orange);margin-top:16px;font-weight:700;}
+
+  footer{background:var(--violet);color:#fff;padding:64px 0;font-size:14px;line-height:1.6;}
+  footer a{color:#fff;}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="mark" href="#">MEF Project</a>
+  <div class="nlinks">
+    <a href="#about">사업 개요</a><a href="#structure">사업 구성</a><a href="#results">성과</a><a href="#recognition">대외 인정</a>
+  </div>
+  <span style="display:flex;align-items:center;gap:14px">
+    <span class="vsw"><a href="index.html">V1</a><a href="v2.html">V2</a><a class="on" href="v3.html">V3</a></span>
+    <a class="btn" href="research.html">연구성과</a>
+  </span>
+</div></nav>
+
+<!-- HERO -->
+<div class="hero"><div class="wrap">
+  <p class="kick">KOICA · Yonsei University Health System · UMP</p>
+  <h1>미래를 위한<br>의학교육</h1>
+  <p class="en">Medical Education for the Future</p>
+  <p class="lede">베트남 호치민의약학대학교 교육연구 역량강화 사업의 추진현황 및 주요 성과를 정리했습니다.</p>
+  <div class="outcomes">
+    <div>질적으로 향상된<br>의학교육</div>
+    <div>질적으로 향상된<br>의료 임상역량</div>
+    <div>향상된<br>연구역량</div>
+    <div>개선된 산학협력·<br>혁신연구활동</div>
+  </div>
+</div></div>
+
+<!-- ABOUT -->
+<section id="about"><div class="wrap">
+  <p class="kick">About</p>
+  <h2 class="sec">사업 개요</h2>
+  <div class="grid2">
+    <div class="card">
+      <dl class="facts">
+        <dt>사업명</dt><dd>베트남 호치민의약학대학교 교육연구 역량강화사업</dd>
+        <dt>사업기간</dt><dd>2021.12 ~ 2026.12 (60개월)</dd>
+        <dt>사업예산</dt><dd>USD 9,680,000</dd>
+        <dt>사업지역</dt><dd>베트남 호치민시</dd>
+      </dl>
+    </div>
+    <div class="card ash">
+      <dl class="facts">
+        <dt>지원기관</dt><dd>KOICA (한국국제협력단)</dd>
+        <dt>수행기관</dt><dd>연세대학교 의료원</dd>
+        <dt>협력기관</dt><dd>호치민의약학대학교 (UMP)</dd>
+        <dt>사업목표</dt><dd>UMP의 보건의료 인력 양성 역량 강화를 통한 베트남 보건의료 서비스 질 향상</dd>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<!-- STRUCTURE -->
+<section id="structure" class="violet"><div class="wrap">
+  <p class="kick" style="color:#fff">Structure</p>
+  <h2 class="sec">사업 구성</h2>
+  <p class="lead" style="color:#fff">본 사업은 <b>의학교육 · 임상수련 · 연구역량 · 산학협력</b> 네 개 분과로 구성됩니다.
+    학생을 가르치는 교육에서 시작해 의사를 길러내는 수련, 지식을 생산하는 연구, 그 지식을 사회로 옮기는 산학협력까지 —
+    대학이 갖춰야 할 기능 전반을 아우르는 구조입니다.</p>
+  <div class="grid4">
+    <div class="card">
+      <span class="chip">1분과 · 의학교육</span>
+      <h3 style="margin-top:14px">의학교육의 질을 세우다</h3>
+      <ul class="ticks">
+        <li>FL/TBL 학습모듈 <b>182개</b></li>
+        <li>졸업시험 문항 <b>900개</b></li>
+        <li>의학교육 워크숍 <b>16차</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="chip">2분과 · 임상수련</span>
+      <h3 style="margin-top:14px">병상 옆, 임상역량</h3>
+      <ul class="ticks">
+        <li>프로그램 개선안 <b>11개</b></li>
+        <li>교수·전공의 단기연수 <b>24명</b></li>
+        <li>PRIMO 충족률 <b>72.1%</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="chip">3분과 · 연구역량</span>
+      <h3 style="margin-top:14px">연구하는 대학으로</h3>
+      <ul class="ticks">
+        <li>펠로우십 수료 <b>41명</b></li>
+        <li>논문·학회 실적 <b>90건</b></li>
+        <li>연구지원 <b>809건</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="chip">4분과 · 산학협력</span>
+      <h3 style="margin-top:14px">대학과 산업을 잇다</h3>
+      <ul class="ticks">
+        <li>공동연구 <b>52건</b></li>
+        <li>국제학술대회 <b>42건</b></li>
+        <li>기술이전 <b>1건</b></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- RESULTS -->
+<section id="results"><div class="wrap">
+  <p class="kick">Results</p>
+  <h2 class="sec">성과</h2>
+  <p class="lead">사업 성과관리 기준(PDM)에 따른 목표 대비 달성 현황입니다.
+    성과지표 4개 중 2개가 목표치를 달성했고, 산출물 지표 9개 중 8개가 목표를 달성했습니다.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>성과 (Outcomes)</h3>
+      <table>
+        <thead><tr><th>성과지표</th><th class="n">목표</th><th class="n">현황</th></tr></thead>
+        <tbody>
+          <tr><td>국제인증 평가항목 충족률 <sup>1)</sup></td><td class="n">80%</td><td class="n">45.71%</td></tr>
+          <tr><td>임상수련 프로그램 실행률 <sup>1)</sup></td><td class="n">100%</td><td class="n">64%</td></tr>
+          <tr><td>국제수준 연구업적 비중 <sup>2)</sup></td><td class="n">50%</td><td class="n"><b>219.5%</b></td></tr>
+          <tr><td>산학협력 국제업적 비중 <sup>2)</sup></td><td class="n">50%</td><td class="n"><b>126.9%</b></td></tr>
+        </tbody>
+      </table>
+      <p class="note">1) 2025년 11월 기준 · 2) 2026.9.1. 기준<br>
+        2)는 연구성과 목록으로 재산출 — 연구업적 = 업적 90건 ÷ 펠로우 41명, 산학업적 = 업적 66건 ÷ 공동연구 52건.</p>
+    </div>
+    <div class="card ash">
+      <h3>산출물 (Outputs)</h3>
+      <div class="bars" id="bars">
+        <div class="barrow"><span>ICT 개편 과목</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">112.5%</span></div>
+        <div class="barrow"><span>국제인증 평가</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">100%</span></div>
+        <div class="barrow"><span>졸업시험 문항</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">100%</span></div>
+        <div class="barrow"><span>의학교육 전담부서</span><span class="track"><span class="fill pending" style="width:2%"></span></span><span class="v">0%</span></div>
+        <div class="barrow"><span>임상수련 개선안</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">100%</span></div>
+        <div class="barrow"><span>펠로우십 수료</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">100%</span></div>
+        <div class="barrow"><span>연구지원 건수</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">288.9%</span></div>
+        <div class="barrow"><span>산학 공동연구</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">100%</span></div>
+        <div class="barrow"><span>산학 강의지원</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">121.4%</span></div>
+      </div>
+      <p class="note">막대는 목표 대비 진척이며, 목표를 초과한 지표는 100%에서 표시가 멈춥니다(실제 달성률은 우측 수치).
+        의학교육 전담부서 수는 2026년 말 측정 예정입니다.</p>
+    </div>
+  </div>
+
+  <div class="bignums">
+    <div><div class="n">182</div><div class="l">FL/TBL 학습모듈</div><div class="s">8개 임상과 · 온라인 플랫폼 탑재</div></div>
+    <div><div class="n">1,500</div><div class="l">국가고시 인계 문항</div><div class="s">본시험 900 · 모의 600</div></div>
+    <div><div class="n">41</div><div class="l">펠로우십 수료</div><div class="s">교수 23 · 석박사 18</div></div>
+    <div><div class="n">809</div><div class="l">연구지원 건수</div><div class="s">목표 280 대비 288.9%</div></div>
+  </div>
+  <p style="margin-top:40px"><a class="btn violet" href="research.html">세부 연구성과 보기</a></p>
+</div></section>
+
+<!-- RECOGNITION -->
+<section id="recognition" class="violet"><div class="wrap">
+  <p class="kick" style="color:#fff">Recognition</p>
+  <h2 class="sec">대외 인정</h2>
+  <div class="quote">한 대학의 역량강화가 국가 시험제도 구축으로 이어졌습니다.
+    <span class="attr">— 전국 29개 의과대학 3,236명이 응시한 첫 국가단위 모의시험, 2026.08</span></div>
+  <div class="grid4" style="margin-top:56px">
+    <div class="card"><h3 style="font-size:20px">KOICA 우수성과 경진대회 우수상</h3><p style="margin:0">2025.10 · 동남아시아 사업성과 부문</p></div>
+    <div class="card"><h3 style="font-size:20px">국회 외교통일위원회 현지 방문</h3><p style="margin:0">2025.12 · 사업 현장 점검</p></div>
+    <div class="card"><h3 style="font-size:20px">UMP 국가 중점대학 지정</h3><p style="margin:0">2026.05 · 총리 결정문 966/QĐ-TTg</p></div>
+    <div class="card"><h3 style="font-size:20px">언론보도 36건</h3><p style="margin:0">2022~2026 · 국외 23 · 국내 13</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  근거 — PDM 지표: 지표정의서(2025-07-31) · 실적치: 성과점검표(2025-11-20) · 연구성과: 사업단 개별 실적 목록(2026-09-02).<br>
+  본 페이지에는 확정 수치만 게시하며, 종료선 조사 결과는 확정 후 반영합니다.<br><br>
+  © 2026 베트남 호치민의약학대학교 교육연구 역량강화 사업 (KOICA · 연세대학교 의료원)
+</div></footer>
+
+<script>
+(function(){
+  var b=document.getElementById('bars');
+  if(!('IntersectionObserver' in window)){b.classList.add('in');return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.fill').forEach(function(f,i){f.style.transitionDelay=(i*55)+'ms';});
+      e.target.classList.add('in'); io.unobserve(e.target);}
+  });},{threshold:.25});
+  io.observe(b);
+})();
+</script>
+</body>
+</html>
