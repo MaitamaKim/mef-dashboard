@@ -43,9 +43,10 @@
   .hero p.lede{font-size:18px;max-width:44em;margin:0 0 36px;}
   .outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;
     border-top:2px solid var(--ink);}
-  .outcomes div{border-bottom:2px solid var(--ink);padding:20px 16px 20px 0;font-size:22px;
-    font-weight:800;line-height:1.2;}
-  @media(min-width:900px){.outcomes div{border-right:2px solid var(--ink);padding-right:20px}
+  .outcomes div{border-bottom:2px solid var(--ink);padding:26px 16px;font-size:22px;
+    font-weight:800;line-height:1.25;text-align:center;display:flex;align-items:center;
+    justify-content:center;min-height:112px;}
+  @media(min-width:900px){.outcomes div{border-right:2px solid var(--ink);}
     .outcomes div:last-child{border-right:none}}
 
   /* sections */
@@ -62,7 +63,7 @@
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
   @media(max-width:900px){.grid2{grid-template-columns:1fr}}
-  .card{background:var(--paper);border-radius:0;padding:24px;}
+  .card{background:var(--paper);border-radius:0;padding:24px;display:flex;flex-direction:column;}
   .card.ash{background:var(--ash);}
   .card h3{font-size:24px;line-height:1.38;margin-bottom:12px;}
   .card p{font-size:16px;margin:0 0 16px;}
@@ -81,7 +82,7 @@
   thead th{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--steel-txt);}
   td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
   tbody tr:last-child td{border-bottom:none;}
-    .note{font-size:14px;color:var(--steel-txt);margin-top:16px;line-height:1.45;}
+    .note{font-size:14px;color:var(--steel-txt);margin-top:auto;padding-top:32px;line-height:1.45;}
   sup{font-size:11px;}
 
   .barrow{display:grid;grid-template-columns:140px 1fr 66px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
@@ -246,10 +247,10 @@
   </div>
 
   <div class="bignums">
-    <div><div class="n">182</div><div class="l">FL/TBL 학습모듈</div><div class="s">8개 임상과 · 온라인 플랫폼 탑재</div></div>
-    <div><div class="n">1,500</div><div class="l">국가고시 인계 문항</div><div class="s">본시험 900 · 모의 600</div></div>
-    <div><div class="n">41</div><div class="l">펠로우십 수료</div><div class="s">교수 23 · 석박사 18</div></div>
-    <div><div class="n">809</div><div class="l">연구지원 건수</div><div class="s">목표 280 대비 288.9%</div></div>
+    <div><div class="n" data-num="182">182</div><div class="l">FL/TBL 학습모듈</div><div class="s">8개 임상과 · 온라인 플랫폼 탑재</div></div>
+    <div><div class="n" data-num="1500">1,500</div><div class="l">국가고시 인계 문항</div><div class="s">본시험 900 · 모의 600</div></div>
+    <div><div class="n" data-num="41">41</div><div class="l">펠로우십 수료</div><div class="s">교수 23 · 석박사 18</div></div>
+    <div><div class="n" data-num="809">809</div><div class="l">연구지원 건수</div><div class="s">목표 280 대비 288.9%</div></div>
   </div>
   <p style="margin-top:40px"><a class="btn" href="research.html">세부 연구성과 보기</a></p>
 </div></section>
@@ -276,14 +277,46 @@
 
 <script>
 (function(){
-  var b=document.getElementById('bars');
-  if(!('IntersectionObserver' in window)){b.classList.add('in');return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.fill').forEach(function(f,i){f.style.transitionDelay=(i*55)+'ms';});
-      e.target.classList.add('in'); io.unobserve(e.target);}
-  });},{threshold:.25});
-  io.observe(b);
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 막대 채우기
+  var bars=document.getElementById('bars');
+  if(bars){
+    if(!('IntersectionObserver' in window) || reduce){ bars.classList.add('in'); }
+    else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.querySelectorAll('.fill').forEach(function(f,i){f.style.transitionDelay=(i*55)+'ms';});
+          e.target.classList.add('in'); io.unobserve(e.target);}
+      });},{threshold:.25});
+      io.observe(bars);
+    }
+  }
+
+  // 숫자 카운트업
+  var nums=[].slice.call(document.querySelectorAll('.bignums .n[data-num]'));
+  function fmt(v){ return v.toLocaleString('ko-KR'); }
+  function run(el){
+    var target=parseInt(el.dataset.num,10), dur=1100, t0=null;
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      var e=1-Math.pow(1-p,3);            // easeOutCubic
+      el.textContent=fmt(Math.round(target*e));
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if(!reduce && ('IntersectionObserver' in window) && nums.length){
+    nums.forEach(function(el){ el.textContent='0'; });          // 애니메이션 대상만 0으로
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ run(e.target); io2.unobserve(e.target); }
+    });},{threshold:.5});
+    nums.forEach(function(el){ io2.observe(el); });
+    // 안전장치: 6초 내 미완료 시 최종값 강제 표시
+    setTimeout(function(){ nums.forEach(function(el){
+      if(el.textContent==='0') el.textContent=fmt(parseInt(el.dataset.num,10)); }); },6000);
+  }
 })();
 </script>
 </body>
