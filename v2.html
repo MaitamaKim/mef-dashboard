@@ -37,7 +37,7 @@
   .hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
   @media(max-width:900px){.hero .grid{grid-template-columns:1fr;gap:40px}}
   .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-bottom:8px;}
-  .hero h1{font-size:56px;line-height:1.14;font-weight:700;letter-spacing:-.02em;margin-bottom:16px;}
+  .hero h1{font-size:52px;white-space:nowrap;line-height:1.14;font-weight:700;letter-spacing:-.02em;margin-bottom:16px;}
   .hero .en{font-size:20px;line-height:1.2;color:var(--teal);font-weight:600;margin-bottom:24px;}
   .hero p{font-size:18px;max-width:34em;margin:0 0 32px;}
   .heroPanel{background:var(--peach);border-radius:var(--r-card);padding:32px;}
@@ -58,7 +58,12 @@
   .card{background:var(--white);border-radius:var(--r-card);padding:32px;}
   .card.pastel-1{background:var(--lavender);} .card.pastel-2{background:var(--peach);}
   .card.pastel-3{background:var(--butter);}   .card.pastel-4{background:var(--sky);}
-  .card h3{font-size:24px;line-height:1.5;font-weight:700;margin-bottom:8px;}
+  .card h3{font-size:22px;line-height:1.3;font-weight:700;margin-bottom:10px;}
+  .card .kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
+    font-weight:700;margin-bottom:14px;display:block;}
+  .card .ico{width:34px;height:34px;margin-bottom:18px;color:var(--teal);}
+  .card .ico svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;}
   .card p{font-size:16px;margin:0 0 16px;}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
   .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;}
@@ -113,7 +118,7 @@
 <div class="hero"><div class="wrap"><div class="grid">
   <div>
     <p class="eyebrow">KOICA · Yonsei University Health System · UMP</p>
-    <h1>미래를 위한<br>의학교육</h1>
+    <h1>미래를 위한 의학교육</h1>
     <p class="en">Medical Education for the Future</p>
     <p>베트남 호치민의약학대학교 교육연구 역량강화 사업의 추진현황 및 주요 성과를 정리했습니다.</p>
     <a class="ghost" href="#results">성과 보기</a>
@@ -158,7 +163,9 @@
     네 분과가 함께 UMP의 자체 역량을 끌어올리고, 그 역량이 베트남 보건의료의 질적 개선으로 이어지도록 설계했습니다.</p>
   <div class="grid-4">
     <div class="card pastel-1">
-      <h3>의학교육</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M7 10.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-5.5"/><path d="M21 8v6"/></svg></div>
+      <span class="kick">1분과 · 의학교육</span>
+      <h3>의학교육의 질을 세우다</h3>
       <p>ICT 기반 참여형 교육과정 도입, 국제인증 기준 대응, 졸업시험·국가고시 문항 개발.</p>
       <ul class="ticks">
         <li>FL/TBL 학습모듈 <b>182개</b></li>
@@ -167,7 +174,9 @@
       </ul>
     </div>
     <div class="card pastel-2">
-      <h3>임상수련</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3v6a5 5 0 0 0 10 0V3"/><path d="M6 3H4M16 3h2"/><path d="M11 14v2a5 5 0 0 0 10 0v-1"/><circle cx="21" cy="12" r="2"/></svg></div>
+      <span class="kick">2분과 · 임상수련</span>
+      <h3>병상 옆, 임상역량</h3>
       <p>11개 전공과 수련 프로그램을 국제 기준으로 평가·개선하고, PRIMO 평가도구를 개발·적용.</p>
       <ul class="ticks">
         <li>프로그램 개선안 <b>11개</b></li>
@@ -176,7 +185,9 @@
       </ul>
     </div>
     <div class="card pastel-3">
-      <h3>연구역량</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L5 19a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 19l-5-10V3"/><path d="M7.5 15h9"/></svg></div>
+      <span class="kick">3분과 · 연구역량</span>
+      <h3>연구하는 대학으로</h3>
       <p>샌드위치 펠로우십으로 교수·대학원생을 양성하고, 연구지원실·학술지 체계를 구축.</p>
       <ul class="ticks">
         <li>펠로우십 수료 <b>41명</b></li>
@@ -185,7 +196,9 @@
       </ul>
     </div>
     <div class="card pastel-4">
-      <h3>산학협력</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M4 21V10l5 3V10l5 3V6l6 4v11"/><path d="M9 21v-4h4v4"/></svg></div>
+      <span class="kick">4분과 · 산학협력</span>
+      <h3>대학과 산업을 잇다</h3>
       <p>제약·의생명·디지털헬스 분야 산학 공동연구를 지원하고 연구 기자재·컨설팅을 제공.</p>
       <ul class="ticks">
         <li>공동연구 <b>52건</b></li>
@@ -194,6 +207,7 @@
       </ul>
     </div>
   </div>
+</div>
 </div></section>
 
 <!-- RESULTS -->
