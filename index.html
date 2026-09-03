@@ -45,15 +45,16 @@
   .hero .en{font-size:22px;font-weight:700;color:var(--magenta);margin-bottom:20px;}
   .hero p.lede{font-size:18px;max-width:44em;margin:0 0 40px;color:#fff;}
 
-  .outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:8px;}
-  .outcomes div{position:relative;background:rgba(20,4,42,.42);backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.22);
-    border-top:2px solid rgba(251,0,194,.85);
-    padding:26px 16px;font-size:21px;font-weight:800;line-height:1.25;text-align:center;
-    display:flex;align-items:center;justify-content:center;min-height:112px;
-    transition:background .3s,border-color .3s;cursor:default;}
-  .outcomes div:hover,.outcomes div:focus-visible{background:rgba(251,0,194,.22);
-    border-color:rgba(251,0,194,.9);outline:none;}
+  .heroNav{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;
+    gap:18px;margin-top:36px;padding-bottom:8px;}
+  .hnBtn{background:rgba(20,4,42,.45);border:1px solid rgba(255,255,255,.35);color:#fff;
+    width:36px;height:36px;border-radius:50%;font-size:18px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;}
+  .hnBtn:hover,.hnBtn:focus-visible{background:rgba(251,0,194,.55);border-color:rgba(251,0,194,.9);outline:none;}
+  .hnDots{display:flex;gap:9px;}
+  .hnDots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);
+    border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;}
+  .hnDots button.on{background:var(--magenta);transform:scale(1.35);}
 
   @media (prefers-reduced-motion:reduce){.heroBg img{transition:none;}}
 
@@ -69,6 +70,9 @@
   .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .aboutGrid{align-items:stretch;}
+  .aboutPhoto{margin:0;overflow:hidden;min-height:280px;}
+  .aboutPhoto img{width:100%;height:100%;object-fit:cover;display:block;}
   .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
   @media(max-width:900px){.grid2{grid-template-columns:1fr}}
   .card{background:var(--paper);border-radius:0;padding:24px;display:flex;flex-direction:column;}
@@ -171,11 +175,10 @@
     <h1>미래를 위한<br>의학교육</h1>
     <p class="en">Medical Education for the Future</p>
     <p class="lede">베트남 호치민의약학대학교 교육연구 역량강화 사업 추진현황 및 주요 성과</p>
-    <div class="outcomes" id="outcomes">
-      <div tabindex="0" data-sector="s1">질적으로 향상된<br>의학교육</div>
-      <div tabindex="0" data-sector="s2">질적으로 향상된<br>의료 임상역량</div>
-      <div tabindex="0" data-sector="s3">향상된<br>연구역량</div>
-      <div tabindex="0" data-sector="s4">개선된 산학협력·<br>혁신연구활동</div>
+    <div class="heroNav">
+      <button class="hnBtn" id="hnPrev" aria-label="이전 사진">‹</button>
+      <div class="hnDots" id="hnDots"></div>
+      <button class="hnBtn" id="hnNext" aria-label="다음 사진">›</button>
     </div>
   </div>
 </div>
@@ -184,17 +187,16 @@
 <section id="about"><div class="wrap">
   <p class="kick">About</p>
   <h2 class="sec">사업 개요</h2>
-  <div class="grid2">
+  <div class="grid2 aboutGrid">
+    <figure class="aboutPhoto">
+      <img src="assets/hero/ump-gate.jpg" alt="호치민의약학대학교(UMP) 정문">
+    </figure>
     <div class="card">
       <dl class="facts">
         <dt>사업명</dt><dd>베트남 호치민의약학대학교 교육연구 역량강화사업</dd>
         <dt>사업기간</dt><dd>2021.12 ~ 2026.12 (60개월)</dd>
         <dt>사업예산</dt><dd>USD 9,680,000</dd>
         <dt>사업지역</dt><dd>베트남 호치민시</dd>
-      </dl>
-    </div>
-    <div class="card ash">
-      <dl class="facts">
         <dt>지원기관</dt><dd>KOICA (한국국제협력단)</dd>
         <dt>수행기관</dt><dd>연세대학교 의료원</dd>
         <dt>협력기관</dt><dd>호치민의약학대학교 (UMP)</dd>
@@ -414,39 +416,36 @@
     var imgs=[].slice.call(bg.querySelectorAll('img'));
     var order=['org1','s1','org2','s2','org3','s3','org4','s4'];
     var byKey={}; imgs.forEach(function(im){ byKey[im.dataset.key]=im; });
-    var cur=0, timer=null, hovering=false;
+    var dotsWrap=document.getElementById('hnDots');
+    var dots=order.map(function(_,i){
+      var b=document.createElement('button');
+      b.type='button'; b.setAttribute('aria-label',(i+1)+'번째 사진');
+      b.onclick=function(){ goto(i); restart(); };
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    var cur=0, timer=null;
 
     function showKey(key){
       imgs.forEach(function(im){ im.classList.toggle('on', im.dataset.key===key); });
     }
+    function updateDots(){
+      dots.forEach(function(d,i){ d.classList.toggle('on', i===cur); });
+    }
     function goto(i){
       cur=(i+order.length)%order.length;
       showKey(order[cur]);
+      updateDots();
     }
-    function tick(){ if(!hovering) goto(cur+1); }
-    function startAuto(){
-      if(reduce) return;
+    function restart(){
       clearInterval(timer);
-      timer=setInterval(tick,5000);
+      if(reduce) return;
+      timer=setInterval(function(){ goto(cur+1); }, 5000);
     }
-    startAuto();
-
-    document.querySelectorAll('#outcomes > div').forEach(function(cell){
-      function enter(){
-        hovering=true;
-        var key=cell.dataset.sector;
-        if(byKey[key]) showKey(key);
-      }
-      function leave(){
-        hovering=false;
-        var idx=order.indexOf(cell.dataset.sector);
-        if(idx>=0) cur=idx;
-      }
-      cell.addEventListener('mouseenter', enter);
-      cell.addEventListener('mouseleave', leave);
-      cell.addEventListener('focus', enter);
-      cell.addEventListener('blur', leave);
-    });
+    document.getElementById('hnPrev').onclick=function(){ goto(cur-1); restart(); };
+    document.getElementById('hnNext').onclick=function(){ goto(cur+1); restart(); };
+    goto(0);
+    restart();
   })();
 
   var heads=[].slice.call(document.querySelectorAll('.dbox .dnum[data-num]'));
