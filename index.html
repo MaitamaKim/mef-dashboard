@@ -99,6 +99,8 @@
   thead th{color:var(--ink2);font-weight:600;border-bottom:1px solid var(--axis);}
   tfoot td{font-weight:700;border-top:1px solid var(--axis);border-bottom:none;}
   .note{font-size:11px;color:var(--muted);margin-top:10px;}
+  table.outcome{margin-top:10px;}
+  table.outcome th,table.outcome td{padding:16px 11px;font-size:13.2px;}
   sup{font-size:9px;color:var(--muted);}
   .awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;}
   .award{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--s2);
@@ -246,7 +248,7 @@
   <div class="grid2">
     <div class="card">
       <h4 class="ch">성과 (Outcomes) — 지표별 달성 현황</h4>
-      <table>
+      <table class="outcome">
         <thead><tr><th>성과지표</th><th>목표</th><th>현황</th></tr></thead>
         <tbody>
           <tr><td>국제인증 평가항목 충족률 <sup>1)</sup></td><td>80%</td><td>45.71%</td></tr>
