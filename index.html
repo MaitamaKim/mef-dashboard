@@ -24,14 +24,27 @@
   /* nav */
   nav{background:var(--blush);position:sticky;top:0;z-index:30;}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;}
-  .mark{font-weight:800;font-size:20px;text-transform:uppercase;text-decoration:none;letter-spacing:-.02em;}
+  .mark{font-weight:800;font-size:22px;text-transform:uppercase;text-decoration:none;letter-spacing:-.02em;}
   .nlinks{display:flex;gap:28px;font-size:16px;font-weight:700;}
   .nlinks a{text-decoration:none;}
+  /* 모바일: 네비를 2줄로 — 1줄 워드마크+버튼, 2줄 섹션 링크(줄바꿈 방지) */
+  @media (max-width:900px){
+    nav .wrap{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;gap:12px;}
+    .nlinks{order:3;width:100%;gap:12px;justify-content:space-between;}
+    .nlinks a{white-space:nowrap;}
+    section[id]{scroll-margin-top:124px;}
+  }
+  /* 좁은 화면: 좌우 여백·링크 간격 압축 (4개 링크와 버튼이 화면 안에 들어오도록) */
+  @media (max-width:560px){
+    .wrap{padding:0 16px;}
+    .nlinks{gap:8px;}
+    .btn{padding:10px 14px;}
+  }
     .btn{display:inline-block;background:var(--violet);color:#fff;border:0;border-radius:0;
-    padding:10px 18px;font-weight:800;font-size:15px;text-transform:uppercase;text-decoration:none;letter-spacing:-.01em;}
+    padding:10px 18px;font-weight:800;font-size:16px;text-transform:uppercase;text-decoration:none;letter-spacing:-.01em;}
   .btn.magenta{background:var(--magenta);color:#000;}
   .chip{display:inline-block;border:1px solid var(--ink);border-radius:50px;padding:6px 14px;
-    font-size:14px;font-weight:700;}
+    font-size:16px;font-weight:700;}
 
   /* hero */
   .hero{position:relative;min-height:620px;overflow:hidden;color:#fff;background:var(--violet);
@@ -42,15 +55,15 @@
   .heroBg img.on{opacity:1;}
   .hero .wrap{position:relative;z-index:2;width:100%;}
   .heroText{max-width:44em;}
-  .hero h1{font-size:52px;line-height:1.05;margin-bottom:14px;color:#fff;white-space:nowrap;}
+  .hero h1{font-size:56px;line-height:1.05;margin-bottom:14px;color:#fff;white-space:nowrap;}
   .hero .kick{color:#fff;opacity:.9;font-size:16px;}
   .hero .en{font-size:18px;font-weight:700;color:#fff;opacity:.82;margin-bottom:16px;}
-  .hero p.lede{font-size:17px;margin:0;color:#fff;opacity:.92;}
+  .hero p.lede{font-size:18px;margin:0;color:#fff;opacity:.92;}
 
   .heroNav{position:absolute;z-index:3;right:32px;bottom:64px;display:flex;
     flex-direction:column;align-items:center;gap:14px;}
   .hnBtn{background:rgba(20,4,42,.45);border:1px solid rgba(255,255,255,.35);color:#fff;
-    width:34px;height:34px;border-radius:50%;font-size:14px;line-height:1;cursor:pointer;
+    width:34px;height:34px;border-radius:50%;font-size:16px;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;}
   .hnBtn:hover,.hnBtn:focus-visible{background:rgba(251,0,194,.55);border-color:rgba(251,0,194,.9);outline:none;}
   .hnDots{display:flex;flex-direction:column;gap:9px;}
@@ -58,7 +71,7 @@
     border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;}
   .hnDots button.on{background:var(--magenta);transform:scale(1.35);}
 
-  @media (max-width:760px){.hero h1{font-size:34px;white-space:normal;}.heroNav{right:16px;bottom:24px;}}
+  @media (max-width:760px){.hero h1{font-size:40px;white-space:normal;}.heroNav{right:16px;bottom:24px;}}
   @media (prefers-reduced-motion:reduce){.heroBg img{transition:none;}}
 
   /* sections */
@@ -70,7 +83,7 @@
   section.violet .card .note{color:var(--steel);}
   h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
   p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
-  .kick{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
+  .kick{font-size:18px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .aboutGrid{align-items:stretch;}
@@ -81,6 +94,7 @@
   .card{background:var(--paper);border-radius:0;padding:24px;display:flex;flex-direction:column;}
   .card.ash{background:var(--ash);}
   .card h3{font-size:24px;line-height:1.38;margin-bottom:12px;}
+  #recognition .card h3{font-size:22px;}   /* 4열 카드 · 제목이 길어 subheading 단계 사용 */
   .card p{font-size:16px;margin:0 0 16px;}
 
   dl.facts{display:grid;grid-template-columns:130px 1fr;column-gap:20px;row-gap:0;
@@ -95,11 +109,11 @@
 
   table{border-collapse:collapse;width:100%;font-size:16px;}
   th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--ash);}
-  thead th{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--steel-txt);}
+  thead th{font-size:16px;font-weight:800;text-transform:uppercase;color:var(--steel-txt);}
   td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
   tbody tr:last-child td{border-bottom:none;}
-    .note{font-size:14px;color:var(--steel-txt);margin-top:auto;padding-top:32px;line-height:1.45;}
-  sup{font-size:11px;}
+    .note{font-size:16px;color:var(--steel-txt);margin-top:auto;padding-top:32px;line-height:1.45;}
+  sup{font-size:.62em;}
 
   .barrow{display:grid;grid-template-columns:140px 1fr 92px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
   .track{position:relative;display:block;background:var(--ash);height:16px;overflow:hidden;}
@@ -152,22 +166,22 @@
   .dbox .dnum .unit{font-size:22px;font-weight:800;margin-left:4px;}
   .dbox:hover .dnum,.dbox.open .dnum{color:var(--magenta);}
   .dbox .dname{font-size:22px;font-weight:800;margin-top:10px;}
-  .dbox .dsum{font-size:14px;color:var(--steel-txt);margin-top:6px;}
+  .dbox .dsum{font-size:16px;color:var(--steel-txt);margin-top:6px;}
   .dbox:hover .dsum,.dbox.open .dsum{color:var(--ash);}
-  .dbox .more{font-size:13px;font-weight:700;margin-top:14px;color:var(--violet);}
+  .dbox .more{font-size:16px;font-weight:700;margin-top:14px;color:var(--violet);}
   .dbox:hover .more,.dbox.open .more{color:var(--magenta);}
   .detail{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .3s ease,margin-top .45s ease;}
   .dbox:hover .detail,.dbox.open .detail{max-height:460px;opacity:1;margin-top:18px;}
   .detail ul{list-style:none;margin:0;padding:0;}
   .detail li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;
-    padding:9px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px;}
+    padding:9px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:16px;}
   .detail li:last-child{border-bottom:none;}
   .detail .val{font-weight:800;white-space:nowrap;color:#fff;}
-  .detail .val i{font-style:normal;font-weight:400;font-size:13px;color:var(--ash);}
+  .detail .val i{font-style:normal;font-weight:400;font-size:16px;color:var(--ash);}
   .bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;}
   .bignums .n{font-size:80px;line-height:1;font-weight:800;color:var(--magenta);}
   .bignums .l{font-size:18px;font-weight:800;margin-top:8px;}
-    .bignums .s{font-size:14px;color:var(--steel-txt);margin-top:4px;}
+    .bignums .s{font-size:16px;color:var(--steel-txt);margin-top:4px;}
   section.violet .bignums .n{color:var(--magenta);}
   section.violet .bignums .s{color:var(--ash);}
 
@@ -175,7 +189,7 @@
     border-left:6px solid var(--orange);padding-left:24px;}
   .quote .attr{display:block;font-size:22px;color:#fff;margin-top:16px;font-weight:700;}
 
-  footer{background:var(--ink);color:#fff;padding:64px 0;font-size:14px;line-height:1.6;}
+  footer{background:var(--ink);color:#fff;padding:64px 0;font-size:16px;line-height:1.6;}
   footer a{color:#fff;}
 </style>
 <script data-goatcounter="https://maitamakim.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -410,10 +424,10 @@
   <div class="quote">한 대학의 역량강화가 국가 시험제도 구축으로 이어졌습니다.
     <span class="attr">— 전국 29개 의과대학 3,236명이 응시한 첫 국가단위 모의시험, 2026.08</span></div>
   <div class="grid4" style="margin-top:56px">
-    <div class="card"><h3 style="font-size:20px">KOICA 우수성과 경진대회 우수상</h3><p style="margin:0">2025.10 · 동남아시아 사업성과 부문</p></div>
-    <div class="card"><h3 style="font-size:20px">국회 외교통일위원회 현지 방문</h3><p style="margin:0">2025.12 · 사업 현장 점검</p></div>
-    <div class="card"><h3 style="font-size:20px">UMP 국가 중점대학 지정</h3><p style="margin:0">2026.05 · 총리 결정문 966/QĐ-TTg</p></div>
-    <div class="card"><h3 style="font-size:20px">언론보도 36건</h3><p style="margin:0">2022~2026 · 국외 23 · 국내 13</p></div>
+    <div class="card"><h3>KOICA 우수성과 경진대회 우수상</h3><p style="margin:0">2025.10 · 동남아시아 사업성과 부문</p></div>
+    <div class="card"><h3>국회 외교통일위원회 현지 방문</h3><p style="margin:0">2025.12 · 사업 현장 점검</p></div>
+    <div class="card"><h3>UMP 국가 중점대학 지정</h3><p style="margin:0">2026.05 · 총리 결정문 966/QĐ-TTg</p></div>
+    <div class="card"><h3>언론보도 36건</h3><p style="margin:0">2022~2026 · 국외 23 · 국내 13</p></div>
   </div>
 </div></section>
 
