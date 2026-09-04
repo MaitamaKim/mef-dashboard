@@ -207,8 +207,8 @@
 <!-- HERO -->
 <div class="hero" id="heroSection">
   <div class="heroBg" id="heroBg">
-    <img class="on" data-key="edu1" src="assets/hero/edu1.jpg" alt="">
-    <img data-key="edu2" src="assets/hero/edu2.jpg" alt="">
+    <img class="on" data-key="edu2" src="assets/hero/edu2.jpg" alt="">
+    <img data-key="edu1" src="assets/hero/edu1.jpg" alt="">
     <img data-key="org1" src="assets/hero/org1.jpg" alt="">
     <img data-key="s1"   src="assets/hero/s1.jpg" alt="">
     <img data-key="org2" src="assets/hero/org2.jpg" alt="">
@@ -494,7 +494,7 @@
     var bg=document.getElementById('heroBg');
     if(!bg) return;
     var imgs=[].slice.call(bg.querySelectorAll('img'));
-    var order=['edu1','edu2','org1','s1','org2','s2','org3','s3','org4','s4'];
+    var order=['edu2','edu1','org1','s1','org2','s2','org3','s3','org4','s4'];
     var byKey={}; imgs.forEach(function(im){ byKey[im.dataset.key]=im; });
     var dotsWrap=document.getElementById('hnDots');
     var dots=order.map(function(_,i){
