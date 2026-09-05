@@ -324,15 +324,15 @@
 <div class="hero" id="heroSection">
   <div class="heroBg" id="heroBg">
     <img class="on" data-key="edu1" src="assets/hero/edu1.jpg" alt="">
+    <img data-key="org3" src="assets/hero/org3.jpg" alt="">
+    <img data-key="n3" src="assets/hero/n3.jpg" alt="">
     <img data-key="org2" src="assets/hero/org2.jpg" alt="">
     <img data-key="edu3" src="assets/hero/edu3.jpg" alt="">
-    <img data-key="n3" src="assets/hero/n3.jpg" alt="">
+    <img data-key="n4" src="assets/hero/n4.jpg" alt="">
     <img data-key="n1" src="assets/hero/n1.jpg" alt="">
-    <img data-key="org1" src="assets/hero/org1.jpg" alt="">
     <img data-key="s2" src="assets/hero/s2.jpg" alt="">
     <img data-key="n2" src="assets/hero/n2.jpg" alt="">
     <img data-key="s1" src="assets/hero/s1.jpg" alt="">
-    <img data-key="org3" src="assets/hero/org3.jpg" alt="">
   </div>
   <div class="wrap">
     <div class="heroText">
@@ -627,7 +627,7 @@
     var bg=document.getElementById('heroBg');
     if(!bg) return;
     var imgs=[].slice.call(bg.querySelectorAll('img'));
-    var order=['edu1','org2','edu3','n3','n1','org1','s2','n2','s1','org3'];
+    var order=['edu1','org3','n3','org2','edu3','n4','n1','s2','n2','s1'];
     var byKey={}; imgs.forEach(function(im){ byKey[im.dataset.key]=im; });
     var dotsWrap=document.getElementById('hnDots');
     var dots=order.map(function(_,i){
