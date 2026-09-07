@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEF 사업 추진 경과 — 베트남 호치민의약학대학교 교육연구 역량강화 사업</title>
+<meta name="description" content="MEF 사업 공동연구 전체 목록 — 의학교육 5건, 초청연수 41건, 산학협력 52건.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#f4ede9; --ink:#000000; --paper:#ffffff; --ash:#d9d9d9; --steel:#767676; --steel-txt:#565656;
+    --violet:#340068; --magenta:#fb00c2; --orange:#ff1e00;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--blush);color:var(--ink);
+    font-family:"Plus Jakarta Sans","Noto Sans KR",system-ui,-apple-system,sans-serif;
+    font-size:18px;line-height:1.45;letter-spacing:-.02em;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.02em;}
+  a{color:var(--ink);}
+
+  /* nav */
+  nav{background:var(--blush);position:sticky;top:0;z-index:30;}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;}
+  .mark{font-weight:800;font-size:22px;text-transform:uppercase;text-decoration:none;letter-spacing:-.02em;}
+  .nlinks{display:flex;gap:28px;font-size:16px;font-weight:700;}
+  .nlinks a{text-decoration:none;}
+  /* 모바일: 네비를 2줄로 — 1줄 워드마크+버튼, 2줄 섹션 링크(줄바꿈 방지) */
+  @media (max-width:900px){
+    nav .wrap{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;gap:12px;}
+    .nlinks{order:3;width:100%;gap:12px;justify-content:space-between;}
+    .nlinks a{white-space:nowrap;}
+    section[id]{scroll-margin-top:124px;}
+  }
+  /* 좁은 화면: 좌우 여백·링크 간격 압축 (4개 링크와 버튼이 화면 안에 들어오도록) */
+  @media (max-width:560px){
+    .wrap{padding:0 16px;}
+    .nlinks{gap:8px;}
+    .btn{padding:10px 14px;}
+  }
+    .btn{display:inline-block;background:var(--violet);color:#fff;border:0;border-radius:0;
+    padding:10px 18px;font-weight:800;font-size:16px;text-transform:uppercase;text-decoration:none;letter-spacing:-.01em;}
+  .btn.magenta{background:var(--magenta);color:#000;}
+
+  /* hero */
+  .hero{position:relative;min-height:620px;overflow:hidden;color:#fff;background:var(--violet);
+    display:flex;align-items:flex-end;padding:0 0 64px;}
+  .heroBg{position:absolute;inset:0;z-index:0;}
+  .heroBg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;transition:opacity 1.1s ease;}
+  .heroBg img.on{opacity:1;}
+  .hero .wrap{position:relative;z-index:2;width:100%;}
+  .heroText{max-width:44em;}
+  .hero h1{font-size:56px;line-height:1.05;margin-bottom:14px;color:#fff;white-space:nowrap;}
+  .hero .kick{color:#fff;opacity:.9;font-size:16px;}
+  .hero .en{font-size:18px;font-weight:700;color:#fff;opacity:.82;margin-bottom:16px;}
+  .hero p.lede{font-size:18px;margin:0;color:#fff;opacity:.92;}
+
+  .heroNav{position:absolute;z-index:3;right:32px;top:50%;transform:translateY(-50%);display:flex;
+    flex-direction:column;align-items:center;gap:14px;}
+  .hnBtn{background:rgba(20,4,42,.45);border:1px solid rgba(255,255,255,.35);color:#fff;
+    width:34px;height:34px;border-radius:50%;font-size:16px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;}
+  .hnBtn:hover,.hnBtn:focus-visible{background:rgba(251,0,194,.55);border-color:rgba(251,0,194,.9);outline:none;}
+  .hnDots{display:flex;flex-direction:column;gap:9px;}
+  .hnDots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);
+    border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;}
+  .hnDots button.on{background:var(--magenta);transform:scale(1.35);}
+
+  @media (max-width:760px){.hero h1{font-size:40px;white-space:normal;}.heroNav{right:16px;}}
+  @media (prefers-reduced-motion:reduce){.heroBg img{transition:none;}}
+
+  /* sections */
+  section{padding:80px 0;}
+  section.violet{background:var(--violet);color:#fff;}
+  section.violet h2{color:#fff;}
+  section.violet .card,section.violet .card h3,section.violet .card p,
+  section.violet .card li,section.violet .card b{color:var(--ink);}
+  section.violet .card .note{color:var(--steel);}
+  h2.sec{font-size:56px;line-height:1.1;margin-bottom:24px;}
+  p.lead{font-size:18px;max-width:60em;margin:0 0 48px;}
+  .kick{font-size:18px;font-weight:800;text-transform:uppercase;color:var(--violet);margin-bottom:12px;letter-spacing:0;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .aboutGrid{align-items:stretch;}
+  .aboutPhoto{margin:0;overflow:hidden;min-height:280px;}
+  .aboutPhoto img{width:100%;height:100%;object-fit:cover;display:block;}
+  .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--paper);border-radius:0;padding:24px;display:flex;flex-direction:column;}
+  .card.ash{background:var(--ash);}
+
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}.tlY{font-size:40px;}}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}.tlY{font-size:40px;}}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}.tlY{font-size:40px;}}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}.tlY{font-size:40px;}}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);
+    position:sticky;top:24px;align-self:start;background:var(--blush);padding-bottom:8px;}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li{transition:background .12s;margin:0 -12px;padding-left:12px;padding-right:12px;}
+  .tlList li:hover{background:#eae2de;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}.tlY{font-size:40px;}}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);
+    position:sticky;top:96px;align-self:start;background:var(--blush);
+    padding:8px 0;z-index:5;}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li{transition:background .12s;margin:0 -12px;padding-left:12px;padding-right:12px;}
+  .tlList li:hover{background:#eae2de;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}
+    .tlY{font-size:40px;top:75px;}}
+
+  .flt{margin-top:32px;}
+  .fltBar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--blush);
+    color:var(--ink);border-radius:50px;padding:8px 16px;font-family:inherit;font-size:16px;font-weight:700;
+    cursor:pointer;letter-spacing:-.02em;}
+  .chip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;
+    stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .chip i{font-style:normal;font-weight:400;color:var(--steel-txt);}
+  .chip.on{background:var(--ink);color:#fff;} .chip.on i{color:var(--ash);}
+  .chip[aria-expanded="true"] .cv{transform:rotate(180deg);}
+  .cv{display:inline-block;transition:transform .2s;}
+  .chipBox{display:none;flex-wrap:wrap;gap:8px;margin-top:12px;
+    padding-top:16px;border-top:1px solid var(--ash);}
+  .chipBox.open{display:flex;}
+  .tlStat{margin:20px 0 0;font-size:16px;color:var(--steel-txt);}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);
+    position:sticky;top:96px;align-self:start;background:var(--blush);
+    padding:8px 0;z-index:5;}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li{transition:background .12s;margin:0 -12px;padding-left:12px;padding-right:12px;}
+  .tlList li:hover{background:#eae2de;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}
+    .tlY{font-size:40px;top:75px;}}
+
+  .flt{margin-top:32px;}
+  .fltBar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--blush);
+    color:var(--ink);border-radius:50px;padding:8px 16px;font-family:inherit;font-size:16px;font-weight:700;
+    cursor:pointer;letter-spacing:-.02em;}
+  .chip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;
+    stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .chip i{font-style:normal;font-weight:400;color:var(--steel-txt);}
+  .chip.on{background:var(--ink);color:#fff;} .chip.on i{color:var(--ash);}
+  .chip[aria-expanded="true"] .cv{transform:rotate(180deg);}
+  .cv{display:inline-block;transition:transform .2s;}
+  .chipBox{display:none;flex-wrap:wrap;gap:8px;margin-top:12px;
+    padding-top:16px;border-top:1px solid var(--ash);}
+  .chipBox.open{display:flex;}
+  .tlStat{margin:20px 0 0;font-size:16px;color:var(--steel-txt);}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);
+    position:sticky;top:96px;align-self:start;background:var(--blush);
+    padding:8px 0;z-index:5;}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li{transition:background .12s;margin:0 -12px;padding-left:12px;padding-right:12px;}
+  .tlList li:hover{background:#eae2de;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}
+    .tlY{font-size:40px;top:75px;}}
+
+  .flt{margin-top:32px;}
+  .fltBar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--blush);
+    color:var(--ink);border-radius:50px;padding:8px 16px;font-family:inherit;font-size:16px;font-weight:700;
+    cursor:pointer;letter-spacing:-.02em;}
+  .chip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;
+    stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .chip i{font-style:normal;font-weight:400;color:var(--steel-txt);}
+  .chip.on{background:var(--ink);color:#fff;} .chip.on i{color:var(--ash);}
+  .chip[aria-expanded="true"] .cv{transform:rotate(180deg);}
+  .cv{display:inline-block;transition:transform .2s;}
+  .chipBox{display:none;flex-wrap:wrap;gap:8px;margin-top:12px;
+    padding-top:16px;border-top:1px solid var(--ash);}
+  .chipBox.open{display:flex;}
+  .tlStat{margin:20px 0 0;font-size:16px;color:var(--steel-txt);}
+  /* timeline */
+  .tl{margin-top:16px;}
+  .tlYear{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--ash);}
+  .tlYear:last-child{border-bottom:1px solid var(--ash);}
+  .tlYear[hidden]{display:none;}
+  .tlY{font-size:56px;font-weight:800;line-height:1;color:var(--violet);
+    position:sticky;top:96px;align-self:start;background:var(--blush);
+    padding:8px 0;z-index:5;}
+  .tlList{list-style:none;margin:0;padding:0;}
+  .tlList li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:12px 0;font-size:18px;border-top:1px solid var(--ash);}
+  .tlList li:first-child{border-top:0;}
+  .tlList li{transition:background .12s;margin:0 -12px;padding-left:12px;padding-right:12px;}
+  .tlList li:hover{background:#eae2de;}
+  .tlList li[hidden]{display:none;}
+  .tlM{font-weight:800;color:var(--steel-txt);font-size:16px;padding-top:2px;}
+  .tlList em{display:block;font-style:normal;font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  .tlList b{font-weight:800;} .tlList li.key b{color:var(--violet);}
+  .tlSoon{color:var(--steel-txt);}
+  @media (max-width:760px){.tlYear{grid-template-columns:1fr;gap:12px;padding:24px 0;}
+    .tlY{font-size:40px;top:75px;}}
+
+  .flt{margin-top:32px;}
+  .fltBar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--blush);
+    color:var(--ink);border-radius:50px;padding:8px 16px;font-family:inherit;font-size:16px;font-weight:700;
+    cursor:pointer;letter-spacing:-.02em;}
+  .chip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;
+    stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .chip i{font-style:normal;font-weight:400;color:var(--steel-txt);}
+  .chip.on{background:var(--ink);color:#fff;} .chip.on i{color:var(--ash);}
+  .chip[aria-expanded="true"] .cv{transform:rotate(180deg);}
+  .cv{display:inline-block;transition:transform .2s;}
+  .chipBox{display:none;flex-wrap:wrap;gap:8px;margin-top:12px;
+    padding-top:16px;border-top:1px solid var(--ash);}
+  .chipBox.open{display:flex;}
+  .tlStat{margin:20px 0 0;font-size:16px;color:var(--steel-txt);}
+  .card h3{font-size:24px;line-height:1.38;margin-bottom:12px;}
+  #recognition .card h3{font-size:22px;}   /* 4열 카드 · 제목이 길어 subheading 단계 사용 */
+  .card p{font-size:16px;margin:0 0 16px;}
+
+  dl.facts{display:grid;grid-template-columns:130px 1fr;column-gap:20px;row-gap:0;
+    align-content:space-between;flex:1;margin:0;font-size:16px;}
+  dl.facts dt{color:var(--steel-txt);font-weight:700;align-self:start;}
+  dl.facts dd{margin:0;align-self:start;}
+
+  ul.ticks{list-style:none;margin:0;padding:0;font-size:16px;}
+  ul.ticks li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--ash);}
+  ul.ticks li:last-child{border-bottom:none;}
+  ul.ticks b{font-weight:800;}
+
+  table{border-collapse:collapse;width:100%;font-size:16px;}
+  th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--ash);}
+  thead th{font-size:16px;font-weight:800;text-transform:uppercase;color:var(--steel-txt);}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
+  tbody tr:last-child td{border-bottom:none;}
+    .note{font-size:16px;color:var(--steel-txt);margin-top:auto;padding-top:32px;line-height:1.45;}
+  sup{font-size:.62em;}
+
+  .barrow{display:grid;grid-template-columns:140px 1fr 92px;gap:14px;align-items:center;margin-bottom:14px;font-size:16px;font-weight:700;}
+  .track{position:relative;display:block;background:var(--ash);height:16px;overflow:hidden;}
+  .card.ash .track{background:var(--paper);}
+  .brk{position:absolute;top:-1px;bottom:-1px;left:74%;width:20px;background:var(--paper);
+    clip-path:polygon(35% 0, 0 16%, 35% 33%, 0 50%, 35% 66%, 0 83%, 35% 100%,
+                      65% 100%, 100% 83%, 65% 66%, 100% 50%, 65% 33%, 100% 16%, 65% 0);}
+  .fill{display:block;height:100%;background:var(--violet);transform-origin:left center;transform:scaleX(0);
+    transition:transform .85s cubic-bezier(.22,.9,.3,1);}
+  .fill.pending{background:var(--steel);}
+  .bars.in .fill{transform:scaleX(1);}
+  .barrow .v{text-align:right;font-weight:400;font-variant-numeric:tabular-nums;color:var(--steel-txt);}
+  .barrow .v b{font-weight:800;color:var(--ink);}
+  @media (prefers-reduced-motion:reduce){.fill{transform:none;transition:none}}
+
+  /* ---------- 사업 구성: Transform News Card 그리드(4열·평면·블러 없음) ---------- */
+  #structure{scroll-margin-top:72px;}   /* 스티키 네비 높이만큼 앵커 보정 */
+
+  .scGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .scard{background:var(--paper);border-radius:0;padding:0;display:flex;flex-direction:column;}
+  .scPhoto{margin:0;aspect-ratio:16/9;overflow:hidden;}
+  .scPhoto img{display:block;width:100%;height:100%;object-fit:cover;}
+  .scText{padding:16px;display:flex;flex-direction:column;flex:1;}
+  .scNo{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:0;color:var(--violet);}
+  .scard h3{font-size:24px;line-height:1.38;margin:2px 0 12px;}
+  /* 항목이 카드 높이를 균등 분배 — 항목 수가 적은 카드는 줄간격이 넓어져 하단 여백이 사라짐 */
+  .scList{list-style:none;margin:0;padding:0;font-size:16px;line-height:1.45;letter-spacing:-.32px;
+    display:flex;flex-direction:column;flex:1;}
+  .scList li{flex:1 1 auto;display:flex;align-items:center;min-height:44px;
+    padding:8px 0 8px 16px;position:relative;border-top:1px solid var(--ash);}
+  .scList li:first-child{border-top:none;}
+  .scList li::before{content:"";position:absolute;left:0;top:50%;margin-top:-2.5px;
+    width:5px;height:5px;background:var(--magenta);}
+  /* 스크롤 진입 시 카드 순차 등장 — 입력 장치와 무관하게 모바일·PC 동일 작동 */
+  .scGrid .scard{opacity:0;transform:translateY(18px);
+    transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.9,.3,1);}
+  .scGrid.in .scard{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .scGrid .scard{opacity:1;transform:none;transition:none;}
+  }
+  @media(max-width:1100px){.scGrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.scGrid{grid-template-columns:1fr;}}
+
+  /* ---------- 분과별 세부활동 박스 ---------- */
+  .divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px;}
+  .dbox{background:var(--paper);padding:24px;cursor:pointer;border-top:8px solid var(--violet);
+    transition:background .2s;}
+  .dbox:hover,.dbox.open{background:var(--ink);color:#fff;}
+  .dbox .dnum{font-size:56px;line-height:1;font-weight:800;color:var(--violet);}
+  .dbox .dnum .unit{font-size:22px;font-weight:800;margin-left:4px;}
+  .dbox:hover .dnum,.dbox.open .dnum{color:var(--magenta);}
+  .dbox .dname{font-size:22px;font-weight:800;margin-top:10px;}
+  .dbox .dsum{font-size:16px;color:var(--steel-txt);margin-top:6px;}
+  .dbox:hover .dsum,.dbox.open .dsum{color:var(--ash);}
+  .dbox .more{font-size:16px;font-weight:700;margin-top:14px;color:var(--violet);}
+  .dbox:hover .more,.dbox.open .more{color:var(--magenta);}
+  .detail{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .3s ease,margin-top .45s ease;}
+  .dbox:hover .detail,.dbox.open .detail{max-height:460px;opacity:1;margin-top:18px;}
+  .detail ul{list-style:none;margin:0;padding:0;}
+  .detail li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+    padding:9px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:16px;}
+  .detail li:last-child{border-bottom:none;}
+  .detail .val{font-weight:800;white-space:nowrap;color:#fff;}
+  .detail .val i{font-style:normal;font-weight:400;font-size:16px;color:var(--ash);}
+  .bignums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;}
+  .bignums .n{font-size:80px;line-height:1;font-weight:800;color:var(--magenta);}
+  .bignums .l{font-size:18px;font-weight:800;margin-top:8px;}
+    .bignums .s{font-size:16px;color:var(--steel-txt);margin-top:4px;}
+  section.violet .bignums .n{color:var(--magenta);}
+  section.violet .bignums .s{color:var(--ash);}
+
+  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);max-width:20em;
+    border-left:6px solid var(--orange);padding-left:24px;}
+  .quote .attr{display:block;font-size:22px;color:#fff;margin-top:16px;font-weight:700;}
+
+  footer{background:var(--ink);color:#fff;padding:64px 0;font-size:16px;line-height:1.6;}
+  footer a{color:#fff;}
+
+  .phead{padding:64px 0 0;}
+  .phead h1{font-size:56px;font-weight:800;margin:0 0 12px;letter-spacing:-.02em;}
+  .back{font-size:16px;font-weight:700;color:var(--ink);text-decoration:none;}
+</style>
+<style>
+  /* ── 공동연구 목록 (카드 그리드) ── */
+  .jr{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .jr li{background:var(--paper);padding:26px 26px 22px;display:flex;flex-direction:column;min-width:0}
+  /* 카드 머리 — 왼쪽 번호, 오른쪽 기간 */
+  .jrHead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+          padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--ash)}
+  .jrNo{font-weight:800;font-size:16px;color:var(--violet);letter-spacing:-.02em}
+  .jrPeriod{font-size:16px;color:var(--steel);white-space:nowrap}
+  .jrTitle{font-size:18px;font-weight:700;line-height:1.5;margin:0}
+  .jrEn{font-size:16px;color:var(--steel);margin:10px 0 0;line-height:1.6;font-weight:400}
+  .jrDl{display:grid;grid-template-columns:100px minmax(0,1fr);gap:6px 12px;
+        margin:18px 0 0;font-size:16px;line-height:1.55}
+  .jrDl dt{color:var(--steel);font-weight:700;margin:0}
+  .jrDl dd{margin:0;color:var(--ink)}
+  .jrDl dd .sub{color:var(--steel)}
+  .jrNote{display:inline-block;font-size:16px;color:var(--violet);font-weight:700;margin-left:8px}
+  .jrFoot{margin-top:auto;padding-top:20px}
+  .jrOut{display:inline-block;font-size:16px;font-weight:700;color:var(--ink);
+         border:1px solid var(--ink);padding:9px 15px;text-decoration:none;background:transparent}
+  .jrOut:hover{background:var(--ink);color:var(--paper)}
+  .jrGroup{margin:72px 0 0}
+  .jrGroup:first-of-type{margin-top:24px}
+  .jrGroup h2{font-size:40px;font-weight:800;letter-spacing:-.02em;margin:0 0 8px}
+  .jrGroup .desc{font-size:16px;color:var(--steel);margin:0 0 26px;max-width:62ch;line-height:1.6}
+  .jrYear{font-size:16px;font-weight:800;color:var(--steel);margin:40px 0 14px;
+          padding-bottom:10px;border-bottom:1px solid var(--ash)}
+  @media(max-width:900px){ .jr{grid-template-columns:minmax(0,1fr)} }
+  @media(max-width:560px){
+    .jr li{padding:22px 18px 18px}
+  }
+</style>
+</head><body>
+<nav><div class="wrap">
+  <a class="mark" href="index.html">MEF Project</a>
+  <a class="btn" href="index.html">← 돌아가기</a>
+</div></nav>
+<div class="phead"><div class="wrap">
+  <p class="kick">Joint Research</p>
+  <h1>공동연구 목록</h1>
+  <p class="lead">MEF 사업을 통해 수행한 공동연구 <b>총 98건</b> (의학교육 5건, 초청연수 41건, 산학협력 52개 과제).<br><b>「연구성과 보기」</b> 단추를 통해 각 연구별 연구성과를 확인할 수 있습니다.</p>
+</div></div>
+<main class="wrap" style="padding:16px 0 80px">
+<section class="jrGroup" id="edu"><h2>의학교육 공동연구 <span style="color:var(--violet)">5건</span></h2><p class="desc">UMP의 통합적 의학교육 도입을 위한 공동연구(2건) 및 베트남 의사국가고시 도입 공동연구 수행(3건)</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">RP1</span><span class="jrPeriod">2023.03~2025.09</span></div><p class="jrTitle">디지털 기술 활용 학생중심 참여형 의학교육 설계 (FL/TBL)</p><p class="jrEn">Development of instructional design for student-centered participatory medical education using digital technologies</p><dl class="jrDl"><dt>연구책임자</dt><dd>Vuong Thi Ngoc Lan <span class="sub">· UMP 부총장</span></dd><dt>연세측 PI</dt><dd>안신기 (연세대 의학교육학)</dd><dt>관련 산출물</dt><dd>디지털 학습자료 182개 · 온라인 플랫폼 UMP 1947</dd><dt>연구비</dt><dd>USD 16,000</dd></dl></li><li><div class="jrHead"><span class="jrNo">RP2</span><span class="jrPeriod">2023.06~2025.06</span></div><p class="jrTitle">역량기반평가 개발·문항은행 구축 — 졸업시험을 국가고시 파일럿 모델로</p><p class="jrEn">Development of Competency-based assessment for UMP students and establishment of an item bank: modeling of graduation examination as a pilot model of Vietnamese National Medical Licensing Examination</p><dl class="jrDl"><dt>연구책임자</dt><dd>Le Khac Bao <span class="sub">· 의학교육센터장</span></dd><dt>연세측 PI</dt><dd>안신기 (연세대 의학교육학)</dd><dt>관련 산출물</dt><dd>졸업시험 문항 900개</dd><dt>연구비</dt><dd>USD 16,000</dd></dl></li><li><div class="jrHead"><span class="jrNo">RP3</span><span class="jrPeriod">2025.12~2026.06</span></div><p class="jrTitle">국가고시 출제기준(Test Blueprint)·핵심 임상표현 목록 개발 (연구계획서 확인중)</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Diep Tuan <span class="sub">· UMP 이사장</span></dd><dt>관련 산출물</dt><dd>국가의사시험 핵심임상표현 128개 (보건부 승인 2026.05.08)</dd><dt>연구비</dt><dd>USD 16,000</dd></dl></li><li><div class="jrHead"><span class="jrNo">RP4</span><span class="jrPeriod">2026.01~2026.08</span></div><p class="jrTitle">국가의사시험 본고사 문항 개발 (연구계획서 확인중)</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Diep Tuan <span class="sub">· UMP 이사장</span></dd><dt>관련 산출물</dt><dd>국가의사시험 본고사 문항 900개</dd><dt>연구비</dt><dd>USD 19,000</dd></dl></li><li><div class="jrHead"><span class="jrNo">RP5</span><span class="jrPeriod">2026.01~2026.08</span></div><p class="jrTitle">국가의사시험 모의고사 문항 개발 (연구계획서 확인중)</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Diep Tuan <span class="sub">· UMP 이사장</span></dd><dt>관련 산출물</dt><dd>국가의사시험 모의고사 문항 600개</dd><dt>연구비</dt><dd>USD 16,000</dd></dl></li></ul></section><section class="jrGroup" id="fellow"><h2>초청연수 공동연구 <span style="color:var(--violet)">41건</span></h2><p class="desc">MEF Sandwich Fellowship 참여 연수생이 한국 초청연수 기간 동안 지도교수와 함께 수행한 공동연구. <b>연구비는 과제당 2,000만 원</b></p><p class="jrYear">2022년도 파견 — 8명</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">F22-01</span><span class="jrPeriod">2023.01~2023.07</span></div><p class="jrTitle">콜레스테롤 대사조절제(RN-005)의 당뇨병성 신증 치료 가능성</p><p class="jrEn">Development of a treatment for diabetic nephropathy using cholesterol metabolism modulators</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Hoang Tuyet Minh <span class="sub">· 의료검사기술</span></dd><dt>지도교수</dt><dd>유태현 교수 (내과)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F22-02</span><span class="jrPeriod">2023.01~2023.07</span></div><p class="jrTitle">5-ARi 복용 환자의 제2형 당뇨 발생위험 (성향점수매칭)</p><p class="jrEn">Risk of developing type 2 diabetes in Korean patients recieved 5-alpha reductase inhibitors</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Minh Ha <span class="sub">· 임상약학</span></dd><dt>지도교수</dt><dd>조재림 교수 (예방의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Minh%20Ha">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F22-03</span><span class="jrPeriod">2023.01~2023.05</span></div><p class="jrTitle">IL-17RA 표적 나노바디 발굴</p><p class="jrEn">Development of nanobodies for treatment of psoriasis</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Thi Xuan Dieu <span class="sub">· 약학</span></dd><dt>지도교수</dt><dd>김주영 교수 (약리학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Thi%20Xuan%20Dieu">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F22-04</span><span class="jrPeriod">2023.01~2023.07</span></div><p class="jrTitle">대장암 Lynch증후군 보편적 유전자검사 비용효과 분석</p><p class="jrEn">Cost-effectiveness of universal genetic testing for Lynch syndrome among newly diagnosed patients with colorectal cancer in Vietnam</p><dl class="jrDl"><dt>연구자</dt><dd>Huynh Cong Bang <span class="sub">· 의생명과학</span></dd><dt>지도교수</dt><dd>김창수 교수 (예방의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Huynh%20Cong%20Bang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F22-05</span><span class="jrPeriod">2023.01~2023.07</span></div><p class="jrTitle">소아 급성골수성백혈병 치료요법(A7D3 vs ADE) 5년 후향 비교</p><p class="jrEn">Evaluation of Pediatric Acute Myeloid Leukemia Treatment in Blood Transfusion and Hematology Hospital: a five-year review</p><dl class="jrDl"><dt>연구자</dt><dd>Pham Do Phuong Anh <span class="sub">· 혈액내과</span></dd><dt>지도교수</dt><dd>유철주 교수 (소아과)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F22-06</span><span class="jrPeriod">2023.01~2023.07</span></div><p class="jrTitle">SARS-CoV-2 감염의 PANoptosis 통한 HMGB1 분비 기전</p><p class="jrEn">HMGB1 secretion through panoptosis during SARS-CoV-2 infection</p><dl class="jrDl"><dt>연구자</dt><dd>Duong Ngoc Mai <span class="sub">· 소아과</span></dd><dt>지도교수</dt><dd>신전수 교수 (미생물학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Duong%20Ngoc%20Mai">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F22-07</span><span class="jrPeriod">2023.01~2023.07</span></div><p class="jrTitle">건선 환자 혈중 3형 수지상세포(DC3) 유세포분석</p><p class="jrEn">Type 3 dendritic cells in the blood of psoriasis patients</p><dl class="jrDl"><dt>연구자</dt><dd>Tran Minh Triet <span class="sub">· 피부과</span></dd><dt>지도교수</dt><dd>김태균 교수 (피부과)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F22-08</span><span class="jrPeriod">2023.07~2023.09</span></div><p class="jrTitle">제2형 당뇨 약물역학 심화연구<span class="jrNote">심화과정</span></p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Minh Ha <span class="sub">· 임상약학</span></dd><dt>지도교수</dt><dd>조재림 교수 (예방의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Minh%20Ha">연구성과 보기 ↗</a></div></li></ul><p class="jrYear">2023년도 파견 — 12명</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">F23-01</span><span class="jrPeriod">2023.09~2024.03</span></div><p class="jrTitle">뇌심부자극술(DBS) 출혈합병증과 PlasmaBlade의 이점</p><p class="jrEn">Hemorrhage Complications in DBS Surgery: Unraveling the Impact of Imaging Modalities and Trajectory Planning Advantages of PlasmaBlade in DBS IPG replacement surgeries</p><dl class="jrDl"><dt>연구자</dt><dd>Dao Duy Phuong <span class="sub">· 신경외과</span></dd><dt>지도교수</dt><dd>장진우 교수 (신경외과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Dao%20Duy%20Phuong">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-02</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">복강경 대장절제 체내(ICA) vs 체외(ECA) 문합 단기성적</p><p class="jrEn">OUTCOMES OF INTRACORPOREAL AND EXTRACORPOREAL ANASTOMOSIS AFTER LAPAROSCOPIC COLECTOMY FOR COLON CANCER</p><dl class="jrDl"><dt>연구자</dt><dd>Pham Tien Quang <span class="sub">· 외과</span></dd><dt>지도교수</dt><dd>민병소 교수 (외과)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F23-03</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">구순구개열 양악수술 후 3D 골격안정성 (CBCT)</p><p class="jrEn">Three-dimensional analysis of skeletal stability in cleft lip and palate patients undergoing bimaxillary surgey with LeFort I osteotomy and intraoral vertical ramus osteotomy</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Phuoc Loi <span class="sub">· 구강악안면외과</span></dd><dt>지도교수</dt><dd>정영수 교수 (구강악안면외과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Phuoc%20Loi">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-04</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">항 IL-17RA 나노바디 스크리닝 (파지 디스플레이)</p><p class="jrEn">Screening and producing nanobody against IL-17</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Minh Thai <span class="sub">· 미생물·기생충학</span></dd><dt>지도교수</dt><dd>김주영 교수 (약리학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Minh%20Thai">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-05</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">호치민 운하 수질오염과 주민 인식·태도·실천(KAP)</p><p class="jrEn">Assess the canal water pollution - knowledge and related factors on water pollution, and sanitation of the local communities</p><dl class="jrDl"><dt>연구자</dt><dd>Le Linh Thy <span class="sub">· 환경보건</span></dd><dt>지도교수</dt><dd>김창수 교수 (예방의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Le%20Linh%20Thy">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-06</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">염증성 식이와 신체활동이 우울에 미치는 결합효과</p><p class="jrEn">Joint effect of inflammatory dietary patterns and physical activity on risk of depressive symptoms: a nationwide cross-sectional study</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Thai Thien Kim <span class="sub">· 임상약학</span></dd><dt>지도교수</dt><dd>조재림 교수 (예방의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Thai%20Thien%20Kim">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-07</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">간호학생의 팀워크 태도와 임상실습 스트레스</p><p class="jrEn">FACTORS AFFECTING TEAMWORK ATTITUDE OF NURSING STUDENTS IN</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Vy Van Thao Ngan <span class="sub">· 마취통증의학</span></dd><dt>지도교수</dt><dd>이태화 교수 (간호학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Vy%20Van%20Thao%20Ngan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-08</span><span class="jrPeriod">2023.09~2024.02</span></div><p class="jrTitle">암환자 가족돌봄자의 부담·우울·삶의질</p><p class="jrEn">Project 1: The experiences of caregivers for colorectal cancer: A qualitative study in Vietnam. Project 2: Implementation of the PROMIS-29 in care for cancer patients and caregiver. Project 3: Prevalence of depression and its relationship to coping strategies among caregivers of patients with cancer: A cross-sectional descriptive and analytical study</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Thi Hien <span class="sub">· 간호학</span></dd><dt>지도교수</dt><dd>이향규 교수 (간호학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Thi%20Hien">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-09</span><span class="jrPeriod">2023.11~2024.01</span></div><p class="jrTitle">동남아 소아 RSV 질병부담 체계적문헌고찰·메타분석</p><p class="jrEn">Burden of respiratory syncytial virus in Southeastern Asian children: A systematic review and meta analysis</p><dl class="jrDl"><dt>연구자</dt><dd>Cao Pham Ha Giang <span class="sub">· 소아과</span></dd><dt>지도교수</dt><dd>안종균 교수 (소아과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Cao%20Pham%20Ha%20Giang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-10</span><span class="jrPeriod">2023.11~2024.04</span></div><p class="jrTitle">폐경 후 여성의 식이칼슘과 심혈관질환 연관성</p><p class="jrEn">Association between Daily Dietary Calcium Intake and the Risk of Cardiovascular Disease in Postmenopausal Korean Women</p><dl class="jrDl"><dt>연구자</dt><dd>Tran Thi Minh Chau <span class="sub">· 산부인과</span></dd><dt>지도교수</dt><dd>서석교 교수 (산부인과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Thi%20Minh%20Chau">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-11</span><span class="jrPeriod">2023.11~2024.04</span></div><p class="jrTitle">딥러닝 기반 당뇨망막병증 유리체출혈 위험예측</p><p class="jrEn">PREDICTING THE RISK OF DEVELOPING VITREOUS HEMORRHAGE RELATED TO DIABETIC RETINOPATHY BASED ON DEEP-LEARNING MODEL</p><dl class="jrDl"><dt>연구자</dt><dd>Ho Doan Trang <span class="sub">· 안과</span></dd><dt>지도교수</dt><dd>김성수 교수 (안과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Ho%20Doan%20Trang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F23-12</span><span class="jrPeriod">2023.11~2024.04</span></div><p class="jrTitle">비타민 D의 WNT5A 경로 통한 켈로이드 섬유화 억제</p><p class="jrEn">Investigation of Vitamin D suppression effects on Keloid proliferation and fibrosis via Wnt5A signaling pathways</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Ngoc Ha <span class="sub">· 피부과</span></dd><dt>지도교수</dt><dd>이주희 교수 (피부과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Ngoc%20Ha">연구성과 보기 ↗</a></div></li></ul><p class="jrYear">2024년도 파견 — 15명</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">F24-01</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">병원획득 카바페넴내성 폐렴막대균(CRKP) 분자역학 (WGS)</p><p class="jrEn">Molecular epidemiology, antimicrobial resistance and virulence factors of Klebsiella pneumoniae causing hospital acquired sepsis and pneumonia</p><dl class="jrDl"><dt>연구자</dt><dd>Duong Thi Hong Diep <span class="sub">· 생화학</span></dd><dt>지도교수</dt><dd>정석훈 교수 (진단검사의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Duong%20Thi%20Hong%20Diep">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-02</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">경추 내시경 추간공확장술의 절제범위와 척추 불안정성 (유한요소해석)</p><p class="jrEn">Prediction of the Cervical Spine Instability in Relation to the Facet Joint</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Nhat Duy <span class="sub">· 신경외과</span></dd><dt>지도교수</dt><dd>이창규 교수 (신경외과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Nhat%20Duy">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-03</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">유방암 환자의 마음챙김·정신건강·삶의질 네트워크 분석</p><p class="jrEn">Network Analysis of the interrelations between Trait Mindfulness, Mental Health and Quality of Life among Breast Cancer Patients</p><dl class="jrDl"><dt>연구자</dt><dd>Kim Xuan Loan <span class="sub">· 역학</span></dd><dt>지도교수</dt><dd>박천일 교수 (정신과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Kim%20Xuan%20Loan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-04</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">소아 루푸스신염의 BANK1·TNFAIP3 면역조직화학</p><p class="jrEn">Immunohistochemical characterization of BANK1 and TNFAIP3 expression in lupus nephritis among Vietnamese pediatric patients</p><dl class="jrDl"><dt>연구자</dt><dd>Tran Thi Thanh Loan <span class="sub">· 조직학</span></dd><dt>지도교수</dt><dd>정민선 교수 (병리학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Thi%20Thanh%20Loan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-05</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">HER2 표적 나노바디 in silico 친화도 성숙·결합 검증</p><p class="jrEn">In silico affinity maturation for nanobody and molecular biology for nanobody affinity test</p><dl class="jrDl"><dt>연구자</dt><dd>Duong Van Tho <span class="sub">· 약학(약품품질관리)</span></dd><dt>지도교수</dt><dd>김주영 교수 (약리학)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F24-06</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">당뇨·혈당형질과 대장암의 동아시아 멘델리안 무작위화</p><p class="jrEn">Risk of colorectal cancer in people with type II diabetes: role of genes, glycemic control in the Korean Cohort</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Thien Minh <span class="sub">· 역학</span></dd><dt>지도교수</dt><dd>지선하 교수 (보건학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Thien%20Minh">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-07</span><span class="jrPeriod">2024.06~2024.12</span></div><p class="jrTitle">베트남 당뇨환자의 다약제복용과 복약순응도</p><p class="jrEn">POLYPHARMACY AND MEDICATION ADHERENCE AMONG DIABETIC PATIENTS IN VIETNAM: A RETROSPECTIVE CROSS-SECTIONAL STUDY</p><dl class="jrDl"><dt>연구자</dt><dd>Tran Thi Hong Nguyen <span class="sub">· 약학</span></dd><dt>지도교수</dt><dd>김창수 교수 (예방의학)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F24-08</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">하악재건 3D프린팅 맞춤판과 사전굴곡판의 과두위치 보존 비교</p><p class="jrEn">Comparison of patient-specific plates and pre-bent plates for preserving condylar position in mandible reconstruction</p><dl class="jrDl"><dt>연구자</dt><dd>Le Hoai Phuc <span class="sub">· 구강악안면외과</span></dd><dt>지도교수</dt><dd>김동욱 교수 (구강악안면외과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Le%20Hoai%20Phuc">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-09</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">약물미투여 파킨슨병의 종단 인지저하와 회백질 위축</p><p class="jrEn">Gray matter neural correlates of longitudinal cognitive decline in drug-naïve Parkinson’s disease</p><dl class="jrDl"><dt>연구자</dt><dd>Vo Phuong Quynh <span class="sub">· 신경과</span></dd><dt>지도교수</dt><dd>이필휴 교수 (신경과)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F24-10</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">흉부외과 연구 — 주제 확인 필요</p><p class="jrEn">Uniportal robotic-assisted thoracic surgery for mediastinal mass resection: The feasibility and safety</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Minh Dung <span class="sub">· 심장혈관흉부외과</span></dd><dt>지도교수</dt><dd>이진구 교수 (흉부외과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Minh%20Dung">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-11</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">폐렴막대균 호흡기감염의 카바페넴 내성 임상영향 (WGS)</p><p class="jrEn">Clinical impact of carbapenem resistance in patients with Klebsiella pneumoniae</p><dl class="jrDl"><dt>연구자</dt><dd>Pham Minh Trung <span class="sub">· 생화학</span></dd><dt>지도교수</dt><dd>정석훈 교수 (진단검사의학)</dd></dl></li><li><div class="jrHead"><span class="jrNo">F24-12</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">뇌성마비 고관절 탈구와 척추측만의 관계</p><p class="jrEn">Hip dislocation and scoliosis in patients with spastic quadriplegic cerebral palsy</p><dl class="jrDl"><dt>연구자</dt><dd>Vo Van Khoa <span class="sub">· 정형외과</span></dd><dt>지도교수</dt><dd>박건보 교수 (정형외과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Vo%20Van%20Khoa">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-13</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">대장암 환자 영양불량과 개별 동기부여 영양상담 효과</p><p class="jrEn">Malnutrition and the effectiveness of individualized nutritional counselling and motivation in colorectal cancer patients undergoing chemotherapy</p><dl class="jrDl"><dt>연구자</dt><dd>Le Thi Ngoc Anh <span class="sub">· 보건학</span></dd><dt>지도교수</dt><dd>조재림 교수 (예방의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Le%20Thi%20Ngoc%20Anh">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-14</span><span class="jrPeriod">2024.05~2024.10</span></div><p class="jrTitle">경피적 대동맥판막치환술(TAVR) 후 최적 항혈전요법</p><p class="jrEn">Optimal Antithrombotic Therapy After Transcatheter Aortic Valve Replacement: A comprehensive review</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Van Thai Thanh <span class="sub">· 심장혈관흉부외과</span></dd><dt>지도교수</dt><dd>고영국 교수 (내과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Van%20Thai%20Thanh">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F24-15</span><span class="jrPeriod">2024.06~2024.12</span></div><p class="jrTitle">돼지태반펩타이드 경구복용의 피부노화 개선 12주 RCT<span class="jrNote">심화과정</span></p><p class="jrEn">Porcine Placenta Peptide as a Novel Agent for Skin Rejuvenation in a 12-Week Prospective, Randomized, Controlled Clinical Study</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Ngoc Ha <span class="sub">· 피부과</span></dd><dt>지도교수</dt><dd>이주희 교수 (피부과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Ngoc%20Ha">연구성과 보기 ↗</a></div></li></ul><p class="jrYear">2025년도 파견 — 6명</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">F25-01</span><span class="jrPeriod">2025.05~2025.11</span></div><p class="jrTitle">나노포어 WGS를 통한 CRKP 분자역학·병독성<span class="jrNote">심화과정</span></p><p class="jrEn">Unraveling Molecular Epidemiology and Virulence Determinants of Carbapenem-Resistant Klebsiella pneumoniae (CRKP) using Oxford Nanopore Whole Genome Sequencing</p><dl class="jrDl"><dt>연구자</dt><dd>Duong Thi Hong Diep <span class="sub">· 생화학</span></dd><dt>지도교수</dt><dd>정석훈 교수 (진단검사의학)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Duong%20Thi%20Hong%20Diep">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F25-02</span><span class="jrPeriod">2025.05~2025.11</span></div><p class="jrTitle">의대생의 마음챙김 자기돌봄·회복탄력성·심리고통 네트워크 분석<span class="jrNote">심화과정</span></p><p class="jrEn">Network analysis of mindful self-care, resilience and psychological distress in emerging adults</p><dl class="jrDl"><dt>연구자</dt><dd>Kim Xuan Loan <span class="sub">· 역학</span></dd><dt>지도교수</dt><dd>박천일 교수 (정신과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Kim%20Xuan%20Loan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F25-03</span><span class="jrPeriod">2025.05~2025.11</span></div><p class="jrTitle">성인 비수술적 상악 확장의 장기 안정성·임상적 치관 길이 변화 (악교정수술 병행 여부별)</p><p class="jrEn">NONSURGICAL MAXILLARY EXPANSION IN YOUNG ADULTS RESULTS IN LONG-TERM STABILITY AND CLINICAL CROWN HEIGHT CHANGES WITH OR WITHOUT ORTHOGNATHIC SURGERY</p><dl class="jrDl"><dt>연구자</dt><dd>Tran Nguyen Minh Hieu <span class="sub">· 치과교정과</span></dd><dt>지도교수</dt><dd>이기준 교수 (교정과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Nguyen%20Minh%20Hieu">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F25-04</span><span class="jrPeriod">2025.05~2025.11</span></div><p class="jrTitle">레티보툴리눔 톡신 A 이마주름 확산·유효·안전성 split-face RCT</p><p class="jrEn">Diffusion characteristics and efficacy of letibotulinum toxin A in forehead wrinkle treatment</p><dl class="jrDl"><dt>연구자</dt><dd>Chau Hao Nam <span class="sub">· 피부과</span></dd><dt>지도교수</dt><dd>이주희 교수 (피부과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Chau%20Hao%20Nam">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F25-05</span><span class="jrPeriod">2025.07~2025.12</span></div><p class="jrTitle">조기난소부전 유전자패널 분석 / 불임여성 난관기능 PET/CT</p><p class="jrEn">Development of Targeted Panel Genes in Korean women with Premature Ovarian Insufficiency</p><dl class="jrDl"><dt>연구자</dt><dd>Nguyen Huynh Nhu Phuong <span class="sub">· 산부인과</span></dd><dt>지도교수</dt><dd>윤보현 교수 (산부인과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Huynh%20Nhu%20Phuong">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">F25-06</span><span class="jrPeriod">2025.08~2025.12</span></div><p class="jrTitle">조기위암 비치유 ESD 후 림프절전이 예측모델 외부검증<span class="jrNote">2차 참여</span></p><p class="jrEn">External Validation and Comparison of the W-eCura and eCura Scoring Systems for Predicting Lymph Node Metastasis After Non-Curative Endoscopic Submucosal Dissection in Early Gastric Cancer: A Retrospective Cohort Study in Korea</p><dl class="jrDl"><dt>연구자</dt><dd>Huynh Cong Bang <span class="sub">· 의생명과학</span></dd><dt>지도교수</dt><dd>이상길 교수 (내과)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Huynh%20Cong%20Bang">연구성과 보기 ↗</a></div></li></ul></section><section class="jrGroup" id="ind"><h2>산학협력 공동연구 <span style="color:var(--violet)">29팀 · 과제 52건</span></h2><p class="desc">공모·심사로 선정된 UMP 연구팀의 과제 수행 내역. <b>연구비는 과제당 USD 17,000</b></p><p class="jrYear">2023년도 선정 — 7팀 · 과제 10건</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">J23-01</span><span class="jrPeriod">2024.01~2025.06</span></div><p class="jrTitle">폐결절 자동 스크리닝 AI (CAAF-ResUNet)</p><p class="jrEn">Artificial Intelligence: A Solution for Automated Lung Tumor Screening</p><dl class="jrDl"><dt>연구책임자</dt><dd>Pham Quoc Thang <span class="sub">· 병리학</span></dd><dt>협력</dt><dd>UMC 호치민 영상의학과</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Pham%20Quoc%20Thang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J23-02</span><span class="jrPeriod">2024.01~2025.06</span></div><p class="jrTitle">베트남 약용식물 생리활성 성분의 AI 기반 발굴 (NaturAI)</p><p class="jrEn">AI-accelerated discovery of bioactive components in Vietnamese medicinal plants for novel therapeutic applications (NaturAI)</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Thi Xuan Dieu <span class="sub">· 약학대학 생약학</span></dd><dt>협력</dt><dd>연세 김주영 (약리학) · Univ. of Innsbruck</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Thi%20Xuan%20Dieu">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J23-03</span><span class="jrPeriod">2024.01~2025.06</span></div><p class="jrTitle">파라세타몰 효율적 합성 생산기술</p><p class="jrEn">Development of effective synthetic production technology for Acetaminophen, an anti-inflammatory analgesic drug substance</p><dl class="jrDl"><dt>연구책임자</dt><dd>Le Nguyen Bao Khanh <span class="sub">· 약학대학 유기화학</span></dd><dt>협력</dt><dd>한국바이오켐 — 기술이전 1건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=L%C3%AA%20Nguy%E1%BB%85n%20B%E1%BA%A3o%20Kh%C3%A1nh">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J23-04</span><span class="jrPeriod">2024.01~2025.07</span></div><p class="jrTitle">오토바이 면허 사전 시력검사와 도로안전</p><p class="jrEn">The role of pre-licensure vision testing on Road Safety in Viet Nam: Perspectives from motorcyclists and stakeholders</p><dl class="jrDl"><dt>연구책임자</dt><dd>To Gia Kien <span class="sub">· 보건대학 보건관리</span></dd><dt>협력</dt><dd>연세 윤상철 Co-PI</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=To%20Gia%20Kien">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J23-05</span><span class="jrPeriod">2024.01~2025.07</span></div><p class="jrTitle">수면 호흡 이벤트 식별 AI (단일유도 ECG·EEG)</p><p class="jrEn">Artificial intelligence-based approaches for sleep-related breathing events identification using EEG and ECG signals</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Ngoc Dang <span class="sub">· 보건대학 환경보건</span></dd><dt>협력</dt><dd>호치민공대(HCMUT)</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Ngoc%20Dang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J23-06</span><span class="jrPeriod">2024.01~2025.07</span></div><p class="jrTitle">안면스캐너 기반 3D 가상 교합 마운팅 정확도</p><p class="jrEn">Virtual mounting protocol using a face scanner and 3D customized printed devices</p><dl class="jrDl"><dt>연구책임자</dt><dd>Huynh Cong Nhat Nam <span class="sub">· 치과대학</span></dd><dt>협력</dt><dd>연세 치과대학 김종은 (보철과)</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Huynh%20Cong%20Nhat%20Nam">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J23-07</span><span class="jrPeriod">2024.01~2025.06</span></div><p class="jrTitle">An xoa(Helicteres hirsuta)의 간질환 효능</p><p class="jrEn">Study on chemical constituents and pharmacological effects of water extract from Helicteres hirsuta for development healthcare product</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Thi Van Anh <span class="sub">· 약학대학 생약학</span></dd><dt>협력</dt><dd>Sapharcen</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Thi%20Van%20Anh">연구성과 보기 ↗</a></div></li></ul><p class="jrYear">2024년도 선정 — 15팀 · 과제 29건</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">J24-01</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">식물 점액질 유래 천연 겔화제(부형제) 개발</p><p class="jrEn">Research on production of natural gelling agent from plant mucilage, application orientation as excipients</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Van Ha <span class="sub">· 약학대학 약제기술</span></dd><dt>협력</dt><dd>Boston Vietnam Pharmaceutical</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Van%20Ha">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-02</span><span class="jrPeriod">2024.06~2026.04</span></div><p class="jrTitle">안과 AI — 감염각막염 예후예측 · 안구건조증 진단</p><p class="jrEn">Prognostic Model for Ìnfectious Keratitis Outcomes</p><dl class="jrDl"><dt>연구책임자</dt><dd>Duong Nguyen Viet Huong <span class="sub">· 안과</span></dd><dt>협력</dt><dd>연세 윤상철·박유랑 · 호치민 안과병원</dd><dt>과제</dt><dd>3건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Duong%20Nguyen%20Viet%20Huong">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-03</span><span class="jrPeriod">2024.05~2025.11</span></div><p class="jrTitle">VEGFR2 합성 나노바디(sybody)와 QCM 바이오센서</p><p class="jrEn">Screening and producing sybody specific to VEGFR2 toward cancer theranostic</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Minh Thai <span class="sub">· 약학대학 미생물·기생충</span></dd><dt>협력</dt><dd>사이공 하이테크파크 · 연세 김주영</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Minh%20Thai">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-04</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">베트남 옻나무(Toxicodendron succedaneum) 항암활성·품질관리</p><p class="jrEn">Advancing Cancer Research with Vietnamese Lacquer Tree: Isolation, Quality Benchmarking, and Bioactivity Evaluation of Standardized Extracts</p><dl class="jrDl"><dt>연구책임자</dt><dd>Phan Thanh Dung <span class="sub">· 약학대학 과학기술처</span></dd><dt>협력</dt><dd>서울대(시료)</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Phan%20Thanh%20Dung">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-05</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">파킨슨병 유전자분석과 DBS 치료결과 (+두개골 계측)</p><p class="jrEn">Genetic Analysis and Deep Brain Stimulation Outcomes in Advanced Parkinson&#x27;s Disease Patients in Vietnam</p><dl class="jrDl"><dt>연구책임자</dt><dd>Pham Anh Tuan <span class="sub">· 신경외과</span></dd><dt>협력</dt><dd>연세 장원석 (신경외과) · Cho Ray 병원</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Pham%20Anh%20Tuan%20%28Dao%20Duy%20Phuong%29">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-06</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">Vitexin/Isovitexin 마이크로캡슐 — 생체이용률·항당뇨</p><p class="jrEn">Optimization And Bioavailability Study On Vitexin-Isovitexin Loaded Microcapsule Prepared Using Alginate And Chitosan</p><dl class="jrDl"><dt>연구책임자</dt><dd>Le Minh Quan <span class="sub">· 약학대학 약제기술</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Le%20Minh%20Quan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-07</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">OCTO Beat aECG — AI 기반 심방세동 검출</p><p class="jrEn">VALIDITY AND RELIABILITY OF THE AI-EMPOWERED OCTO BEAT AECG DEVICE AND ITS APPLICATION IN DETECTING ARRHYTHMIAS IN VIETNAMESE POPULATION / VALIDITY AND RELIABILITY OF THE AI-EMPOWERED OCTO BEAT AECG DEVICE AND ITS APPLICATION IN DETECTING</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Van Si <span class="sub">· 가정의학</span></dd><dt>협력</dt><dd>OCTOMED</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Van%20Si">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-08</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">생성형 AI 기반 EGFR·VEGFR 이중저해제 설계</p><p class="jrEn">Generative AI study: Multi-objective approach toward de novo design of dual EGFR and VEGFR inhibitors</p><dl class="jrDl"><dt>연구책임자</dt><dd>Truong Ngoc Tuyen <span class="sub">· 약학대학 유기화학</span></dd><dt>협력</dt><dd>연세 글로벌보건연구소(YIGH)</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Truong%20Ngoc%20Tuyen">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-09</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">급성 충수염 진단·수술결정 지원 머신러닝 (EMR)</p><p class="jrEn">Application of machine learning and clinical score systems for appendicitis in supporting the decision-making of appropriate laboratory indications, diagnosis of appendicitis, and proper indication for appendectomy on SNOMED-CT coding EMR software at University Medical Center, Ho Chi Minh City, Vietnam</p><dl class="jrDl"><dt>연구책임자</dt><dd>Le Quan Anh Tuan <span class="sub">· UMC 간담췌외과</span></dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Le%20Quan%20Anh%20Tuan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-10</span><span class="jrPeriod">2025.01~2025.10</span></div><p class="jrTitle">안저사진 AI — 모야모야병 · 근시</p><p class="jrEn">Application of Artificial Intelligence Based Screening of Moyamoya Disease Using Retinal Fundus Photography / Prevelance, progression and barriers to utilisation AI-assisted Prediction of Myopia Using Fundus Images</p><dl class="jrDl"><dt>연구책임자</dt><dd>Trinh Xuan Trang <span class="sub">· 안과</span></dd><dt>협력</dt><dd>연세(모야모야 과제)</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Trinh%20Xuan%20Trang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-11</span><span class="jrPeriod">기간 미확인</span></div><p class="jrTitle">연구주제 확인 필요 — 결과보고서 미확보</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Huu Duc Minh <span class="sub">· 전통의학</span></dd><dt>협력</dt><dd>호치민공대 · 재활직업병원</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Huu%20Duc%20Minh">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-12</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">AI 보조 위장관 내시경 — 대장 · 상부</p><p class="jrEn">Comparative Analysis of Endoscopy System Commonly Used in Vietnam Versus the Same System Equipped with AI-based Abnormality Detection Solutions</p><dl class="jrDl"><dt>연구책임자</dt><dd>Huynh Cong Bang <span class="sub">· UMC 내시경</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Huynh%20Cong%20Bang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-13</span><span class="jrPeriod">2024.07~2025.04</span></div><p class="jrTitle">EMIB — 모유수유 · 산모 수면</p><dl class="jrDl"><dt>연구책임자</dt><dd>Vo Minh Tuan <span class="sub">· 산부인과</span></dd><dt>협력</dt><dd>연세 · Johns Hopkins University</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Vo%20Minh%20Tuan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-14</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">심부전 순환 miRNA의 진단 잠재력</p><p class="jrEn">Investigating the diagnostic potential of circulating miRNAs in Vietnamese patients with heart failure</p><dl class="jrDl"><dt>연구책임자</dt><dd>Vu Diem My <span class="sub">· 분자의생명센터</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Vu%20Diem%20My">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J24-15</span><span class="jrPeriod">2024.05~2025.10</span></div><p class="jrTitle">AcroXeR NursingVR — 약물투여 VR 교육 현지화 RCT</p><p class="jrEn">AcroXeR NursingVR Medication Administration Localization and Effectiveness R&amp;D</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Thuy Khanh Linh <span class="sub">· 간호대학</span></dd><dt>협력</dt><dd>SurgicalMind(한국) · 연세</dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Thuy%20Khanh%20Linh">연구성과 보기 ↗</a></div></li></ul><p class="jrYear">2025년도 선정 — 7팀 · 과제 13건 (진행 중)</p><ul class="jr"><li><div class="jrHead"><span class="jrNo">J25-01</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">ProDock — 소분자·펩타이드 분자도킹/검증 자동화 프레임워크</p><p class="jrEn">ProDock: A Comprehensive Automated Framework for Molecular Docking and Validation for Small Molecules and Peptides</p><dl class="jrDl"><dt>연구책임자</dt><dd>Truong Ngoc Tuyen <span class="sub">· 약학대학 유기화학</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Truong%20Ngoc%20Tuyen">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J25-02</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">연구주제 확인 필요 — 진행 중</p><dl class="jrDl"><dt>연구책임자</dt><dd>Le Minh Quan <span class="sub">· 약학대학 약제기술</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Le%20Minh%20Quan">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J25-03</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">서열 최적화를 통한 sybody 개발성 향상과 발현 숙주 부담 완화</p><p class="jrEn">Boosting sybody developability through rational sequence optimization and alleviating the expression host burden</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Minh Thai <span class="sub">· 약학대학 미생물·기생충</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Minh%20Thai">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J25-04</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">연구주제 확인 필요 — 진행 중 (수면검사 장비 지원)</p><dl class="jrDl"><dt>연구책임자</dt><dd>Tran Ngoc Dang <span class="sub">· 보건대학 환경보건</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Tran%20Ngoc%20Dang">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J25-05</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">연구주제 확인 필요 — 진행 중 (AI 워크스테이션 지원)</p><dl class="jrDl"><dt>연구책임자</dt><dd>Huynh Cong Nhat Nam <span class="sub">· 치과대학</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Huynh%20Cong%20Nhat%20Nam">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J25-06</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">연구주제 확인 필요 — 진행 중</p><dl class="jrDl"><dt>연구책임자</dt><dd>Vu Diem My <span class="sub">· 분자의생명센터</span></dd><dt>과제</dt><dd>2건</dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Vu%20Diem%20My">연구성과 보기 ↗</a></div></li><li><div class="jrHead"><span class="jrNo">J25-07</span><span class="jrPeriod">2025.04~2026.09</span></div><p class="jrTitle">연구주제 확인 필요 — 진행 중</p><dl class="jrDl"><dt>연구책임자</dt><dd>Nguyen Huu Duc Minh <span class="sub">· 전통의학</span></dd></dl><div class="jrFoot"><a class="jrOut" href="research.html?author=Nguyen%20Huu%20Duc%20Minh">연구성과 보기 ↗</a></div></li></ul></section>
+</main>
+<footer><div class="wrap">
+  <p class="note" style="color:var(--ash);margin:0 0 12px">근거 — 의학교육: 공동연구계약서·산출물 · 초청연수: 연구계획서·결과보고서 및 3분과 연구성과 자료 ·
+  산학협력: 연구팀 최종결과보고서 및 MEF Council Meeting 회의자료.<br>
+  2025년도 산학협력 과제는 진행 중으로 결과보고서 수령 전이며, 일부 연구주제는 확인 중입니다.</p>
+  <p style="margin:0">© 2026 베트남 호치민의약학대학교 교육연구 역량강화 사업 (KOICA · 연세대학교 의료원)</p>
+</div></footer>
+<script>
+/* 볼트 미리보기 지원 — 볼트 폴더에서는 상세 페이지 파일명이 배포본과 다르다.
+   파일명이 'MEF-'로 시작하면(=볼트 원본) 링크를 볼트 파일명으로 교정한다.
+   배포본(joint-research.html)에서는 아무 동작도 하지 않는다. */
+(function(){
+  var f = decodeURIComponent((location.pathname.split('/').pop()) || '');
+  if (f.indexOf('MEF-') !== 0) return;
+  var MAP = {
+    'research.html': 'MEF-연구성과-페이지_20260903.html',
+    'index.html'   : 'MEF-웹페이지-V3_20260903.html'
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){
+    var h = a.getAttribute('href'), i = h.indexOf('?'), base = i < 0 ? h : h.slice(0, i);
+    if (MAP[base]) a.setAttribute('href', MAP[base] + (i < 0 ? '' : h.slice(i)));
+  });
+})();
+</script>
+</body></html>
