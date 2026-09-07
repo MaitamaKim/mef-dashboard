@@ -1,0 +1,5 @@
+# MEF 사업 웹페이지 — 검색엔진 색인 차단 (2026-09-07)
+# 대외 공개 자료가 아니라 사업 관계자 공유용이므로 검색 노출을 원하지 않는다.
+# 각 페이지에는 <meta name="robots" content="noindex, nofollow">도 함께 넣었다.
+User-agent: *
+Disallow: /
