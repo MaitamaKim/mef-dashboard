@@ -343,9 +343,10 @@
   section.violet .bignums .n{color:var(--magenta);}
   section.violet .bignums .s{color:var(--ash);}
 
-  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);max-width:20em;
-    border-left:6px solid var(--orange);padding-left:24px;}
-  .quote .attr{display:block;font-size:22px;color:#fff;margin-top:16px;font-weight:700;}
+  .quote{font-size:40px;line-height:1.2;font-weight:800;color:var(--magenta);
+    border-left:6px solid var(--orange);padding-left:24px;word-break:keep-all;}  /* 한국어는 어절 단위로만 줄바꿈 */
+  .quote .qt{display:block;}
+  .quote .attr{display:block;font-size:18px;color:#fff;margin-top:18px;font-weight:700;line-height:1.45;}
 
   footer{background:var(--ink);color:#fff;padding:64px 0;font-size:16px;line-height:1.6;}
   footer a{color:#fff;}
@@ -594,7 +595,7 @@
 <section id="recognition" class="violet"><div class="wrap">
   <p class="kick" style="color:#fff">Recognition</p>
   <h2 class="sec">대외 인정</h2>
-  <div class="quote">한 대학의 역량강화가 국가 시험제도 구축으로 이어졌습니다.
+  <div class="quote"><span class="qt">한 대학의 역량강화가 국가 시험제도 구축으로 이어졌습니다.</span>
     <span class="attr">— 사업이 개발한 국가고시 출제기준이 국가 규정으로 채택(NMC 결정문 22/QĐ-HĐYKQG, 2026.04) · 문항 1,500개 인계(2026.08)</span></div>
   <div class="grid4" style="margin-top:56px">
     <div class="card"><h3>KOICA 우수성과 경진대회 우수상</h3><p style="margin:0">2025.10 · 동남아시아 사업성과 부문</p></div>
