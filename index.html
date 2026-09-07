@@ -301,9 +301,10 @@
   .scList{list-style:none;margin:0;padding:0;font-size:16px;line-height:1.45;letter-spacing:-.32px;
     display:flex;flex-direction:column;flex:1;}
   .scList{word-break:keep-all;}   /* 한국어는 어절 단위로만 줄바꿈 */
-  .scList li{flex:1 1 auto;display:flex;align-items:center;min-height:44px;
+  .scList li{flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:44px;
     padding:8px 0 8px 16px;position:relative;border-top:1px solid var(--ash);}
   .scList li:first-child{border-top:none;}
+  .scList .sub{display:block;color:var(--steel);margin-top:3px;}
   .scList li::before{content:"";position:absolute;left:0;top:50%;margin-top:-2.5px;
     width:5px;height:5px;background:var(--magenta);}
   /* 스크롤 진입 시 카드 순차 등장 — 입력 장치와 무관하게 모바일·PC 동일 작동 */
@@ -453,8 +454,8 @@
         <span class="scNo">03 — 연구역량</span>
         <h3>연구역량 강화</h3>
         <ul class="scList">
-          <li>MEF 펠로우십 — 교수/석박사급 연구역량 강화</li>
-          <li>연구지원시스템 — 연구기획·논문작성·게재 지원</li>
+          <li>MEF 펠로우십<span class="sub">(교수/석박사급 연구역량 강화)</span></li>
+          <li>연구지원시스템<span class="sub">(연구기획·논문작성·게재 지원)</span></li>
           <li>학술지 MPR 플랫폼 고도화</li>
         </ul>
       </div>
@@ -465,7 +466,7 @@
         <span class="scNo">04 — 산학협력</span>
         <h3>산학협력 역량 강화</h3>
         <ul class="scList">
-          <li>산학협력 워크숍 실시 (제약·의생명·디지털의료·AI·융합연구)</li>
+          <li>산학협력 워크숍 실시<span class="sub">(제약·의생명·디지털의료·AI·융합연구)</span></li>
           <li>산학협력 공동연구 과제 선발 및 실시</li>
           <li>산학협력 공동연구 기자재 지원</li>
         </ul>
