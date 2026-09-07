@@ -31,7 +31,11 @@
   .tile .v{font-size:40px;font-weight:800;line-height:1;color:var(--violet);}
   .tile .l{font-size:16px;font-weight:800;margin-top:8px;}
   .tile .tx{font-size:16px;color:var(--steel-txt);margin-top:4px;line-height:1.45;}  /* .x 는 모달 닫기버튼(절대위치)과 충돌하므로 별도 클래스 */
-    .tnav{margin:20px 0 0;}
+    /* 5번째 타일은 이동 링크 — 마젠타 상단선 + 호버 반전으로 행동임을 표시 */
+    .tile.go{display:block;text-decoration:none;color:inherit;border-top-color:var(--magenta);
+      transition:background .15s,color .15s;}
+    .tile.go:hover{background:var(--ink);color:#fff;}
+    .tile.go:hover .v,.tile.go:hover .tx{color:#fff;}
   .tabs{display:flex;gap:8px;margin:40px 0 16px;border-bottom:2px solid var(--ink);}
   .tab{border:0;background:none;font-family:inherit;font-size:18px;font-weight:800;color:var(--steel);
     padding:10px 16px;cursor:pointer;border-bottom:4px solid transparent;margin-bottom:-2px;letter-spacing:-.02em;}
@@ -101,8 +105,8 @@
     <div class="tile"><div class="v">72</div><div class="l">논문</div><div class="tx">게재 완료 70 · 게재 예정 2 · IF 중앙값 3.65</div></div>
     <div class="tile"><div class="v">62</div><div class="l">학회 구두발표</div><div class="tx">국외 학회 포함</div></div>
     <div class="tile"><div class="v">21</div><div class="l">학회 포스터발표</div><div class="tx">초청연수생 실적</div></div>
+    <a class="tile go" href="joint-research.html"><div class="v">98</div><div class="l">공동연구 목록 보기 →</div><div class="tx">의학교육 5 · 초청연수 41 · 산학협력 52</div></a>
   </div>
-  <p class="tnav"><a class="btn" href="joint-research.html">공동연구 목록 보기 (98건) →</a></p>
   </div>
   </div>
   <div class="tabs" role="tablist">
