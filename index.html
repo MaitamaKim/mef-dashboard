@@ -300,6 +300,7 @@
   /* 항목이 카드 높이를 균등 분배 — 항목 수가 적은 카드는 줄간격이 넓어져 하단 여백이 사라짐 */
   .scList{list-style:none;margin:0;padding:0;font-size:16px;line-height:1.45;letter-spacing:-.32px;
     display:flex;flex-direction:column;flex:1;}
+  .scList{word-break:keep-all;}   /* 한국어는 어절 단위로만 줄바꿈 */
   .scList li{flex:1 1 auto;display:flex;align-items:center;min-height:44px;
     padding:8px 0 8px 16px;position:relative;border-top:1px solid var(--ash);}
   .scList li:first-child{border-top:none;}
@@ -427,9 +428,10 @@
         <span class="scNo">01 — 의학교육</span>
         <h3>학부 의학교육 강화</h3>
         <ul class="scList">
-          <li>디지털 미디어 활용 참여형·능동학습 설계 (FL/TBL)</li>
-          <li>질 평가체계 — 문항은행 구축 (V-NMLE)</li>
-          <li>프로그램 평가인증 대응 (KIMEE, AUN-QA)</li>
+          <li>ICT 기반 학생 참여적 교육과정 개선 및 체계화</li>
+          <li>국제 기준에 따른 의학교육 평가인증 시행</li>
+          <li>졸업시험 개발 및 실시</li>
+          <li>의학교육 기구 역량강화</li>
         </ul>
       </div>
     </div>
@@ -439,8 +441,9 @@
         <span class="scNo">02 — 임상수련</span>
         <h3>전공의 수련과정 강화</h3>
         <ul class="scList">
-          <li>전공의 수련 프로그램 평가모델 구축</li>
-          <li>11개 임상과 Twinning Program을 통한 임상수련·평가 개선</li>
+          <li>전공의 임상수련 프로그램 평가</li>
+          <li>전공의 수련 연차별 계획 및 개선안 도입</li>
+          <li>세부전문의 수련과정 도입</li>
         </ul>
       </div>
     </div>
@@ -450,7 +453,7 @@
         <span class="scNo">03 — 연구역량</span>
         <h3>연구역량 강화</h3>
         <ul class="scList">
-          <li>MEF 펠로우십 — 교수 연구역량 강화</li>
+          <li>MEF 펠로우십 — 교수/석박사급 연구역량 강화</li>
           <li>연구지원시스템 — 연구기획·논문작성·게재 지원</li>
           <li>학술지 MPR 플랫폼 고도화</li>
         </ul>
